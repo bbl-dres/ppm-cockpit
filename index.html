@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bauprojekte - Bundesamt für Bauten und Logistik</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
-  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"
+          integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj"
+          crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet"
+        integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V"
+        crossorigin="anonymous" />
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -99,7 +103,7 @@
         </div>
       </div>
       <div class="filter-modal-body">
-        <div class="filter-columns" style="grid-template-columns: repeat(6, 1fr);">
+        <div class="filter-columns">
           <div class="filter-column">
             <h3 class="filter-column-title">Status</h3>
             <div class="filter-options" id="filterStatus"></div>
@@ -174,8 +178,8 @@
       </div>
 
       <div class="login-links">
-        <a class="login-link" onclick="alert('Funktion noch nicht verfügbar')">Kennwort vergessen?</a>
-        <a class="login-link" onclick="alert('Funktion noch nicht verfügbar')">Neu registrieren</a>
+        <button type="button" class="login-link" onclick="alert('Funktion noch nicht verfügbar')">Kennwort vergessen?</button>
+        <button type="button" class="login-link" onclick="alert('Funktion noch nicht verfügbar')">Neu registrieren</button>
       </div>
 
       <div class="login-actions">

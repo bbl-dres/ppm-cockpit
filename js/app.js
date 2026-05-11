@@ -1,3 +1,11 @@
+// HTML-escape any string interpolated into a template literal that will be assigned
+// to .innerHTML / setHTML. Use for every value derived from data, labels, or URL params.
+const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+function esc(value) {
+  if (value === null || value === undefined) return '';
+  return String(value).replace(/[&<>"']/g, c => HTML_ESCAPES[c]);
+}
+
 let properties = [];
 let filteredProperties = [];
 let dataReferences = {};
@@ -32,48 +40,45 @@ let filterOptions = {
 let carouselImages = [];
 let carouselIndex = 0;
 
+const FILTER_KEYS = ['status', 'teilportfolio', 'siaPhase', 'plbh', 'projektzielStatus', 'risikoStatus'];
+
 function getUrlParams() {
   const params = new URLSearchParams(window.location.search);
-  return {
+  const result = {
     view: params.get('view'),
     id: params.get('id'),
     q: params.get('q'),
-    status: params.get('status'),
-    teilportfolio: params.get('teilportfolio'),
-    siaPhase: params.get('siaPhase'),
-    plbh: params.get('plbh'),
     tab: params.get('tab')
   };
+  FILTER_KEYS.forEach(key => { result[key] = params.get(key); });
+  return result;
+}
+
+// Build URLSearchParams reflecting current list-view state (view, search, filters).
+// Used by both updateUrlParams (non-detail branch) and closeDetailView.
+function buildListSearchParams() {
+  const params = new URLSearchParams();
+  if (currentView !== 'gallery') params.set('view', currentView);
+  if (searchQuery) params.set('q', searchQuery);
+  FILTER_KEYS.forEach(key => {
+    if (advancedFilters[key].size > 0) {
+      params.set(key, Array.from(advancedFilters[key]).join(','));
+    }
+  });
+  return params;
 }
 
 function updateUrlParams() {
-  const params = new URLSearchParams();
-
-  // Add project ID if in detail view
+  let params;
   if (currentDetailProjectId) {
+    params = new URLSearchParams();
     params.set('id', currentDetailProjectId);
     if (currentDetailTab && currentDetailTab !== 'uebersicht') {
       params.set('tab', currentDetailTab);
     }
   } else {
-    if (currentView !== 'gallery') params.set('view', currentView);
-    if (searchQuery) params.set('q', searchQuery);
-
-    // Add filters if active
-    if (advancedFilters.status.size > 0) {
-      params.set('status', Array.from(advancedFilters.status).join(','));
-    }
-    if (advancedFilters.teilportfolio.size > 0) {
-      params.set('teilportfolio', Array.from(advancedFilters.teilportfolio).join(','));
-    }
-    if (advancedFilters.siaPhase.size > 0) {
-      params.set('siaPhase', Array.from(advancedFilters.siaPhase).join(','));
-    }
-    if (advancedFilters.plbh.size > 0) {
-      params.set('plbh', Array.from(advancedFilters.plbh).join(','));
-    }
+    params = buildListSearchParams();
   }
-
   const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
   window.history.replaceState({}, '', newUrl);
 }
@@ -85,20 +90,11 @@ function loadFiltersFromUrl() {
     searchQuery = params.q;
     document.getElementById('searchInput').value = searchQuery;
   }
-
-  // Load filters from URL
-  if (params.status) {
-    params.status.split(',').forEach(val => advancedFilters.status.add(val));
-  }
-  if (params.teilportfolio) {
-    params.teilportfolio.split(',').forEach(val => advancedFilters.teilportfolio.add(val));
-  }
-  if (params.siaPhase) {
-    params.siaPhase.split(',').forEach(val => advancedFilters.siaPhase.add(val));
-  }
-  if (params.plbh) {
-    params.plbh.split(',').forEach(val => advancedFilters.plbh.add(val));
-  }
+  FILTER_KEYS.forEach(key => {
+    if (params[key]) {
+      params[key].split(',').forEach(val => advancedFilters[key].add(val));
+    }
+  });
 }
 
 // Status helper functions
@@ -142,6 +138,14 @@ function formatCurrency(value) {
   return 'CHF ' + new Intl.NumberFormat('de-CH').format(value);
 }
 
+// Compact stat formatter for total-investment box: thousand- or million-grouped.
+function formatTotalInvestment(value) {
+  const v = value || 0;
+  if (v >= 1_000_000) return (v / 1_000_000).toFixed(1) + ' Mio.';
+  if (v >= 1_000)     return (v / 1_000).toFixed(0) + ' Tsd.';
+  return new Intl.NumberFormat('de-CH').format(v);
+}
+
 // Calculate BKP 1-9 total costs (IST)
 function calculateBkpTotal(kostenBkp) {
   if (!kostenBkp) return 0;
@@ -174,7 +178,7 @@ function calculateBkp2PerGv(project) {
 // Render cost comparison visualization
 function renderCostComparison(sollValue, istValue) {
   if (!sollValue || sollValue === 0) {
-    return '<div class="cost-comparison"><div class="cost-comparison-header">Kosten (BKP 1-9)</div><div style="color: var(--neutral-500); font-size: 13px;">Keine SOLL-Werte vorhanden</div></div>';
+    return '<div class="cost-comparison"><div class="cost-comparison-header">Kosten (BKP 1-9)</div><div class="cost-comparison-empty">Keine SOLL-Werte vorhanden</div></div>';
   }
 
   const difference = istValue - sollValue;
@@ -310,36 +314,30 @@ function formatAddress(prop) {
   return parts.join(', ') || 'Keine Adresse';
 }
 
-function getPlaceholderImage(type, id) {
-  const idStr = String(id);
-  const hash = idStr.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a; }, 0);
-  const imageIndex = Math.abs(hash) % 5;
-  // BBL-passende Bilder: Bürogebäude, Verwaltung, Fassaden, Sanierung, technische Anlagen
-  const images = [
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab', // Modernes Bürogebäude Glasfassade
-    'https://images.unsplash.com/photo-1554469384-e58fac16e23a', // Verwaltungsgebäude Fassade
-    'https://images.unsplash.com/photo-1497366216548-37526070297c', // Büro Innenausbau modern
-    'https://images.unsplash.com/photo-1565538810643-b5bdb714032a', // Gebäudefassade Sanierung
-    'https://images.unsplash.com/photo-1497366754035-f200968a6e72'  // Bürogebäude Eingangsbereich
-  ];
-  return images[imageIndex] + '?w=400&h=300&fit=crop';
+// BBL-passende Bilder: Bürogebäude, Verwaltung, Fassaden, Sanierung, technische Anlagen
+const PLACEHOLDER_IMAGES = [
+  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab', // Modernes Bürogebäude Glasfassade
+  'https://images.unsplash.com/photo-1554469384-e58fac16e23a',    // Verwaltungsgebäude Fassade
+  'https://images.unsplash.com/photo-1497366216548-37526070297c', // Büro Innenausbau modern
+  'https://images.unsplash.com/photo-1565538810643-b5bdb714032a', // Gebäudefassade Sanierung
+  'https://images.unsplash.com/photo-1497366754035-f200968a6e72'  // Bürogebäude Eingangsbereich
+];
+const PLACEHOLDER_IMAGE_QUERY = '?w=400&h=300&fit=crop';
+
+function hashId(id) {
+  return String(id).split('').reduce((a, b) => ((a << 5) - a) + b.charCodeAt(0) | 0, 0);
+}
+
+function getPlaceholderImage(id) {
+  const index = Math.abs(hashId(id)) % PLACEHOLDER_IMAGES.length;
+  return PLACEHOLDER_IMAGES[index] + PLACEHOLDER_IMAGE_QUERY;
 }
 
 function getProjectGalleryImages(id) {
-  // BBL-passende Bilder: Bürogebäude, Verwaltung, Fassaden, Sanierung, technische Anlagen
-  const images = [
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab', // Modernes Bürogebäude Glasfassade
-    'https://images.unsplash.com/photo-1554469384-e58fac16e23a', // Verwaltungsgebäude Fassade
-    'https://images.unsplash.com/photo-1497366216548-37526070297c', // Büro Innenausbau modern
-    'https://images.unsplash.com/photo-1565538810643-b5bdb714032a', // Gebäudefassade Sanierung
-    'https://images.unsplash.com/photo-1497366754035-f200968a6e72'  // Bürogebäude Eingangsbereich
-  ];
   // Rotate array based on project ID so each project starts with a different image
-  const idStr = String(id);
-  const hash = idStr.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a; }, 0);
-  const startIndex = Math.abs(hash) % images.length;
-  const rotated = [...images.slice(startIndex), ...images.slice(0, startIndex)];
-  return rotated.map(img => img + '?w=400&h=300&fit=crop');
+  const startIndex = Math.abs(hashId(id)) % PLACEHOLDER_IMAGES.length;
+  const rotated = [...PLACEHOLDER_IMAGES.slice(startIndex), ...PLACEHOLDER_IMAGES.slice(0, startIndex)];
+  return rotated.map(img => img + PLACEHOLDER_IMAGE_QUERY);
 }
 
 // Extract unique filter options from data - only values that exist in projects
@@ -439,8 +437,8 @@ function renderStatusPills() {
     const isActive = advancedFilters.status.has(status);
     const count = counts[status] || 0;
     return `
-      <button class="filter-pill ${isActive ? 'active' : ''}" data-status="${status}">
-        ${getStatusLabel(status)} (${count})
+      <button class="filter-pill ${isActive ? 'active' : ''}" data-status="${esc(status)}">
+        ${esc(getStatusLabel(status))} (${count})
         <span class="material-icons-outlined close-icon">close</span>
       </button>
     `;
@@ -557,8 +555,8 @@ function applyFilters() {
 function renderFilterModal() {
   // Helper to create option HTML with close icon
   const createOption = (isSelected, filterKey, value, label) => `
-    <div class="filter-option ${isSelected ? 'selected' : ''}" data-filter="${filterKey}" data-value="${value}">
-      <span>${label}</span>
+    <div class="filter-option ${isSelected ? 'selected' : ''}" data-filter="${esc(filterKey)}" data-value="${esc(value)}">
+      <span>${esc(label)}</span>
       <span class="material-icons-outlined close-icon">close</span>
     </div>
   `;
@@ -690,37 +688,44 @@ function updateCarouselView() {
   // Update thumbnails
   const thumbsContainer = document.getElementById('carouselThumbnails');
   thumbsContainer.innerHTML = carouselImages.map((img, idx) => `
-    <div class="carousel-thumb ${idx === carouselIndex ? 'active' : ''}"
-         style="background-image: url('${img}')"
-         onclick="goToCarouselImage(${idx})"></div>
+    <button type="button" class="carousel-thumb ${idx === carouselIndex ? 'active' : ''}"
+         style="background-image: url('${esc(img)}')"
+         data-action="carousel-go" data-index="${idx}"
+         aria-label="Bild ${idx + 1} anzeigen"></button>
   `).join('');
 }
 
-function getDataToRender() { return (filteredProperties.length > 0 || hasActiveFilters()) ? filteredProperties : properties; }
+function getDataToRender() { return filteredProperties; }
+
+const EMPTY_STATE_HTML = '<div class="grid-empty">Keine Bauprojekte gefunden</div>';
 
 function renderCards() {
   const grid = document.getElementById('objectGrid');
   const data = getDataToRender();
   document.getElementById('objectCount').textContent = data.length;
+  if (data.length === 0) {
+    grid.innerHTML = EMPTY_STATE_HTML;
+    return;
+  }
   grid.innerHTML = data.map(prop => `
-    <div class="card" data-id="${prop.id}">
-      <div class="card-image" style="background-image: url('${getPlaceholderImage(prop.projectName, prop.id)}')">
+    <div class="card" data-id="${esc(prop.id)}" tabindex="0" role="button" aria-label="${esc(prop.projectNumber || prop.projectName || 'Projekt')} öffnen">
+      <div class="card-image" style="background-image: url('${getPlaceholderImage(prop.id)}')">
         <div class="image-tags">
-          <span class="status-tag ${getStatusClass(prop.status)}" data-filter="status" data-value="${prop.status}">${getStatusLabel(prop.status)}</span>
+          <span class="status-tag ${getStatusClass(prop.status)}" data-filter="status" data-value="${esc(prop.status)}">${esc(getStatusLabel(prop.status))}</span>
         </div>
       </div>
       <div class="card-content">
-        <div class="card-label">${prop.projectNumber || '-'}</div>
-        <div class="card-location">${prop.projectName || '-'}</div>
+        <div class="card-label">${esc(prop.projectNumber) || '-'}</div>
+        <div class="card-location">${esc(prop.projectName) || '-'}</div>
         <div class="card-details">
-          <span class="card-detail-label">Projektziele:</span><span class="card-detail-value ampel-value" data-filter="projektzielStatus" data-value="${prop.projektzielStatus || ''}"><span class="ampel-dot ${getAmpelStatusClass(prop.projektzielStatus)}"></span>${getAmpelStatusLabel(prop.projektzielStatus, dataReferences)}</span>
-          <span class="card-detail-label">Risiken:</span><span class="card-detail-value ampel-value" data-filter="risikoStatus" data-value="${prop.risikoStatus || ''}"><span class="ampel-dot ${getAmpelStatusClass(prop.risikoStatus)}"></span>${getAmpelStatusLabel(prop.risikoStatus, dataReferences)}</span>
+          <span class="card-detail-label">Projektziele:</span><span class="card-detail-value ampel-value" data-filter="projektzielStatus" data-value="${esc(prop.projektzielStatus)}"><span class="ampel-dot ${getAmpelStatusClass(prop.projektzielStatus)}"></span>${esc(getAmpelStatusLabel(prop.projektzielStatus, dataReferences))}</span>
+          <span class="card-detail-label">Risiken:</span><span class="card-detail-value ampel-value" data-filter="risikoStatus" data-value="${esc(prop.risikoStatus)}"><span class="ampel-dot ${getAmpelStatusClass(prop.risikoStatus)}"></span>${esc(getAmpelStatusLabel(prop.risikoStatus, dataReferences))}</span>
         </div>
-        <div class="card-details" style="border-top: 1px solid var(--neutral-200); padding-top: var(--space-3);">
-          <span class="card-detail-label">Teilportfolio:</span><span class="card-detail-value">${getSubPortfolioLabel(prop.subPortfolio, dataReferences)}</span>
-          <span class="card-detail-label">PLBH:</span><span class="card-detail-value">${prop.projectManager || '-'}</span>
+        <div class="card-details card-details--bordered">
+          <span class="card-detail-label">Teilportfolio:</span><span class="card-detail-value">${esc(getSubPortfolioLabel(prop.subPortfolio, dataReferences))}</span>
+          <span class="card-detail-label">PLBH:</span><span class="card-detail-value">${esc(prop.projectManager) || '-'}</span>
           <span class="card-detail-label">Investition:</span><span class="card-detail-value">${formatCurrency(prop.plannedTotalCost)}</span>
-          <span class="card-detail-label">Letzte Änderung:</span><span class="card-detail-value">${prop.lastModified || '-'}</span>
+          <span class="card-detail-label">Letzte Änderung:</span><span class="card-detail-value">${esc(prop.lastModified) || '-'}</span>
         </div>
       </div>
     </div>`).join('');
@@ -737,23 +742,23 @@ function renderListView() {
 
   // Calculate total investment
   const totalInvestment = data.reduce((sum, p) => sum + (p.plannedTotalCost || 0), 0);
-  document.getElementById('statsTotalInvestment').textContent = totalInvestment >= 1000000
-    ? (totalInvestment / 1000000).toFixed(1) + ' Mio.'
-    : totalInvestment >= 1000
-      ? Math.round(totalInvestment / 1000) + "'"
-      : totalInvestment.toString();
+  document.getElementById('statsTotalInvestment').textContent = formatTotalInvestment(totalInvestment);
 
   const tbody = document.getElementById('listTableBody');
+  if (data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="8" class="list-empty">Keine Bauprojekte gefunden</td></tr>';
+    return;
+  }
   tbody.innerHTML = data.map(prop => `
-    <tr data-id="${prop.id}">
+    <tr data-id="${esc(prop.id)}" tabindex="0" aria-label="${esc(prop.projectNumber || prop.projectName || 'Projekt')} öffnen">
       <td><span class="material-icons-outlined object-icon">fullscreen</span></td>
-      <td>${prop.projectNumber || '-'}</td>
-      <td>${prop.projectName || '-'}</td>
-      <td>${prop.projectManager || '-'}</td>
+      <td>${esc(prop.projectNumber) || '-'}</td>
+      <td>${esc(prop.projectName) || '-'}</td>
+      <td>${esc(prop.projectManager) || '-'}</td>
       <td>${formatCurrency(prop.plannedTotalCost)}</td>
-      <td>${prop.projektzielStatus ? `<span class="status-tag ${getAmpelTagClass(prop.projektzielStatus)}" data-filter="projektzielStatus" data-value="${prop.projektzielStatus}">${getAmpelStatusLabel(prop.projektzielStatus, dataReferences)}</span>` : '-'}</td>
-      <td>${prop.risikoStatus ? `<span class="status-tag ${getAmpelTagClass(prop.risikoStatus)}" data-filter="risikoStatus" data-value="${prop.risikoStatus}">${getAmpelStatusLabel(prop.risikoStatus, dataReferences)}</span>` : '-'}</td>
-      <td><span class="status-tag ${getStatusClass(prop.status)}" data-filter="status" data-value="${prop.status}">${getStatusLabel(prop.status)}</span></td>
+      <td>${prop.projektzielStatus ? `<span class="status-tag ${getAmpelTagClass(prop.projektzielStatus)}" data-filter="projektzielStatus" data-value="${esc(prop.projektzielStatus)}">${esc(getAmpelStatusLabel(prop.projektzielStatus, dataReferences))}</span>` : '-'}</td>
+      <td>${prop.risikoStatus ? `<span class="status-tag ${getAmpelTagClass(prop.risikoStatus)}" data-filter="risikoStatus" data-value="${esc(prop.risikoStatus)}">${esc(getAmpelStatusLabel(prop.risikoStatus, dataReferences))}</span>` : '-'}</td>
+      <td><span class="status-tag ${getStatusClass(prop.status)}" data-filter="status" data-value="${esc(prop.status)}">${esc(getStatusLabel(prop.status))}</span></td>
     </tr>`).join('');
 }
 
@@ -765,15 +770,15 @@ function renderMapView() {
 
   // Simplified structure with status tag
   sidebar.innerHTML = data.map(prop => `
-    <div class="map-sidebar-item" data-id="${prop.id}">
-      <div class="map-sidebar-image" style="background-image: url('${getPlaceholderImage(prop.projectName, prop.id)}')">
+    <div class="map-sidebar-item" data-id="${esc(prop.id)}" tabindex="0" role="button" aria-label="${esc(prop.projectNumber || prop.projectName || 'Projekt')} auf Karte zeigen">
+      <div class="map-sidebar-image" style="background-image: url('${getPlaceholderImage(prop.id)}')">
         <div class="image-tags">
-          <span class="status-tag ${getStatusClass(prop.status)}" data-filter="status" data-value="${prop.status}">${getStatusLabel(prop.status)}</span>
+          <span class="status-tag ${getStatusClass(prop.status)}" data-filter="status" data-value="${esc(prop.status)}">${esc(getStatusLabel(prop.status))}</span>
         </div>
       </div>
       <div class="map-sidebar-content">
-        <div class="map-sidebar-title">${prop.projectNumber || '-'}</div>
-        <div class="map-sidebar-price">${prop.projectName || '-'}</div>
+        <div class="map-sidebar-title">${esc(prop.projectNumber) || '-'}</div>
+        <div class="map-sidebar-price">${esc(prop.projectName) || '-'}</div>
       </div>
     </div>`).join('');
 
@@ -837,18 +842,18 @@ function updateMapMarkers(data) {
 
       const nextMs = getNextMilestone(prop.projektziele);
       const popup = new maplibregl.Popup({ offset: 25, maxWidth: '300px' }).setHTML(`
-        <div class="popup-image" style="background-image: url('${getPlaceholderImage(prop.projectName, prop.id)}')"></div>
+        <div class="popup-image" style="background-image: url('${getPlaceholderImage(prop.id)}')"></div>
         <div class="popup-content">
-          <div class="popup-title">${prop.projectNumber || '-'}</div>
-          <div class="popup-location">${prop.projectName || '-'}</div>
+          <div class="popup-title">${esc(prop.projectNumber) || '-'}</div>
+          <div class="popup-location">${esc(prop.projectName) || '-'}</div>
           <div class="popup-info">
-            <div class="popup-info-row"><span class="material-icons-outlined">flag</span>${getSiaPhaseShort(prop.siaPhase)}</div>
+            <div class="popup-info-row"><span class="material-icons-outlined">flag</span>${esc(getSiaPhaseShort(prop.siaPhase))}</div>
             <div class="popup-info-row"><span class="material-icons-outlined">payments</span>${formatCurrency(prop.plannedTotalCost)}</div>
-            ${nextMs ? `<div class="popup-info-row"><span class="material-icons-outlined">event</span>${nextMs.name}: ${nextMs.date}</div>` : ''}
-            <div class="popup-info-row"><span class="material-icons-outlined">person</span>${prop.projectManager || '-'}</div>
+            ${nextMs ? `<div class="popup-info-row"><span class="material-icons-outlined">event</span>${esc(nextMs.name)}: ${esc(nextMs.date)}</div>` : ''}
+            <div class="popup-info-row"><span class="material-icons-outlined">person</span>${esc(prop.projectManager) || '-'}</div>
           </div>
-          <div class="popup-status">${getStatusLabel(prop.status)}</div>
-          <a class="popup-link" data-id="${prop.id}">Details anzeigen</a>
+          <div class="popup-status">${esc(getStatusLabel(prop.status))}</div>
+          <button class="popup-link" data-id="${esc(prop.id)}">Details anzeigen</button>
         </div>`);
 
       const marker = new maplibregl.Marker({ element: el }).setLngLat([prop.lng, prop.lat]).setPopup(popup).addTo(map);
@@ -962,15 +967,6 @@ function setupSearch() {
   });
 }
 
-// Canton code mapping for SVG highlighting (Wikipedia SVG uses canton codes directly)
-const cantonCodeMap = {
-  'AG': 'AG', 'AI': 'AI', 'AR': 'AR', 'BE': 'BE', 'BL': 'BL',
-  'BS': 'BS', 'FR': 'FR', 'GE': 'GE', 'GL': 'GL', 'GR': 'GR',
-  'JU': 'JU', 'LU': 'LU', 'NE': 'NE', 'NW': 'NW', 'OW': 'OW',
-  'SG': 'SG', 'SH': 'SH', 'SO': 'SO', 'SZ': 'SZ', 'TG': 'TG',
-  'TI': 'TI', 'UR': 'UR', 'VD': 'VD', 'VS': 'VS', 'ZG': 'ZG', 'ZH': 'ZH'
-};
-
 // Open login dialog
 function openLoginDialog() {
   const overlay = document.getElementById('loginDialogOverlay');
@@ -996,10 +992,8 @@ function submitLogin() {
 
 // --- Detail View State ---
 let detailMap = null;
-let detailMapLoaded = false;
 let currentDetailProjectId = null;
 let currentDetailTab = 'uebersicht';
-let previousView = 'gallery';
 
 // Get SIA phase label (just the number like "32")
 function getSiaPhaseNumber(siaPhase) {
@@ -1056,7 +1050,6 @@ function openDetailView(projectId, skipHistory = false, initialTab = null) {
   if (!project) return;
 
   currentDetailProjectId = projectId;
-  previousView = currentView;
 
   // Get tab from: 1) initialTab parameter, 2) URL, 3) current tab, 4) default
   const urlParams = getUrlParams();
@@ -1102,17 +1095,11 @@ function closeDetailView(skipHistory = false) {
   if (detailMap) {
     detailMap.remove();
     detailMap = null;
-    detailMapLoaded = false;
   }
 
   // Update URL with pushState for browser navigation
   if (!skipHistory) {
-    const params = new URLSearchParams();
-    if (currentView !== 'gallery') params.set('view', currentView);
-    if (searchQuery) params.set('q', searchQuery);
-    if (advancedFilters.status.size > 0) {
-      params.set('status', Array.from(advancedFilters.status).join(','));
-    }
+    const params = buildListSearchParams();
     const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
     window.history.pushState({}, '', newUrl);
   }
@@ -1125,9 +1112,9 @@ function renderDetailSidebar() {
   document.getElementById('detailProjectCount').textContent = data.length;
 
   container.innerHTML = data.map(prop => `
-    <div class="detail-sidebar-item ${prop.id === currentDetailProjectId ? 'active' : ''}" data-detail-id="${prop.id}">
+    <div class="detail-sidebar-item ${prop.id === currentDetailProjectId ? 'active' : ''}" data-detail-id="${esc(prop.id)}" tabindex="0" role="button" aria-label="${esc(prop.projectNumber || prop.projectName || 'Projekt')} öffnen">
       <span class="material-icons-outlined">fullscreen</span>
-      <span class="detail-sidebar-item-text">${prop.projectNumber || '-'}</span>
+      <span class="detail-sidebar-item-text">${esc(prop.projectNumber) || '-'}</span>
     </div>
   `).join('');
 
@@ -1181,47 +1168,47 @@ function renderDetailContent(project) {
         <div class="detail-fields">
           <div class="detail-field">
             <span class="detail-field-label">Bezeichnung</span>
-            <span class="detail-field-value">${building.designation || '-'}</span>
+            <span class="detail-field-value">${esc(building.designation) || '-'}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Gebäudenummer</span>
-            <span class="detail-field-value">${building.buildingNumber || '-'}</span>
+            <span class="detail-field-value">${esc(building.buildingNumber) || '-'}</span>
           </div>
 
           <div class="detail-field">
             <span class="detail-field-label">EGID</span>
-            <span class="detail-field-value">${building.egid || '-'}</span>
+            <span class="detail-field-value">${esc(building.egid) || '-'}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Grundstücknummer</span>
-            <span class="detail-field-value">${building.plotNumber || '-'}</span>
+            <span class="detail-field-value">${esc(building.plotNumber) || '-'}</span>
           </div>
 
           <div class="detail-field">
             <span class="detail-field-label">Gebäudestatus</span>
-            <span class="detail-field-value">${getBuildingStatusLabel(building.buildingStatus)}</span>
+            <span class="detail-field-value">${esc(getBuildingStatusLabel(building.buildingStatus))}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Subportfolio</span>
-            <span class="detail-field-value">${getSubPortfolioLabel(building.subPortfolio, dataReferences)}</span>
+            <span class="detail-field-value">${esc(getSubPortfolioLabel(building.subPortfolio, dataReferences))}</span>
           </div>
 
           <div class="detail-field">
             <span class="detail-field-label">Adresse</span>
-            <span class="detail-field-value">${addressLine}</span>
+            <span class="detail-field-value">${esc(addressLine)}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">PLZ / Ort</span>
-            <span class="detail-field-value">${cityLine}</span>
+            <span class="detail-field-value">${esc(cityLine)}</span>
           </div>
 
           <div class="detail-field">
             <span class="detail-field-label">Region/Kanton</span>
-            <span class="detail-field-value">${building.region || '-'}</span>
+            <span class="detail-field-value">${esc(building.region) || '-'}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Land</span>
-            <span class="detail-field-value">${getCountryLabel(building.country)}</span>
+            <span class="detail-field-value">${esc(getCountryLabel(building.country))}</span>
           </div>
         </div>
       </div>
@@ -1234,12 +1221,12 @@ function renderDetailContent(project) {
     <h2 class="tab-header">Übersicht</h2>
     <div class="tab-container">
       <div class="detail-media">
-        <div class="detail-image" style="background-image: url('${getPlaceholderImage(project.projectName, project.id)}')" onclick="openCarousel(getProjectGalleryImages('${project.id}'))" title="Galerie öffnen">
+        <button type="button" class="detail-image" style="background-image: url('${getPlaceholderImage(project.id)}')" data-action="open-gallery" data-id="${esc(project.id)}" title="Galerie öffnen">
           <div class="detail-image__badge">
             <span class="material-icons-outlined">photo_library</span>
             <span>1 / 5</span>
           </div>
-        </div>
+        </button>
         <div class="detail-map-container">
           <div id="detailMap"></div>
         </div>
@@ -1250,34 +1237,34 @@ function renderDetailContent(project) {
         <div class="detail-fields">
           <div class="detail-field">
             <span class="detail-field-label">Projektbezeichnung</span>
-            <span class="detail-field-value">${project.projectName || '-'}</span>
+            <span class="detail-field-value">${esc(project.projectName) || '-'}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">SIA Phase</span>
-            <span class="detail-field-value">${getSiaPhaseNumber(project.siaPhase)}</span>
+            <span class="detail-field-value">${esc(getSiaPhaseNumber(project.siaPhase))}</span>
           </div>
 
           <div class="detail-field">
             <span class="detail-field-label">Projektnummer</span>
-            <span class="detail-field-value highlight">${project.projectNumber || '-'}</span>
+            <span class="detail-field-value highlight">${esc(project.projectNumber) || '-'}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Projektstart</span>
-            <span class="detail-field-value">${project.projectStart || '-'}</span>
+            <span class="detail-field-value">${esc(project.projectStart) || '-'}</span>
           </div>
 
           <div class="detail-field">
             <span class="detail-field-label">Teilportfolio</span>
-            <span class="detail-field-value">${getSubPortfolioLabel(project.subPortfolio)}</span>
+            <span class="detail-field-value">${esc(getSubPortfolioLabel(project.subPortfolio, dataReferences))}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Bauart</span>
-            <span class="detail-field-value">${getConstructionTypeLabel(project.constructionType)}</span>
+            <span class="detail-field-value">${esc(getConstructionTypeLabel(project.constructionType))}</span>
           </div>
 
           <div class="detail-field">
             <span class="detail-field-label">Projektstatus</span>
-            <span class="detail-field-value">${getStatusLabel(project.status)}</span>
+            <span class="detail-field-value">${esc(getStatusLabel(project.status))}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Geplante Gesamtkosten</span>
@@ -1286,11 +1273,11 @@ function renderDetailContent(project) {
 
           <div class="detail-field">
             <span class="detail-field-label">Projektleiter BBL</span>
-            <span class="detail-field-value">${project.projectManager || '-'}</span>
+            <span class="detail-field-value">${esc(project.projectManager) || '-'}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Letzte Änderung</span>
-            <span class="detail-field-value">${project.lastModified || '-'}</span>
+            <span class="detail-field-value">${esc(project.lastModified) || '-'}</span>
           </div>
         </div>
       </div>
@@ -1313,7 +1300,7 @@ function initializeDetailMap(project) {
 
   // Check if we have coordinates
   if (!project.lat || !project.lng) {
-    container.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--neutral-500);">Keine Standortdaten verfügbar</div>';
+    container.innerHTML = '<div class="detail-map-empty">Keine Standortdaten verfügbar</div>';
     return;
   }
 
@@ -1328,8 +1315,6 @@ function initializeDetailMap(project) {
   detailMap.addControl(new maplibregl.NavigationControl(), 'top-right');
 
   detailMap.on('load', () => {
-    detailMapLoaded = true;
-
     // Add marker
     const el = document.createElement('div');
     el.className = `marker ${getMarkerClass(project.status)}`;
@@ -1448,11 +1433,11 @@ function renderKostenBkpSection(project) {
           <th>Code</th>
           <th></th>
           <th colspan="3">Bezugsmenge</th>
-          <th style="text-align: right">Kennwert</th>
-          <th style="text-align: right">CHF Kosten</th>
-          <th style="text-align: right">%BKP 1 - 6</th>
-          <th style="text-align: right">CHF / m³ GV</th>
-          <th style="text-align: right">CHF / m² GF</th>
+          <th class="text-right">Kennwert</th>
+          <th class="text-right">CHF Kosten</th>
+          <th class="text-right">%BKP 1 - 6</th>
+          <th class="text-right">CHF / m³ GV</th>
+          <th class="text-right">CHF / m² GF</th>
         </tr>
       </thead>
       <tbody>
@@ -1676,14 +1661,14 @@ function renderRisikenContent(project) {
   // Helper to create a risk table row
   const riskRow = (risk) => `
     <tr>
-      <td>${risk.id || '-'}</td>
-      <td>${risk.name || '-'}</td>
+      <td>${esc(risk.id) || '-'}</td>
+      <td>${esc(risk.name) || '-'}</td>
       <td>
         <div class="status-dots">
           ${renderStatusDots(risk.status)}
         </div>
       </td>
-      <td>${risk.kommentar || '-'}</td>
+      <td>${esc(risk.kommentar) || '-'}</td>
     </tr>
   `;
 
@@ -1737,14 +1722,14 @@ function renderProjektzieleContent(project) {
 
     return `
       <tr>
-        <td>${milestone.name || '-'}</td>
-        <td>${milestone.plannedDate || '-'}</td>
-        <td>${milestone.actualDate || '-'}</td>
+        <td>${esc(milestone.name) || '-'}</td>
+        <td>${esc(milestone.plannedDate) || '-'}</td>
+        <td>${esc(milestone.actualDate) || '-'}</td>
         <td>
           <span class="table-status ${statusClass}">${statusLabel}</span>
         </td>
         <td>
-          <button class="table-action-btn ${buttonClass}" onclick="toggleMilestoneStatus('${project.id}', ${index})" title="${isCompleted ? 'Als offen markieren' : 'Als erledigt markieren'}">
+          <button class="table-action-btn ${buttonClass}" data-action="toggle-milestone" data-project-id="${esc(project.id)}" data-milestone-index="${index}" title="${isCompleted ? 'Als offen markieren' : 'Als erledigt markieren'}">
             <span class="material-icons-outlined">${buttonIcon}</span>
           </button>
         </td>
@@ -1780,11 +1765,11 @@ function renderProjektzieleContent(project) {
         <div class="detail-fields">
           <div class="detail-field">
             <span class="detail-field-label">Ausgangslage</span>
-            <span class="detail-field-value" style="font-weight: var(--font-weight-normal)">${pz.ausgangslage || '-'}</span>
+            <span class="detail-field-value detail-field-value--prose">${esc(pz.ausgangslage) || '-'}</span>
           </div>
           <div class="detail-field">
             <span class="detail-field-label">Projektziele</span>
-            <span class="detail-field-value" style="font-weight: var(--font-weight-normal)">${pz.ziele || '-'}</span>
+            <span class="detail-field-value detail-field-value--prose">${esc(pz.ziele) || '-'}</span>
           </div>
         </div>
       </div>
@@ -1926,6 +1911,27 @@ function handleContentClick(event) {
     return;
   }
 
+  // Check if clicked on the detail-view gallery thumbnail
+  const galleryBtn = event.target.closest('[data-action="open-gallery"]');
+  if (galleryBtn) {
+    openCarousel(getProjectGalleryImages(galleryBtn.dataset.id));
+    return;
+  }
+
+  // Milestone toggle button
+  const milestoneBtn = event.target.closest('[data-action="toggle-milestone"]');
+  if (milestoneBtn) {
+    toggleMilestoneStatus(milestoneBtn.dataset.projectId, parseInt(milestoneBtn.dataset.milestoneIndex, 10));
+    return;
+  }
+
+  // Carousel thumbnail
+  const thumb = event.target.closest('[data-action="carousel-go"]');
+  if (thumb) {
+    goToCarouselImage(parseInt(thumb.dataset.index, 10));
+    return;
+  }
+
   // Check if clicked on a map sidebar item
   const sidebarItem = event.target.closest('.map-sidebar-item[data-id]');
   if (sidebarItem) {
@@ -1936,6 +1942,17 @@ function handleContentClick(event) {
 
 // Set up unified event delegation
 document.addEventListener('click', handleContentClick);
+
+// Trigger click on Enter/Space for keyboard users on focusable clickable elements
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter' && event.key !== ' ') return;
+  const el = event.target;
+  if (!(el instanceof HTMLElement)) return;
+  if (el.matches('.card[data-id], .list-table tbody tr[data-id], .map-sidebar-item[data-id], .detail-sidebar-item[data-detail-id]')) {
+    event.preventDefault();
+    el.click();
+  }
+});
 
 // Handle browser back/forward navigation
 window.addEventListener('popstate', (event) => {
@@ -2023,5 +2040,5 @@ fetch('data.json')
   })
   .catch(err => {
     console.error('Error loading data:', err);
-    document.getElementById('objectGrid').innerHTML = `<div style="grid-column: 1/-1; padding: 20px; text-align: center; background: white;">Fehler beim Laden. Starte via Live Server.</div>`;
+    document.getElementById('objectGrid').innerHTML = `<div class="fetch-error">Fehler beim Laden. Starte via Live Server.</div>`;
   });
