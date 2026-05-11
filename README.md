@@ -25,7 +25,7 @@ A web-based project management dashboard for Swiss federal construction projects
   <img src="assets/images/Preview3.jpg" width="45%" style="vertical-align: top;"/>
 </p>
 
-- Live demo: https://davras5.github.io/pm-cockpit/
+- Live demo: https://bbl-dres.github.io/pm-cockpit/
 
 ## Features
 
