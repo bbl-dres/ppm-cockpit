@@ -10,6 +10,8 @@
 
 A web-based project management dashboard for Swiss federal construction projects, developed as a concept study for the Bundesamt für Bauten und Logistik (BBL). Visualises, filters, and manages building projects across Switzerland with gallery, list, and map views.
 
+- Live demo: https://bbl-dres.github.io/pm-cockpit/
+
 > [!CAUTION]
 > **This is an unofficial mockup for demonstration purposes only.**
 > All data is fictional. Not all features are fully functional. This project serves as a visual and conceptual prototype — it is not intended for production use.
@@ -24,8 +26,6 @@ A web-based project management dashboard for Swiss federal construction projects
   <img src="assets/images/Preview2.jpg" width="45%" style="vertical-align: top;"/>
   <img src="assets/images/Preview3.jpg" width="45%" style="vertical-align: top;"/>
 </p>
-
-- Live demo: https://davras5.github.io/pm-cockpit/
 
 ## Features
 
