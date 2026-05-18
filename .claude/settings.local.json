@@ -11,7 +11,15 @@
       "Bash(openssl base64 *)",
       "Bash(curl -sSL https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css)",
       "Bash(node --check js/app.js)",
-      "WebFetch(domain:www.luucy.ch)"
+      "WebFetch(domain:www.luucy.ch)",
+      "WebFetch(domain:www.keevalue.ch)",
+      "WebFetch(domain:werk-material.online)",
+      "WebFetch(domain:bki.de)",
+      "WebFetch(domain:www.dbd.de)",
+      "WebFetch(domain:www.snbs-zertifizierung.ch)",
+      "WebFetch(domain:www.nnbs.ch)",
+      "WebFetch(domain:madaster.com)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
