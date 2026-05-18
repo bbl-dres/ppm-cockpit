@@ -10,7 +10,8 @@
       "Bash(openssl dgst *)",
       "Bash(openssl base64 *)",
       "Bash(curl -sSL https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css)",
-      "Bash(node --check js/app.js)"
+      "Bash(node --check js/app.js)",
+      "WebFetch(domain:www.luucy.ch)"
     ]
   }
 }
