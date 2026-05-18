@@ -9,41 +9,41 @@ A descriptive market scan of software tools, platforms, datasets, and frameworks
 ```mermaid
 mindmap
   root((AEC and Real Estate Software))
-    🟦 Design and Performance Core
-      🟦 Seg 1 Integrated AI Early-Design
-      🟦 Seg 2 Browser BIM
-      🟦 Seg 3 RE Feasibility
-      🟦 Seg 4 Floor-Plan AI
-      🟦 Seg 5 Urban Planning
-      🟦 Seg 6 Parametric Massing
-      🟦 Seg 7 Rhino-GH Simulation
-      🟦 Seg 8 Wind CFD Microclimate
-      🟦 Seg 9 Daylight Energy
-      🟦 Seg 10 Cost and Carbon
-        🟦 10a Cost Estimators
-        🟦 10b Embodied Carbon
-      🟦 Seg 11 Programmable Platforms
-      🟦 Seg 12 AI Rendering
-    🟧 Adjacent Buyer Gates
-      🟧 Seg 13 Climate Risk
-      🟧 Seg 14 Civil Infrastructure
-      🟧 Seg 15 Circularity
-      🟧 Seg 16 Code Compliance
-      🟧 Seg 17 Modular Housing
-      🟧 Seg 18 Mobility Pedestrian
-    🟩 Outcome and Ecology
-      🟩 Seg 19 Certifications
-      🟩 Seg 20 Biodiversity
-    🟪 Portfolio PMO
-      🟪 Seg 21 EPPM
-    🟨 Existing Stock
-      🟨 Seg 22 Refurbishment and Urban Mining
-    🟫 Location Intelligence
-      🟫 Seg 23 Location Intelligence
-        🟫 23a Real-Estate Value
-        🟫 23b Transition Risk
-        🟫 23c Physical Risk
-        🟫 23d Swiss Public Data
+    Design and Performance Core
+      Seg 1 Integrated AI Early-Design
+      Seg 2 Browser BIM
+      Seg 3 RE Feasibility
+      Seg 4 Floor-Plan AI
+      Seg 5 Urban Planning
+      Seg 6 Parametric Massing
+      Seg 7 Rhino-GH Simulation
+      Seg 8 Wind CFD Microclimate
+      Seg 9 Daylight Energy
+      Seg 10 Cost and Carbon
+        10a Cost Estimators
+        10b Embodied Carbon
+      Seg 11 Programmable Platforms
+      Seg 12 AI Rendering
+    Adjacent Buyer Gates
+      Seg 13 Climate Risk
+      Seg 14 Civil Infrastructure
+      Seg 15 Circularity
+      Seg 16 Code Compliance
+      Seg 17 Modular Housing
+      Seg 18 Mobility Pedestrian
+    Outcome and Ecology
+      Seg 19 Certifications
+      Seg 20 Biodiversity
+    Portfolio PMO
+      Seg 21 EPPM
+    Existing Stock
+      Seg 22 Refurbishment and Urban Mining
+    Location Intelligence
+      Seg 23 Location Intelligence
+        23a Real-Estate Value
+        23b Transition Risk
+        23c Physical Risk
+        23d Swiss Public Data
 ```
 
 ## Segments at a glance
@@ -80,52 +80,21 @@ mindmap
 - The clearest white spaces in the market are: (1) **regionally-aligned cost taxonomies** (eBKP-H, BKI, DIN 276) — none of the major design-stack tools support them out of the box; (2) **integrated multi-KPI dashboards** that combine embodied carbon, operational energy, daylight, cost, and **physical climate risk** against Swiss benchmarks (KBOB, SNBS 2023.1, BAFU Gefahrenkarten, NCCS CH2025); (3) **data residency in Swiss-sovereign cloud** — almost every international vendor is hosted on US hyperscalers; (4) **Swiss code / zoning compliance automation** beyond BZO ingestion; (5) **commercial real-estate climate valuation** — per the climate-check models registry, "no commercial real estate climate valuation tool exists" combining transition + physical risk + market value in a single offering.
 - Regulatory and standards context: the **revised EU EPBD** introduces life-cycle Global Warming Potential (GWP) disclosure for **larger new buildings from 2028** and **all new buildings from 2030**. Switzerland is not bound, but EU-aligned procurement (and the SNBS / KBOB direction) makes this the de-facto baseline. **IFC 4.3** is now published as **ISO 16739-1:2024** and is becoming the interoperability floor. The **RICS Whole Life Carbon Assessment (WLCA) Software Validation Programme (2nd edition, July 2025)** is emerging as a credibility test for LCA tools — **One Click LCA** is the first validated platform. **NCCS Climate Scenarios CH2025** has superseded CH2018 as the federal Swiss climate-projection baseline.
 
-## Key Findings
+## Recent consolidations & shifts
 
-**Twenty-three market segments identified.** They overlap on functional dimensions but have distinct value propositions, buyers, and competitive sets:
+Notable vendor M&A, rebrands, and product retirements over the past ~36 months — the events that materially changed who owns what in this market:
 
-- **Segments 1–12 — design-and-performance core.** Integrated AI early-design, BIM 2.0, feasibility, generative floor plans, urban planning, parametric massing, Rhino/Grasshopper simulation, wind/CFD, daylight/energy, cost & carbon (10a/10b), programmable platforms, AI rendering.
-- **Segments 13–18 — adjacent buyer gates.** Climate risk, civil/infrastructure concept design, circularity & material passports, code compliance & model checking, industrialized housing, mobility & pedestrian analytics.
-- **Segments 19–20 — outcome / ecology layers.** Building sustainability certifications & labels, biodiversity & ecological analysis.
-- **Segment 21 — portfolio / PMO layer.** Enterprise project portfolio management; the system of record under which all the others are reported.
-- **Segment 22 — existing-stock / refurbishment / urban-mining.** Pre-project screening of the built stock for retrofit-vs-demolish prioritisation and material-recovery potential.
-- **Segment 23 — location intelligence (market value, environmental & carbon risk).** Real-estate valuation, multi-hazard data layers, carbon-stranding & transition-risk models, and the public datasets that feed all of them.
-
-1. Integrated AI early-design / site planning platforms
-2. Browser-native concept BIM ("BIM 2.0")
-3. Real-estate feasibility & developer-facing tools
-4. Generative floor-plan / unit-layout AI
-5. Urban / site-scale collaborative planning platforms
-6. Parametric urban massing & zoning tools
-7. Rhino-Grasshopper environmental simulation ecosystem
-8. Specialist wind / CFD / microclimate tools
-9. Specialist daylight / energy early-stage tools
-10. Early-stage cost & embodied-carbon estimators — split into **10a Cost** (DACH commercial cost-data: BKI, DBD-BIM, Keevalue + global: CostX, CostOS, DESTINI) and **10b Carbon** (One Click LCA, Preoptima, EC3, 2050 Materials)
-11. Programmable / developer-platform plays
-12. Generative AI rendering / text-to-image for concept
-13. **Climate-risk & resilience analytics** (asset-level physical risk)
-14. **Civil / infrastructure concept design** (site civil, roads, grading, utilities)
-15. **Circularity & material passports**
-16. **Code compliance & model checking**
-17. **Industrialized / modular housing configurators**
-18. **Mobility & pedestrian analytics**
-
-Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building Design** at AU 2025 is a direct response to the BIM 2.0 startups (Arcol, Snaptrude, Motif, Qonic), as covered by Engineering.com and AEC Magazine.
-
-**Major consolidations / shifts:**
 - **Spacemaker → Autodesk Forma** (acquired November 2020 for $240M; Spacemaker retired May 2023; existing subscribers migrated to Forma Site Design).
-- **Sefaira → Trimble** (acquired February 8, 2016 per Trimble's PRNewswire press release; "Trimble announced today the acquisition of London/New York based Sefaira Ltd., a leading developer of cloud-based software for the design of sustainable and high-performance buildings"; now bundled with SketchUp & Revit plugins).
+- **Sefaira → Trimble** (acquired February 8, 2016; now bundled with SketchUp & Revit plugins).
 - **DIVA-for-Rhino → ClimateStudio** (Solemma; DIVA retired, ClimateStudio is the successor for daylight/energy on Rhino 6/7/8).
 - **cove.tool → cove** (rebranded January 2025 from software vendor to AI-powered architectural services firm; IP later acquired by ROOST and continued as open source per a July 2025 LinkedIn post by Cove Software).
-- **Delve (Sidewalk Labs) → Google** (Sidewalk Labs folded into Google in 2022; Delve was disabled May 2026 with select features integrated into Google Earth per the Sidewalk Labs Wikipedia article).
+- **Delve (Sidewalk Labs) → Google** (Sidewalk Labs folded into Google in 2022; Delve disabled May 2026, features partially folded into Google Earth).
 - **EvolveLAB → Chaos ecosystem** (Veras integrated under Chaos branding).
+- **Verifi3D → Solibri** (acquired; verifi3d.com now redirects to Solibri's Checkpoint product page).
+- **Sciforma → Planview** (acquired; sciforma.com now redirects to Planview's acquisition page).
 - **Tally (whole-building Revit LCA) → C.Scale** (April 2026 acquisition per Building Transparency).
-- **2050 Materials → Once For All Group** (acquired November 2025 per CEO David Hornsby's statement on onceforall.com: "The acquisition of 2050 Materials marks an important milestone in Once For All's mission to empower the construction industry with data-driven sustainability insights at every stage of a project").
+- **2050 Materials → Once For All Group** (acquired November 2025).
 - **JLL ↔ Jupiter Intelligence** strategic expansion (2025) — JLL embedded Jupiter physical climate-risk analytics in CRE workflows, mainstreaming asset-level climate risk in transactions.
-
-**Cloud-first is the dominant trajectory.** Every new entrant since 2020 (Forma, Snaptrude, Arcol, Hypar, Giraffe, TestFit, ARCHITEChTURES, Maket, Finch, DBF, Pollination, **Luucy**, **VU.CITY**, **Preoptima**, **Modulous TESSA**, **Climate X**, **Verifi3D**) launched as SaaS/web. Desktop/plugin holdouts are concentrated in segments 7–9 and 14 (Ladybug, ClimateStudio, ENVI-met, InfraWorks, OpenRoads ConceptStation) where simulation depth, civil-engineering data weight, or host-application integration outweigh cloud convenience.
-
-**Generative AI is fragmented into three families:** (a) **constraint-based generative design** producing valid BIM/geometry (Forma, TestFit, Finch, ARCHITEChTURES, Hypar, Maket, DBF, Modulous TESSA); (b) **diffusion-model image generation** for concept renders (Veras, ARK, ArkoAI, LookX, Midjourney workflows); (c) **text-to-BIM / Copilot** experiments still nascent (Hypar's recent moves, Snaptrude's Copilot, UpCodes Copilot for code research, Preoptima's structural-option Copilot). Only family (a) is decision-ready for federal feasibility studies.
 
 ## Details
 
@@ -153,7 +122,7 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 | Product | Hosting | Pricing | BIM/Export | Notes |
 |---|---|---|---|---|
 | **[Snaptrude](https://www.snaptrude.com)** | Cloud (browser) | Free; Pro $499/yr; Org $1,199/yr; Enterprise quote | Bidirectional Revit, Rhino, IFC, DWG | Real-time BOQ/FAR/GFA; "AI Copilot" |
-| **[Arcol](https://www.arcol.io)** | Cloud (browser) | Free solo (no Revit export); Team $100/user/mo | Revit export; presentation Boards | Raised approximately $20M per Arcol's own press page (arcol.io/press): "We have raised approximately $20 million from an incredible roster including Cowboy Ventures, Craft Ventures, Procore CEO Tooey Courtemanche, Figma CEO Dylan Field, and former Mozilla CEO John Lilly." |
+| **[Arcol](https://www.arcol.io)** | Cloud (browser) | Free solo (no Revit export); Team $100/user/mo | Revit export; presentation Boards | ≈ $20M raised (Cowboy Ventures, Craft Ventures, Procore CEO Tooey Courtemanche, Figma CEO Dylan Field, John Lilly). |
 | **[Motif](https://www.motif.io)** | Cloud (browser) | Quote/early access | Connects to Revit/Rhino | Founded by ex-Autodesk co-CEO Amar Hanspal |
 | **[Qonic](https://www.qonic.com)** | Cloud (browser) | Quote | IFC, Revit | Belgian, ex-Bricsys team |
 | **[Autodesk FormIt](https://formit.autodesk.com)** | Desktop + Web | Free Pro tier with AEC Collection | Revit Add-in | Older SketchUp competitor; some features now in Forma |
@@ -275,7 +244,7 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 | **[Beck Technology DESTINI Estimator](https://beck-technology.com)** | 2D/3D takeoff + estimating | US | Cloud (SOC 2) + legacy desktop | Quote-only ("Call us for a license quote") | GC/preconstruction focus; **DESTINI Profiler** is the conceptual 5D companion ("combining 3D modeling with pricing… allows the clients to visualize in 5D", constructiontechreview.com) |
 | **[RIB CostX (iTWO)](https://www.rib-software.com)** | 5D BIM takeoff/estimating | Global (RIB / Schneider) | On-prem + SaaS | Quote-only (no free version per TrustRadius) | IFC + RVT; "world-leading 6D BIM solution… also supports the EC3 carbon rate library from Building Transparency" (rib-software.com) |
 | **[Nomitech CostOS](https://www.nomitech.com)** | Feasibility → detailed estimating | Global | Cloud + desktop | Quote | GIS / 2D / BIM estimating continuum; **classification-flexible engine** — the most likely commercial product to be re-configurable to eBKP-H |
-| **[BKI Baukosteninformationszentrum](https://bki.de)** | Cost-data publisher + planning software | Germany (architect-chamber affiliated, Stuttgart) | Desktop + emerging web (KoRa, launching June 2026) | Tiered: free test versions; publications €92–€1,247+ (7–19% VAT) | **BKI Kostenplaner** is the de-facto Architektenkammer cost-planning tool in DE; **BKI Objektdaten** is the canonical building-cost reference database; uses **DIN 276**. Companion tools: **BKI Energieplaner** (GEG), **BKI Honorarermittler** (HOAI), **BKI IFC-Mengenermittler** (BIM takeoff). Austrian regional factors available; not natively Swiss but DIN 276 → eBKP-H mapping is well-trodden in DACH practice. |
+| **[BKI Baukosteninformationszentrum](https://bki.de)** | Cost-data publisher + planning software | Germany (architect-chamber affiliated, Stuttgart) | Desktop + emerging web (KoRa, launching June 2026) | Tiered; free test versions; publications €92–€1,247+ | **BKI Kostenplaner** is the de-facto Architektenkammer cost-planning tool in DE; **BKI Objektdaten** is the canonical building-cost reference database; uses **DIN 276**. Companion tools: **BKI Energieplaner** (GEG), **BKI Honorarermittler** (HOAI), **BKI IFC-Mengenermittler** (BIM takeoff). Austrian regional factors available; not natively Swiss but DIN 276 → eBKP-H mapping is well-trodden in DACH practice. |
 | **[DBD-BIM (Dynamische BauDaten)](https://www.dbd.de/dbd-bim/)** | BIM-based cost-data platform | Germany (Dr. Schiller & Partner / DBD) | Online + offline variants | Free 7-day test; commercial tiers via quote | "Bauteile suchen, detailliert beschreiben und mit dem Modell verknüpfen" — searches building components, configures them with technical attributes, links to the BIM model with **DIN 276** cost structure, **STLB-Bau** VOB-compliant specifications, and **DIN BIM Cloud** attribute standards. Real-time cost recalculation as properties change. Integrates with 24+ AEC applications. |
 | **[Keevalue](https://www.keevalue.ch)** | Baukostenschätzung / Baukostenberechnung | **Switzerland** | Cloud SaaS (CH vendor) | Not publicly listed | Marketed as cost estimation and cost calculation **"Für Architekten, Bauherren & Co."** Swiss-domiciled vendor, which makes it a natural counter-party to Luucy on the cost layer — verify eBKP-H / SIA 416 alignment, hosting region, and BIM intake at procurement. |
 
@@ -477,7 +446,7 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 **Swiss-context note.** Swiss federal real-estate (BBL, armasuisse Immobilien, ETH-Rat) has a mix of (a) **SAP-based controlling** at the financial-system layer, (b) historically **bespoke cantonal / federal tools** at the project-portfolio layer, and (c) emerging **Cockpit-style dashboards** (like this prototype) that surface project KPIs to political stakeholders. Commercial EPPM vendors (Primavera, Planview, Procore, InEight) are competitively positioned for federal procurement but face the same **data-residency / Public Clouds Bund** scrutiny as any other SaaS. **OpenProject** is the most defensible EU-region self-hostable option if sovereign hosting becomes a procurement gate.
 
-**Critical insight for pm-cockpit specifically.** A custom Cockpit only earns its position against a commercial EPPM platform if it (a) integrates Swiss-specific data layers the commercial tools don't speak (swisstopo, ÖREB, KBOB, eBKP-H, SNBS), and (b) presents a leaner, federal-political-stakeholder-grade view than the commercial tools' generic dashboards. The current prototype's strong points (German-language UI, BBL-specific KPIs, SIA-phase awareness, Bauprojekte vocabulary, embedded MapLibre map) are exactly the differentiation pattern.
+**Observation on custom Cockpits.** Where federal / cantonal owners have built custom Cockpit dashboards alongside commercial EPPM platforms, the differentiation pattern tends to be: (a) integration of Swiss-specific data layers that international tools don't natively speak (swisstopo, ÖREB, KBOB, eBKP-H, SNBS), and (b) a leaner, federal-political-stakeholder-grade view vs. the generic dashboards of enterprise PPM. Typical anchors include German-language UI, BBL / armasuisse vocabulary, SIA-phase awareness, and embedded GIS / map views.
 
 ### Segment 22 — Refurbishment / Renovation Portfolio Screening & Urban Mining
 
@@ -587,14 +556,14 @@ The picks below are the most consequential entries selected from a longer regist
 
 ### Trends & Outlook
 
+- **Segments 1 and 2 are converging.** Autodesk's announcement of **Forma Building Design** at AU 2025 is a direct response to the BIM 2.0 startups (Arcol, Snaptrude, Motif, Qonic), per Engineering.com and AEC Magazine. Expect the boundary between "site / massing tool" and "concept BIM tool" to dissolve over the next 24 months.
 - **Regulatory pressure on embodied carbon is now timetabled.** The **revised EU EPBD** requires life-cycle GWP disclosure for **larger new buildings from 2028** and **all new buildings from 2030**. Federal Swiss real-estate is not bound, but EU-aligned procurement (and BBL's own SNBS / KBOB direction) makes 2028–2030 the de-facto target. Tools without credible whole-life-carbon output will be pushed out of public procurement first.
 - **WLCA validation is becoming the credibility test.** **One Click LCA** is the first software validated under the **RICS Whole Life Carbon Assessment (WLCA) Software Validation Programme (2nd edition, July 2025)**. Expect more vendors to seek validation — and procurement leads to require it — within 24 months.
 - **IFC 4.3 / ISO 16739-1:2024** is now the contemporary interoperability floor. Any segment-1, 2, 5, or 14 procurement should require IFC 4.3 export at minimum; tools still locked to IFC 2x3 are losing ground.
-- **AI depth** is moving from image-generation to constraint-satisfaction. Forma's "rapid wind/noise" surrogates and Finch's "Graph Rules" are the credible direction; pure diffusion-model floor plans (Maket free tier) still produce spatial-logic errors per the 2026 illustrarch review. **Preoptima** and **Modulous TESSA** show the same direction in carbon and modular housing respectively.
-- **Cloud-first is non-negotiable** for new entrants; the holdouts (Ladybug stack, ClimateStudio, ENVI-met, InfraWorks, OpenRoads ConceptStation) survive on simulation depth, civil-data weight, or Rhino/Revit ecosystem lock-in.
+- **Cloud-first is the dominant trajectory.** Every new entrant since 2020 (Forma, Snaptrude, Arcol, Hypar, Giraffe, TestFit, ARCHITEChTURES, Maket, Finch, DBF, Pollination, **Luucy**, **VU.CITY**, **Preoptima**, **Modulous TESSA**, **Climate X**, **Verifi3D**) launched as SaaS / web. Desktop / plugin holdouts are concentrated in segments 7–9 and 14 (Ladybug, ClimateStudio, ENVI-met, InfraWorks, OpenRoads ConceptStation) where simulation depth, civil-engineering data weight, or host-application integration outweigh cloud convenience.
 - **BIM integration is converging on IFC 4.3 + Revit roundtrip + Rhino plug-ins.** Speckle's data-hub model and the OpenBIM movement are the most credible neutral interchange layer. Swiss-native platforms (Luucy) currently lag here — adopters should expect to bridge to BIM via IFC export and a separate downstream tool.
 - **Climate risk is moving upstream from diligence into design.** Insurer / lender requirements (driven by EU CSRD, SFDR, US SEC climate filings, and Swiss SBTi-aligned commitments) are pushing climate-risk screens to the feasibility stage — but no design-stack vendor has integrated this natively yet.
-- **Generative AI's role** in the next 24 months will be (a) Copilot-style assistants inside existing tools (Snaptrude, Forma Building Design, Speckle Automate, UpCodes Copilot), (b) text-to-BIM experiments (Hypar), and (c) deeper rule-based generators (Finch, ARCHITEChTURES, Preoptima, Modulous) — not autonomous design.
+- **Generative AI is fragmented into three families.** (a) **Constraint-based generative design** producing valid BIM / geometry (Forma, TestFit, Finch, ARCHITEChTURES, Hypar, Maket, DBF, Modulous TESSA); (b) **diffusion-model image generation** for concept renders (Veras, ARK, ArkoAI, LookX, Midjourney workflows); (c) **text-to-BIM / Copilot** experiments still nascent (Hypar, Snaptrude's Copilot, UpCodes Copilot, Preoptima's structural-option Copilot). Only family (a) is decision-ready for federal feasibility studies. The next 24 months will be dominated by Copilot-style assistants embedded inside existing tools, not autonomous design.
 
 ### Swiss-Context Observations
 
@@ -621,17 +590,3 @@ Where the international market intersects with Swiss federal context:
 - **Swiss-context recommendations** are framed at the segment level; specific KBOB/eBKP-H/SNBS workflows need a Swiss sustainability consultant in the loop. ISG classification of project data should be confirmed with BBL ISBO before SaaS adoption.
 - **Luucy coverage in this document is based on a single review of luucy.ch (May 2026)** and a high-level vendor-marketing summary (150 clients / 6,000 users / 15,000 projects; swisstopo partnership; ÖREB / BZO ingestion; "ohne Kreditkarte oder Vertrag" trial). BIM (IFC/Revit) roundtrip, embodied-carbon, eBKP-H/KBOB alignment, GWR/EGID handling, hosting region, and enterprise pricing are **not confirmed** and must be verified directly with the vendor before procurement decisions.
 
----
-
-**Coverage check:**
-
-| Item | Covered? |
-|---|---|
-| 23 market segments named & defined (12 design-and-performance core + 6 adjacent buyer gates + 2 outcome/ecology + 1 portfolio/PMO + 1 refurbishment/urban-mining + 1 location intelligence) | ✅ |
-| Per-product mini-profiles (pricing / hosting / integrations) | ✅ |
-| White spaces / underserved areas | ✅ |
-| Trends & outlook (EPBD 2028/2030, IFC 4.3 / ISO 16739-1:2024, RICS WLCA validation, NCCS CH2025, AI, cloud, BIM, KPI, GenAI) | ✅ |
-| Swiss-context observations (data residency, eBKP-H/KBOB/SNBS, geodata, climate/hazard, refurbishment & transition risk) | ✅ |
-| Vendors / products / models / datasets covered: Forma, Snaptrude, Arcol, Motif, Qonic, TestFit, Spacio, Giraffe, Modelur, DBF, Finch, ARCHITEChTURES, Maket, PlanFinder, ArkDesign, Ladybug, Honeybee, Butterfly, Dragonfly, Pollination, ClimateStudio, DIVA, Sefaira, Autodesk Insight, IES VE, Orbital Stack, SimScale, ENVI-met, Autodesk CFD, cove.tool, DESTINI, CostX, CostOS, BKI / KoRa, DBD-BIM, Keevalue, werk-material.online, Preoptima, One Click LCA, EC3, 2050 Materials, Hypar, Speckle, ShapeDiver, CityEngine, ArcGIS Urban, VU.CITY, UrbanFootprint, Delve, Cityform UNA, Veras, ARK, Luucy, Climate X, Jupiter, First Street, InfraWorks, OpenSite+, OpenRoads ConceptStation, Madaster, UpCodes, Verifi3D, Solibri, Modulous TESSA, PTV Visum, LEGION, SNBS Hochbau 2023.1, Minergie, DGNB, LEED Online, BREEAM, WELL, EDGE, GRESB, EU Level(s), Defra BNG metric, ENVISION, IUCN STAR, InfoSpecies / BAFU biotope layers, Primavera P6, Microsoft Project, Procore Capital Projects, Autodesk Construction Cloud, InEight, Planview / Sciforma / Cora PPM, Asta Powerproject, PMWeb, OpenProject, Madaster Portfolio Performance / Circularity Insights, Revitalyze UMS, Concular, Restado, GEAK / GEAK Plus, HotMaps, KBOB Sanierungskatalog / Bauteilkatalog, Wüest Partner, IAZI / CIFI, PriceHubble, Fahrländer Partner, Geoimpact, CRREM, PACTA-CH, NGFS, SSREI, PCAF, SBTi, CLIMADA, ERM-CH23, OpenQuake, Oasis LMF, JRC Flood Hazard Maps, WRI Aqueduct, geo.admin.ch, NCCS CH2025, Naturgefahren-Check, GWR / EGID, Sonnendach.ch, BAFU CO₂ Calculator, Mobitool, OpenData.swiss | ✅ |
-| Recent M&A: Spacemaker→Forma, Sefaira→Trimble, cove→ROOST, DIVA→ClimateStudio, Sidewalk→Google, EvolveLAB→Chaos, Tally→C.Scale, 2050 Materials→Once For All, JLL↔Jupiter | ✅ |
-| Caveats with verified-status flags | ✅ |
