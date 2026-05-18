@@ -11,115 +11,39 @@ mindmap
   root((AEC and Real Estate Software))
     Design and Performance Core
       Seg 1 Integrated AI Early-Design
-        Autodesk Forma
       Seg 2 Browser BIM
-        Snaptrude
-        Arcol
-        Motif
       Seg 3 RE Feasibility
-        TestFit
-        Giraffe
-        Luucy
       Seg 4 Floor-Plan AI
-        Finch 3D
-        ARCHITEChTURES
-        Maket
       Seg 5 Urban Planning
-        ArcGIS Urban
-        VU CITY
-        Luucy
       Seg 6 Parametric Massing
-        Modelur
-        DBF
       Seg 7 Rhino-GH Simulation
-        Ladybug
-        Pollination
-        ClimateStudio
       Seg 8 Wind CFD Microclimate
-        Orbital Stack
-        SimScale
-        ENVI-met
       Seg 9 Daylight Energy
-        ClimateStudio
-        Sefaira
-        Autodesk Insight
-      Seg 10a Cost Estimators
-        Keevalue CH
-        BKI DE
-        DBD-BIM DE
-        CostX
-      Seg 10b Embodied Carbon
-        One Click LCA
-        Preoptima
-        EC3
+      Seg 10 Cost and Carbon
+        10a Cost Estimators
+        10b Embodied Carbon
       Seg 11 Programmable Platforms
-        Hypar
-        Speckle
-        ShapeDiver
       Seg 12 AI Rendering
-        Veras
-        ArkoAI
     Adjacent Buyer Gates
       Seg 13 Climate Risk
-        Climate X
-        Jupiter
-        First Street
       Seg 14 Civil Infrastructure
-        InfraWorks
-        OpenSite Plus
       Seg 15 Circularity
-        Madaster
       Seg 16 Code Compliance
-        Solibri
-        UpCodes
       Seg 17 Modular Housing
-        Modulous TESSA
       Seg 18 Mobility Pedestrian
-        PTV Visum
-        LEGION
     Outcome and Ecology
       Seg 19 Certifications
-        SNBS
-        Minergie
-        DGNB
-        LEED
-        BREEAM
       Seg 20 Biodiversity
-        Defra BNG
-        InfoSpecies
-        BAFU layers
     Portfolio PMO
       Seg 21 EPPM
-        Primavera
-        Microsoft Project
-        Procore
-        Autodesk Construction Cloud
-        pm-cockpit
     Existing Stock
       Seg 22 Refurbishment and Urban Mining
-        Madaster Portfolio
-        GEAK
-        Revitalyze UMS
     Location Intelligence
-      Seg 23a Real-Estate Value
-        Wuest Partner
-        IAZI CIFI
-        PriceHubble
-        Fahrlaender
-      Seg 23b Transition Risk
-        CRREM
-        PACTA-CH
-        NGFS
-        SSREI
-      Seg 23c Physical Risk
-        CLIMADA ETH
-        ERM-CH23
-        Oasis LMF
-      Seg 23d Swiss Public Data
-        geo admin ch
-        NCCS CH2025
-        BAFU
-        GWR EGID
+      Seg 23 Location Intelligence
+        23a Real-Estate Value
+        23b Transition Risk
+        23c Physical Risk
+        23d Swiss Public Data
 ```
 
 ## Segments at a glance
