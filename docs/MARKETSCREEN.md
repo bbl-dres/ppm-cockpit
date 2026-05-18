@@ -37,6 +37,11 @@ mindmap
       Seg 19 EPPM and RE ERP
     Existing Stock
       Seg 20 Refurbishment and Urban Mining
+    Information Infrastructure
+      Seg 21 Common Data Environments
+      Seg 22 Reality Capture and Scan-to-BIM
+      Seg 23 Digital Twin Operations
+      Seg 24 e-Permitting
     Reference Appendices
       App A Swiss Public Datasets
       App B Sustainability Labels and Frameworks
@@ -67,12 +72,16 @@ mindmap
 | 18 | [Biodiversity & Ecological Analysis](#segment-18--biodiversity--ecological-analysis) | Emerging tools quantifying site / portfolio biodiversity outcomes. |
 | 19 | [Enterprise Project Portfolio Management & RE ERP](#segment-19--enterprise-project-portfolio-management--re-erp) | Portfolio-grade systems of record for capital-project tracking + the SAP RE-FX / Planon real-estate ERP layer. |
 | 20 | [Refurbishment / Renovation Portfolio Screening & Urban Mining](#segment-20--refurbishment--renovation-portfolio-screening--urban-mining) | Pre-project portfolio screening for retrofit-vs-demolish and material-recovery potential. |
+| 21 | [Common Data Environments (CDEs)](#segment-21--common-data-environments-cdes) | ISO 19650 shared workspaces for federated BIM, drawings, RFIs, BCF (Catenda, Dalux, Revizto, smino, thinkproject). |
+| 22 | [Reality Capture / Scan-to-BIM](#segment-22--reality-capture--scan-to-bim) | LiDAR / photogrammetry hardware + scan-to-BIM software for as-built capture (Leica BLK360, Matterport, NavVis, Pix4D). |
+| 23 | [Digital Twin Operations Platforms](#segment-23--digital-twin-operations-platforms) | Operations-stage twins ingesting BIM + IoT + FM data (Siemens Building X, Bentley iTwin, Tandem, Willow). |
+| 24 | [e-Permitting / Digital Building Authority](#segment-24--e-permitting--digital-building-authority) | Digital building-permit submission, review, approval (eBau / inosca for CH cantons, GreenLite, Symbium). |
 | App. A | [Swiss Public Datasets & Federal Data Layers](#appendix-a--swiss-public-datasets--federal-data-layers) | Reference: geo.admin.ch, NCCS, BAFU, GWR, GEAK, Sonnendach, BAFU CO₂, Mobitool. |
 | App. B | [Sustainability Labels & Frameworks](#appendix-b--sustainability-labels--frameworks) | Reference: SNBS, Minergie, DGNB, LEED, BREEAM, WELL, EDGE, GRESB, EU Level(s). |
 | App. C | [Carbon Stranding & Transition-Risk Frameworks](#appendix-c--carbon-stranding--transition-risk-frameworks) | Reference: CRREM, PACTA-CH, NGFS, SSREI, PCAF, SBTi. |
 
 ## Summary
-- The construction project software market organises into **20 vendor segments** along two axes: (a) **stage/scale of activity** (existing-stock / urban-mining screening → location intelligence & risk → site / urban planning → massing → unit layouts → environmental and building simulation → cost & embodied carbon → civil/infrastructure → certification & ecology → delivery / portfolio / PMO), and (b) **buyer** (architects, real-estate developers, planners, sustainability consultants, civil engineers, QS / cost planners, code consultants, lenders / insurers, certification assessors, ecologists, portfolio / asset-owner PMOs, renovation strategists, real-estate analysts). Alongside the vendor segments sit **three reference appendices** (Swiss public datasets, sustainability labels & frameworks, transition-risk frameworks) — *cited from* many segments rather than being markets themselves. No single segment, and no single vendor, covers the lifecycle end-to-end; the market is segmented around different buyer journeys.
+- The construction project software market organises into **24 vendor segments** along two axes: (a) **stage/scale of activity** (existing-stock / urban-mining screening → location intelligence & risk → site / urban planning → massing → unit layouts → environmental and building simulation → cost & embodied carbon → civil/infrastructure → certification & ecology → delivery / portfolio / PMO), and (b) **buyer** (architects, real-estate developers, planners, sustainability consultants, civil engineers, QS / cost planners, code consultants, lenders / insurers, certification assessors, ecologists, portfolio / asset-owner PMOs, renovation strategists, real-estate analysts). Alongside the vendor segments sit **three reference appendices** (Swiss public datasets, sustainability labels & frameworks, transition-risk frameworks) — *cited from* many segments rather than being markets themselves. No single segment, and no single vendor, covers the lifecycle end-to-end; the market is segmented around different buyer journeys.
 - The most consolidated battleground is the "BIM 2.0 / browser-native concept design" cluster (Autodesk Forma, Snaptrude, Arcol, Motif, Qonic) where Autodesk's Spacemaker → Forma move has set the integration bar. But the **buyers who block or kill projects** sit outside that cluster — planners, civil engineers, insurers, QS, code consultants, certification assessors, portfolio PMOs, renovation strategists — and they buy from different vendors. Many of the most consequential Swiss-specific layers (swisstopo, ÖREB / BZO, KBOB, eBKP-H, GEAK, SNBS, GWR) are not first-class citizens in international platforms; the Swiss-domiciled productised players — **Luucy** (site / zoning), **Keevalue** (cost), **Madaster Switzerland** (circularity), **sumami / Salza / Bauteilnetz Schweiz** (circular marketplaces), **Swiss Re CatNet** (climate risk), **Wüest Partner / IAZI / Fahrländer / Geoimpact** (valuation), and the **NCCS / BAFU / swisstopo** federal data layers — are the most defensible answers where Swiss alignment matters.
 - The clearest white spaces in the market are: (1) **regionally-aligned cost taxonomies** (eBKP-H, BKI, DIN 276) — none of the major design-stack tools support them out of the box; (2) **integrated multi-KPI dashboards** combining embodied carbon, operational energy, daylight, cost, and **physical climate risk** against Swiss benchmarks (KBOB, SNBS 2023.1, BAFU Gefahrenkarten, NCCS CH2025); (3) **data residency in Swiss-sovereign cloud**; (4) **Swiss code / zoning compliance automation** beyond BZO ingestion; (5) **commercial real-estate climate valuation** — no productised platform combines AVM-grade market value with integrated physical and transition risk in a single offering.
 - Regulatory and standards context: the **revised EU EPBD** introduces life-cycle Global Warming Potential (GWP) disclosure for **larger new buildings from 2028** and **all new buildings from 2030**. Switzerland is not bound, but EU-aligned procurement (and the SNBS / KBOB direction) makes this the de-facto baseline. **IFC 4.3** is now published as **ISO 16739-1:2024** and is becoming the interoperability floor. The **RICS Whole Life Carbon Assessment (WLCA) Software Validation Programme (2nd edition, July 2025)** is emerging as a credibility test for LCA tools — **One Click LCA** is the first validated platform. **NCCS Climate Scenarios CH2025** has superseded CH2018 as the federal Swiss climate-projection baseline.
@@ -118,6 +127,15 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 
 **Maturity.** Mature/consolidating. Forma is the de-facto enterprise default for firms inside the Autodesk ecosystem. Sun hours was the most-used Forma analysis in 2025 per CreativeToolsAI's 2026 Q1 review.
 
+<table>
+<tr>
+<td width="100%">
+<a href="https://www.autodesk.com/products/forma/overview"><img src="../assets/images/segments/forma.jpg" alt="Autodesk Forma" width="100%"></a>
+<br><sub><b>Autodesk Forma</b> — site / massing platform with integrated environmental analyses. Source: <a href="https://www.autodesk.com/products/forma/overview">autodesk.com/products/forma</a></sub>
+</td>
+</tr>
+</table>
+
 ### Segment 2 — Browser-Native Concept BIM ("BIM 2.0")
 
 **Definition.** Multiplayer, browser-based design tools that aim to replace SketchUp + Revit in early phases with a single collaborative model carrying BIM data. Differentiator: real-time co-editing (Figma-like) + native BIM export.
@@ -130,9 +148,24 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 | **[Arcol](https://www.arcol.io)** | Cloud (browser) | Free solo (no Revit export); Team $100/user/mo | Revit export; presentation Boards | ≈ $20M raised (Cowboy Ventures, Craft Ventures, Procore CEO Tooey Courtemanche, Figma CEO Dylan Field, John Lilly). |
 | **[Motif](https://www.motif.io)** | Cloud (browser) | Quote/early access | Connects to Revit/Rhino | Founded by ex-Autodesk co-CEO Amar Hanspal |
 | **[Qonic](https://www.qonic.com)** | Cloud (browser) | Quote | IFC, Revit | Belgian, ex-Bricsys team |
+| **[Rayon](https://www.rayon.design)** | Cloud (browser) | Quote | 2D collaborative planning; Revit / DWG export | France (Paris); €4M / $4.2M seed Sept 2023 co-led by Northzone + Foundamental; Figma-style collaborative 2D planning. |
+| **[ArchiLabs](https://archilabs.ai)** | Cloud (browser) | Quote | Python recipes; no Revit licence required | USA; YC-backed, founded 2024; AI copilot Studio Mode ("ChatGPT for Revit"). |
 | **[Autodesk FormIt](https://formit.autodesk.com)** | Desktop + Web | Free Pro tier with AEC Collection | Revit Add-in | Older SketchUp competitor; some features now in Forma |
 
 **Maturity.** Emerging. AEC Magazine consistently flags this as an "overheated and over-serviced" segment.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.snaptrude.com"><img src="../assets/images/segments/snaptrude.webp" alt="Snaptrude" width="100%"></a>
+<br><sub><b>Snaptrude</b> — browser-native concept BIM with bidirectional Revit roundtrip. Source: <a href="https://www.snaptrude.com">snaptrude.com</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://arcol.io"><img src="../assets/images/segments/arcol.jpg" alt="Arcol" width="100%"></a>
+<br><sub><b>Arcol</b> — Figma-style collaborative concept BIM. Source: <a href="https://arcol.io">arcol.io</a></sub>
+</td>
+</tr>
+</table>
 
 ### Segment 3 — Real-Estate Feasibility & Developer-Facing Tools
 
@@ -145,10 +178,26 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 | **[TestFit](https://www.testfit.io)** | Cloud | Site Solver paid (quote); Urban Planner has free tier | Pro forma + automatic parking/earthwork takeoffs; Revit + SketchUp + AutoCAD push; conceptual cost estimation (5.4 release) |
 | **[Spacio](https://www.spacio.ai)** | Cloud SaaS | Free, Personal, Pro (no public USD) | Norway-centric, Norkart import; IFC/Rhino/SketchUp interop |
 | **[Giraffe](https://www.giraffe.build)** | Cloud (browser) | Free tier; Core $1,000/yr/user; Portfolio $3,000/yr/user; Enterprise | GIS-first; live pro-forma metrics; IFC export |
+| **[Davis](https://www.davis.archi)** | Cloud (browser) | Quote | France (Paris); €4.6M / $5.5M pre-seed May 2026 co-led Heartcore + Balderton (with Yellow, Evantic, Entrepreneurs First); "Gaudi-1" generative model producing volumetrics + floorplans + space planning under regulatory constraints. |
+| **[qbiq](https://www.qbiq.ai)** | Cloud SaaS | Enterprise quote | Israel; Series A; AI space planning producing 2D/3D test-fits + Revit/CAD in 24 hours; used by JLL. |
+| **[Higharc](https://higharc.com)** | Cloud | Enterprise quote | USA; Series B $53M Feb 2024 (~$78.7M total); generative AI for code-compliant residential floor plans + materials estimating + 3D sales. |
 | **[Archistar](https://www.archistar.ai)** | Cloud | Quote (~$299/mo+ tier reported) | Site-level feasibility; zoning-rule database (AU/NZ/UK) |
 | **[Zenerate](https://zenerate.ai)** | Cloud | Enterprise quote | Multi-family yield; Korean origin |
 
 **Maturity.** Consolidating. TestFit is dominant in US multi-family; Giraffe owns master-planning + GIS niche.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.testfit.io/product/site-solver"><img src="../assets/images/segments/testfit.png" alt="TestFit Site Solver" width="100%"></a>
+<br><sub><b>TestFit Site Solver</b> — 2D-to-3D massing with live pro-forma and parking takeoffs. Source: <a href="https://www.testfit.io/product/site-solver">testfit.io</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.giraffe.build"><img src="../assets/images/segments/giraffe.jpg" alt="Giraffe" width="100%"></a>
+<br><sub><b>Giraffe</b> — GIS-first master-planning with live KPI metrics. Source: <a href="https://www.giraffe.build">giraffe.build</a></sub>
+</td>
+</tr>
+</table>
 
 ### Segment 4 — Generative Floor-Plan / Unit-Layout AI
 
@@ -189,6 +238,19 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 
 **Swiss-context note.** **Luucy** is the only player in this segment with native, productised integration of Swiss federal/cantonal geodata (swisstopo, ÖREB, BZO). **ArcGIS Urban** can consume swisstopo via OGC services but is buyer-configured. **VU.CITY** is relevant only if a Swiss city has been modelled.
 
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.luucy.ch"><img src="../assets/images/segments/luucy.jpg" alt="Luucy" width="100%"></a>
+<br><sub><b>Luucy</b> (CH) — Swiss-native parametric massing on swisstopo / ÖREB / BZO data; SBB Lausanne site shown. Source: <a href="https://www.luucy.ch">luucy.ch</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.esri.com/en-us/arcgis/products/arcgis-urban/overview"><img src="../assets/images/segments/arcgis-urban.png" alt="Esri ArcGIS Urban" width="100%"></a>
+<br><sub><b>Esri ArcGIS Urban</b> — formal zoning + scenario analytics with 3D city massings. Source: <a href="https://www.esri.com/en-us/arcgis/products/arcgis-urban/overview">esri.com</a></sub>
+</td>
+</tr>
+</table>
+
 ### Segment 6 — Environmental & Building Performance Simulation
 
 **Definition.** The Rhino-Grasshopper-anchored simulation ecosystem plus its cloud successors and the daylight / energy / wind specialists. Differentiator: methodological transparency, validated engines (Radiance, EnergyPlus, OpenFOAM), and Rhino / Revit ecosystem fit. *(Merged from former Segments 7, 8 and 9 — same buyer, same Rhino+Revit+EnergyPlus/Radiance backbone, previously over-split.)*
@@ -222,10 +284,24 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 |---|---|---|---|
 | **[Sefaira (Trimble)](https://sketchup.trimble.com/products/sefaira)** | Cloud + SketchUp + Revit plugins | Subscription via Trimble | Annual energy + daylight; HVAC sizing |
 | **[Autodesk Insight](https://insight.autodesk.com)** | Revit-native + cloud | Included with AEC Collection | Revit-integrated performance and total-carbon analysis; the in-Revit alternative to Forma |
+| **[EQUA IDA ICE](https://www.equa.se)** | Desktop | Subscription | Sweden (Solna; CH support via Solutions, Zug); multi-zone dynamic simulation; **widely used for SIA 380 / Minergie in Switzerland**. |
+| **[DesignBuilder](https://designbuilder.co.uk)** | Desktop + cloud | Subscription | UK; EnergyPlus front-end; dominant LEED/BREEAM tool. |
+| **[Fraunhofer WUFI](https://wufi.de)** | Desktop | Subscription | Germany (Fraunhofer IBP); hygrothermal envelope simulation; **DACH standard** for moisture-risk analysis. |
 | **[IES VE](https://www.iesve.com)** | Desktop / cloud | Quote | Full TM52/TM54 compliance |
+| **[OpenStudio (NREL)](https://openstudio.net)** | Desktop + SDK | Free / open-source | EnergyPlus front-end + SDK; common for academic / research workflows. |
+| **[TRNSYS](https://www.trnsys.com)** | Desktop | License-based | USA/BE; transient-systems simulation; mature reference for HVAC + solar thermal. |
 | **[VELUX Daylight Visualizer](https://www.velux.com)** | Desktop | Free | Daylight factor; quick studies |
 
 **Maturity.** Mature. This is the most credible analytical stack for a federal real-estate organisation that prioritises method transparency and standards alignment.
+
+<table>
+<tr>
+<td width="100%">
+<a href="https://www.solemma.com/climatestudio"><img src="../assets/images/segments/climatestudio.jpg" alt="ClimateStudio" width="100%"></a>
+<br><sub><b>ClimateStudio (Solemma)</b> — Rhino-based daylight, glare, energy, and comfort analysis (RADIANCE + EnergyPlus). Source: <a href="https://www.solemma.com/climatestudio">solemma.com</a></sub>
+</td>
+</tr>
+</table>
 
 ### Segment 7 — Early-Stage Cost & Embodied-Carbon Estimators
 
@@ -238,7 +314,11 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 | Product | Origin | Hosting | Pricing | Notes |
 |---|---|---|---|---|
 | **[Keevalue](https://www.keevalue.ch)** | **Switzerland** | Cloud SaaS (CH vendor) | Not publicly listed | Baukostenschätzung / Baukostenberechnung "Für Architekten, Bauherren & Co." Swiss-domiciled vendor; verify eBKP-H / SIA 416 alignment, hosting region, and BIM intake at procurement. |
+| **[Messerli Informatik](https://www.messerli.ch)** | **Switzerland** (Spreitenbach, 45+ years) | Desktop + cloud | Subscription | Swiss Bauadministration suite with eCCC costing + IfA18 tendering. **Core BBL relevance.** |
+| **[Nevaris Build](https://www.nevaris.com)** | DE / AT (Hexagon) | Desktop + cloud | Subscription | AVA standard for DACH GCs; cost estimating + tendering. |
+| **[BRZ Schweiz](https://www.brz.eu)** | CH (Rotkreuz) / DE | Cloud + desktop | Subscription | Construction ERP + estimating; 12,500+ customers across DACH. |
 | **[BKI Baukosteninformationszentrum](https://bki.de)** | Germany (Architektenkammer-affiliated, Stuttgart) | Desktop + emerging web (**KoRa**, launching June 2026) | Tiered; free test versions; publications €92–€1,247+ | **BKI Kostenplaner** is the de-facto Architektenkammer cost-planning tool in DE; **BKI Objektdaten** is the canonical building-cost reference database; uses **DIN 276**. Companion tools: BKI Energieplaner (GEG), BKI Honorarermittler (HOAI), BKI IFC-Mengenermittler. |
+| **[fm-benchmarking.de](https://www.fm-benchmarking.de)** | Germany | Web platform | Subscription | FM operating-cost benchmarking database; reference layer for **operational-phase** cost estimating and lifecycle-cost (LCC) comparisons. Complements BKI on the SD-stage CapEx side. |
 | **[DBD-BIM (Dynamische BauDaten)](https://www.dbd.de/dbd-bim/)** | Germany (Dr. Schiller & Partner / DBD) | Online + offline | Free 7-day test; commercial quote | DIN 276 + STLB-Bau VOB + DIN BIM Cloud; real-time cost recalculation as properties change; integrates with 24+ AEC apps. |
 | **[RIB CostX (iTWO)](https://www.rib-software.com)** | Global (RIB / Schneider) | On-prem + SaaS | Quote-only | IFC + RVT; 5D BIM takeoff/estimating; supports the EC3 carbon-rate library. |
 | **[Nomitech CostOS](https://www.nomitech.com)** | Global | Cloud + desktop | Quote | Feasibility → detailed estimating; GIS/2D/BIM continuum; **classification-flexible engine** — most likely commercial product re-configurable to eBKP-H. |
@@ -255,7 +335,15 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 |---|---|---|---|
 | **[One Click LCA](https://www.oneclicklca.com)** | Cloud SaaS + plugins | Subscription, quote-based | Revit, Rhino+GH, Tekla, IES VE, DesignBuilder, IFC, Forma extension; EN 15978/15804, ISO 14040/14067, **RICS WLCA validated** (1st in world, July 2025), EU Level(s), DGNB. |
 | **[Preoptima](https://www.preoptima.com)** | Cloud SaaS | Subscription / quote | **Decision-centric** carbon comparison of structural / envelope options at concept stage (timber / hybrid / concrete); complements One Click LCA. |
-| **[Building Transparency EC3](https://www.buildingtransparency.org/ec3)** | Cloud (free) | Free + open access | A1–A3 EPD-based embodied carbon; tallyCAT Revit plugin; integrates ACC, Procore, cove, One Click LCA. |
+| **[vyzn](https://www.vyzn.tech)** | **Switzerland** (ETH spin-off) | Cloud SaaS | Subscription | First 3D/BIM-capable LCA web app on the Swiss market; **Minergie / SNBS-aligned**; KBOB datasets. Directly relevant for BBL. |
+| **[Building Transparency](https://www.buildingtransparency.org)** (operator) + **EC3** | Cloud (free) | Free + open access | Non-profit operator of **EC3** (A1–A3 EPD embodied carbon) and **tallyCAT** (free Revit plugin); integrates ACC, Procore, cove, One Click LCA. |
+| **[Tally / tallyLCA](https://choosetally.com)** | Cloud + Revit plugin | Subscription | Whole-building Revit LCA; **acquired by C.Scale 7 April 2026** to develop Tally 2.0 — treat current Tally as transitional. |
+| **[openLCA (GreenDelta)](https://www.openlca.org)** | Desktop + cloud | Free / open-source | Germany (Berlin); supports ecoinvent, Agri-footprint; the open-source professional LCA reference. |
+| **[SimaPro (PRé)](https://simapro.com)** | Desktop + cloud | License | Netherlands; flagship professional LCA software; widely used by consultants and academia. |
+| **[Sphera GaBi](https://sphera.com/life-cycle-assessment-lca-software)** | Desktop + cloud | License (ex-thinkstep) | Germany; enterprise-grade LCA; common in industrial-product and construction-materials LCAs. |
+| **[EcoChain](https://ecochain.com)** | Cloud SaaS | Subscription | Netherlands; manufacturer / SME-focused LCA + EPD generator. |
+| **[Athena IE4B](https://www.athenasmi.org)** | Desktop | Free | Canada; most-used WBLCA tool in North America; LEED-recognised. |
+| **[CAALA](https://www.caala.de)** | Cloud | Subscription | Germany; DGNB-aligned cost + CO₂ optimization for early design. |
 | **[2050 Materials](https://2050-materials.com)** | Cloud + REST API | Free web + commercial API | 150,000+ products, 100,000+ EPDs; acquired by Once For All Group in November 2025. |
 | **[cove (ex-cove.tool)](https://cove.inc)** | Cloud | Service fees | IP acquired by ROOST and continued as open source. |
 
@@ -268,6 +356,19 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 | **[Lesosai](https://lesosai.com)** / Bauteilkatalog | Switzerland (BFE / academic-industrial) | KBOB-aligned building-element LCA datasets | De-facto fallback when an international LCA tool can't natively load KBOB. |
 
 **Critical Swiss-cost-and-carbon gap.** No international cost tool is natively eBKP-H-aware. **Keevalue** (CH-native), **BKI Kostenplaner** + **DBD-BIM** (DACH DIN 276 anchors), and **CostOS** (classification-flexible global) are the main candidates today; all require buyer-side configuration. For carbon: **One Click LCA + custom KBOB dataset** is the closest plug-and-play candidate; **Bauteilkatalog / Lesosai** remain the de-facto KBOB-native fallback.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.oneclicklca.com"><img src="../assets/images/segments/oneclicklca.png" alt="One Click LCA" width="100%"></a>
+<br><sub><b>One Click LCA</b> — whole-building LCA cascade; first RICS WLCA-validated platform. Source: <a href="https://www.oneclicklca.com">oneclicklca.com</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.vyzn.tech"><img src="../assets/images/segments/vyzn.png" alt="vyzn" width="100%"></a>
+<br><sub><b>vyzn</b> (CH, ETH spin-off) — first 3D/BIM-capable LCA web app on the Swiss market; Minergie / SNBS-aligned with KBOB datasets. Source: <a href="https://www.vyzn.tech">vyzn.tech</a></sub>
+</td>
+</tr>
+</table>
 
 ### Segment 8 — Programmable / Developer-Platform Plays
 
@@ -377,6 +478,15 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 
 > **Cross-reference.** Segment 13 covers material passports **per project, during and after construction**. The **portfolio-scale "should we refurbish, deep-retrofit, or demolish?" screening question** — including upstream urban-mining estimation on existing stock — is handled in **Segment 20**. Swiss circular marketplaces (sumami, Salza, Bauteilbörse Basel, Bauteilnetz Schweiz) also sit primarily in Segment 20.
 
+<table>
+<tr>
+<td width="100%">
+<a href="https://madaster.com"><img src="../assets/images/segments/madaster.png" alt="Madaster" width="100%"></a>
+<br><sub><b>Madaster</b> — material passport platform with circularity index, environmental impact, and residual-value dashboards. Source: <a href="https://madaster.com">madaster.com</a></sub>
+</td>
+</tr>
+</table>
+
 ### Segment 14 — Code Compliance & Model Checking
 
 **Definition.** Tools that automate code research (text → applicable rules) and model checking (geometry → rule violations).
@@ -478,6 +588,10 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 | **[Asta Powerproject (Elecosoft)](https://www.elecosoft.com/asta-powerproject/)** | Desktop + cloud | Quote | UK construction-PMO favourite; schedule-strong. |
 | **[PMWeb](https://www.pmweb.com)** | Cloud + on-prem | Enterprise quote | Capital-projects PMO; common in Middle-East / public-sector procurement. |
 | **[OpenProject](https://www.openproject.org)** | Cloud + on-prem (open source) | Free / Enterprise | **EU-region self-hostable** (German vendor) — sovereignty-friendly. |
+| **[smino](https://smino.com)** | **Switzerland** (Rapperswil) | Cloud SaaS | Subscription | OpenBIM project room tailored for SIA workflows; ~17,000 users CH/DE/AT; cross-listed with Segment 21 (CDEs). |
+| **[PlanRadar](https://www.planradar.com)** | Austria (Vienna) | Cloud SaaS + mobile | Subscription | 150K+ users in 75+ countries; construction defect / snagging / inspection PM. |
+| **[Capmo](https://www.capmo.com)** | Germany (Munich) | Cloud SaaS | Subscription | Germany's #1 construction PM SaaS; site-team-focused. |
+| **[Sablono](https://www.sablono.com)** | Germany (Berlin) | Cloud SaaS | Subscription | Lean-process construction PM for very large projects; takt planning. |
 | **[Smartsheet](https://www.smartsheet.com)** / **[Monday.com](https://monday.com)** / **[Wrike](https://www.wrike.com)** / **[ClickUp](https://clickup.com)** | Cloud SaaS | Per-user subscriptions | Lightweight PPM; not capital-project-grade for federal portfolios. |
 | **Custom / federal "Cockpit" tools** (incl. pm-cockpit) | Varies | n/a | Public-administration thin dashboards on top of SAP / Excel / GIS; this prototype is in that pattern. |
 
@@ -487,6 +601,13 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 |---|---|---|---|
 | **[SAP S/4HANA Real Estate Management (RE-FX)](https://www.sap.com)** | On-prem + Private Cloud + S/4HANA Cloud (Lease only in Public Cloud) | SAP enterprise licensing | **Material for BBL given the SUPERB programme**; master data + architectural/usage views + portfolio analytics + lifecycle. |
 | **[Planon Real Estate Management for SAP S/4HANA](https://planonsoftware.com)** | Cloud + on-prem | SAP Store | **SAP–Planon partnership May 2023** — the joint productised IWMS layer; SAP Cloud for Real Estate retired as separate target architecture. |
+| **[IBM TRIRIGA](https://www.ibm.com/products/tririga)** | Cloud + on-prem | Enterprise quote | USA; Gartner-leading IWMS; broadly used by large public-sector and corporate owners. |
+| **[Archibus (Eptura)](https://www.archibus.com)** | Cloud + on-prem | Enterprise quote | USA; globally most-used IWMS by seat count; space + asset + portfolio management. |
+| **[Spacewell (Nemetschek)](https://spacewell.com)** | Belgium | Cloud SaaS | Subscription | **Nemetschek's IWMS answer**; IWMS + IoT; BIM-integrated; relevant for BBL's BIM-to-FM mandate. |
+| **[FM:Systems (Johnson Controls)](https://fmsystems.com)** | USA | Cloud + on-prem | Enterprise quote | Established IWMS; common in US federal / corporate FM. |
+| **[MRI Software](https://www.mrisoftware.com)** | USA | Cloud + on-prem | Enterprise quote | Established real-estate property management + IWMS. |
+| **[Yardi Voyager](https://www.yardi.com)** | USA | Cloud SaaS | Enterprise quote | Established CRE property management ERP. |
+| **[Nuvolo](https://www.nuvolo.com)** | USA | Cloud SaaS | Enterprise quote | ServiceNow-based connected workplace + IWMS. |
 | **[Rizing Mercury (SAP ↔ Esri)](https://rizing.com)** | On-prem / hybrid | Quote | Bidirectional sync between RE-FX and ArcGIS / SAP GEF; the credible GIS-aware SAP real-estate pattern. |
 
 **Cross-references.** Segment 19 is the downstream consumer of every other segment's outputs:
@@ -545,6 +666,122 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months �
 - Segment 7b — feeds per-project retrofit-vs-demolish carbon comparisons once a project enters scope.
 - Segment 10 — climate risk feeds portfolio prioritisation when adaptation drives renovation.
 - Segment 19 — the natural surface for refurbishment-portfolio KPIs.
+
+### Segment 21 — Common Data Environments (CDEs)
+
+**Definition.** ISO 19650-aligned shared workspaces where federated BIM models, drawings, RFIs, and BCF issues live for the duration of a project. **Distinct from Segment 19 EPPM** — CDEs hold the *technical* project information (models, issues, document control) while EPPM holds the *portfolio* KPI layer above.
+
+**Persona.** BIM coordinators, project information managers, ISO 19650-bound public-sector clients, multi-disciplinary teams managing federated models.
+
+| Product | Origin | Hosting | Notable |
+|---|---|---|---|
+| **[Catenda Hub](https://catenda.com)** (ex-Bimsync) | Norway | Cloud | OpenBIM-native CDE; ISO 19650; unlimited collaborators on enterprise tier |
+| **[Dalux Box / Field / FM](https://www.dalux.com)** | Denmark | Cloud + mobile | ISO 19650-compliant; claimed "world's fastest BIM viewer"; widely used in Nordic and DACH public-sector projects |
+| **[BIMcollab Cloud + ZOOM](https://www.bimcollab.com)** | Netherlands | Cloud + desktop viewer | BCF-based issue management + IFC validation; integrates with Revit / Archicad / Tekla |
+| **[Revizto](https://revizto.com)** | **Switzerland (Lausanne)** + USA | Cloud + desktop | Issue tracking + BIM federation; **Swiss-headquartered**; widely used by large GCs and design firms |
+| **[thinkproject](https://www.thinkproject.com)** | Germany | Cloud | Five Arrows-backed; AI-augmented governed CDE; strong DACH adoption |
+| **[smino](https://smino.com)** | **Switzerland (Rapperswil)** | Cloud | OpenBIM project room tailored for SIA workflows; ~17,000 users across CH/DE/AT |
+| **[Asite](https://www.asite.com)** | UK | Cloud | Strong UK public-sector / ISO 19650 adoption |
+| **[Newforma Konekt / Project Center](https://www.newforma.com)** | USA / UK | Cloud + on-prem | Established North American CDE / project-information-management platform |
+| **[Bricsys 24/7](https://www.bricsys.com/24-7)** | Belgium (Hexagon) | Cloud | CDE companion to BricsCAD |
+| **[LetsBuild](https://www.letsbuild.com)** | Belgium | Cloud | Ex-Aproplan / GenieBelt; acquired by Causeway December 2025 |
+
+**Swiss-context note.** **Revizto** and **smino** are Swiss-domiciled and the most defensible CDE candidates for an ISO 19650-aligned federal procurement; Revizto's strength is BIM federation + issue tracking, smino's is SIA-workflow fit. Both should be evaluated against Catenda and Dalux for any federal CDE pilot.
+
+<table>
+<tr>
+<td width="33%" valign="top">
+<a href="https://catenda.com"><img src="../assets/images/segments/catenda.webp" alt="Catenda Hub" width="100%"></a>
+<br><sub><b>Catenda Hub</b> — OpenBIM-native CDE with federated BIM viewer. Source: <a href="https://catenda.com">catenda.com</a></sub>
+</td>
+<td width="33%" valign="top">
+<a href="https://www.dalux.com"><img src="../assets/images/segments/dalux.webp" alt="Dalux Field" width="100%"></a>
+<br><sub><b>Dalux Field</b> — ISO 19650-compliant CDE with cross-device BIM viewing. Source: <a href="https://www.dalux.com">dalux.com</a></sub>
+</td>
+<td width="33%" valign="top">
+<a href="https://revizto.com"><img src="../assets/images/segments/revizto.webp" alt="Revizto" width="100%"></a>
+<br><sub><b>Revizto</b> (CH, Lausanne) — unified 2D/3D collaboration and issue tracking. Source: <a href="https://revizto.com">revizto.com</a></sub>
+</td>
+</tr>
+</table>
+
+### Segment 22 — Reality Capture / Scan-to-BIM
+
+**Definition.** Hardware + software platforms that produce 3D point clouds, photogrammetry, or as-built BIM models from existing buildings. Increasingly critical for **renovation portfolios** (which is most of BBL's workload) where reliable as-built geometry is the upstream input for every other tool.
+
+**Persona.** Surveyors, BIM coordinators on renovation projects, FM teams documenting existing stock.
+
+| Product | Origin | Form factor | Notable |
+|---|---|---|---|
+| **[Leica BLK360 / BLK2GO / RTC360](https://leica-geosystems.com)** | **Switzerland (Hexagon)** | Hardware + cloud | Survey-grade LiDAR (±4 mm at 10 m); **Swiss-headquartered manufacturer**; the gold-standard for Swiss surveying offices |
+| **[Matterport](https://matterport.com)** | USA (CoStar-owned since April 2024, ~$2.1B equity / ~$1.6B EV) | Cloud capture + 360 cam / Pro 3 hardware | Largest digital-twin capture network; integrated with CoStar property platform |
+| **[NavVis VLX 3](https://www.navvis.com)** | Germany (Munich) | Hardware + cloud | Wearable mobile mapping for large indoor spaces; common in industrial / public-facility scans |
+| **[FARO Focus / Orbis](https://www.faro.com)** | USA (Lake Mary, FL) | Hardware + Scene software | Long-established laser scanner family; widespread in EU and US surveying |
+| **[Trimble X7 / X12](https://www.trimble.com)** | USA | Hardware + RealWorks software | Survey-grade scanner; integrates with Trimble Connect CDE |
+| **[NavLive](https://www.navlive.com)** | UK (Oxford spin-out, 2024) | Hardware + service | £25K rapid SLAM scan-to-2D-drawings unit; emerging price-disruption tier |
+| **[Pix4D](https://www.pix4d.com)** | **Switzerland (Prilly)** | Software (photogrammetry) | Swiss-origin photogrammetry suite; widely used for drone-based as-built capture |
+
+**Swiss-context note.** Two of the most credible vendors are Swiss-domiciled: **Leica Geosystems** (Hexagon-owned, but engineered in Heerbrugg/St. Gallen) for survey-grade LiDAR, and **Pix4D** (Prilly) for drone photogrammetry. **Matterport** since the CoStar acquisition is increasingly bundled with CRE platforms (Segment 11) rather than sold as a standalone reality-capture vendor.
+
+<table>
+<tr>
+<td width="100%">
+<a href="https://matterport.com"><img src="../assets/images/segments/matterport.jpg" alt="Matterport" width="100%"></a>
+<br><sub><b>Matterport</b> — 3D digital-twin capture; the dollhouse-view output that's become an industry shorthand. Now part of CoStar (acquired April 2024). Source: <a href="https://matterport.com">matterport.com</a></sub>
+</td>
+</tr>
+</table>
+
+### Segment 23 — Digital Twin Operations Platforms
+
+**Definition.** Operations-stage digital twins that ingest BIM + IoT + FM data to support live building / portfolio operations. Overlaps with Segment 19b (RE ERP / IWMS) but is more **data-platform** than **system-of-record** — focuses on real-time sensor ingestion, ML / AI optimisation, and BIM-to-operations handover.
+
+**Persona.** FM directors, owner-occupier sustainability teams, energy managers, smart-building integrators. Increasingly required by ESG / EPBD operational-energy reporting.
+
+| Product | Origin | Type | Notable |
+|---|---|---|---|
+| **[Siemens Building X / Building Twin](https://www.siemens.com/global/en/products/buildings/digital-building-lifecycle/building-twin.html)** | Germany | Cloud + on-prem | AI-based operations twin; integrates with Desigo BMS; major DACH installations |
+| **[Bentley iTwin Platform](https://www.bentley.com/software/itwin-platform)** | USA | Cloud + SDK | Infrastructure-scale twin; integrates Siemens Desigo, Honeywell Forge; openBIM-friendly |
+| **[Autodesk Tandem](https://intandem.autodesk.com)** | USA | Cloud SaaS | Operations twin in the Autodesk stack; BIM-to-FM handover; Revit-native |
+| **[Willow Twin](https://willowinc.com)** | Australia / USA | Cloud SaaS | Building / portfolio twin; reported 29% whole-building energy reduction at a Sydney installation |
+| **[IBM TRIRIGA + Maximo](https://www.ibm.com/maximo)** | USA | Cloud + on-prem | Twin + IWMS + asset management; deep integration with operations data |
+| **[BuildingMinds](https://buildingminds.com)** | Germany (Schindler-backed) | Cloud SaaS | Portfolio-twin + ESG / CSRD reporting; 150+ staff across 40 countries |
+| **[Johnson Controls OpenBlue](https://www.johnsoncontrols.com/openblue)** | USA | Cloud + edge | Operations twin layered on Metasys BMS; large global FM footprint |
+| **[Microsoft Azure Digital Twins](https://azure.microsoft.com/en-us/products/digital-twins)** | USA | Cloud platform | DTDL schema; underpins many vendor offerings as the data platform layer |
+
+**Swiss-context note.** **Siemens Building X** (DACH) and **BuildingMinds** (Schindler-funded, German-Swiss) are the most defensible Continental-European twin platforms. **Bentley iTwin** is the credible choice when infrastructure-asset twins are involved.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.siemens.com/global/en/products/buildings/digital-building-lifecycle/building-twin.html"><img src="../assets/images/segments/siemens-building-x.jpg" alt="Siemens Building X" width="100%"></a>
+<br><sub><b>Siemens Building X / Building Twin</b> — BIM + IoT operations twin layered on Desigo BMS. Source: <a href="https://www.siemens.com/global/en/products/buildings/digital-building-lifecycle/building-twin.html">siemens.com</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.bentley.com/software/itwin-platform/"><img src="../assets/images/segments/bentley-itwin.jpg" alt="Bentley iTwin Platform" width="100%"></a>
+<br><sub><b>Bentley iTwin Platform</b> — infrastructure-scale digital twin; integrates Desigo and Honeywell Forge. Source: <a href="https://www.bentley.com/software/itwin-platform">bentley.com</a></sub>
+</td>
+</tr>
+</table>
+
+### Segment 24 — e-Permitting / Digital Building Authority
+
+**Definition.** Platforms that digitise the building-permit application, review, and approval workflow. For Swiss federal real estate this is a cantonal / federal-coordination space, not a single market.
+
+**Persona.** Cantonal/federal building authorities, applicants (architects, owners) submitting Baugesuche, EU consortia exploring digital permit-checking.
+
+| Product | Origin | Type | Notable |
+|---|---|---|---|
+| **[eBau (inosca / Camac)](https://www.inosca.ch)** ([code on GitHub](https://github.com/inosca/ebau)) | **Switzerland (Lucerne)** | EUPL open-source | In production in cantons **Bern, Graubünden, Schwyz, Solothurn, Uri**; the de-facto Swiss federal e-permitting reference. |
+| **[eBaugesucheZH](https://www.zh.ch/de/planen-bauen/baugesuch.html)** | **Switzerland (Kanton Zürich)** | Cantonal portal | Mandatory since April 2024 for Zurich-canton building applications |
+| **[Symbium](https://symbium.com)** | USA | Cloud SaaS | Instant residential permitting (PV / ESS / ADU); integrates Accela, Tyler |
+| **[GreenLite](https://greenlite.com)** | USA (NY / Austin) | Cloud SaaS | AI-assisted plan review; Series B $49.5M Sept 2025 led by Insight Partners; ~$86M total |
+| **[Pulley](https://pulley.com)** | USA (SF) | Cloud SaaS | Multi-jurisdiction permitting |
+| **[PermitFlow](https://permitflow.com)** | USA | Cloud SaaS | Contractor permit workflow automation |
+| **[Future Insight (Clearly.BIM)](https://www.futureinsight.nl)** | Netherlands | Cloud SaaS | BIM-driven permit-checking; built the Estonian EHR pilot |
+| **[ACCORD Project](https://accordproject.eu)** | EU Horizon Europe consortium (2022–2025) | Research framework | Semantic framework for digital building permits; piloted in FI/EE/DE/ES/UK |
+
+**Swiss-context note.** Swiss e-permitting is **canton-operated**, not federal — **inosca's eBau** covers the largest contiguous footprint (5 cantons including Bern). Federal coordination runs via **eOperations Schweiz**, not a vendor. ZH operates eBaugesucheZH independently. For BBL projects, expect to interact with whichever cantonal platform the site falls under.
 
 ---
 
