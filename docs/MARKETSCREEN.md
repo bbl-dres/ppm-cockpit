@@ -1,14 +1,23 @@
-# Market Screening: Architectural Simulation & Design Tools for Early Design Stages
+# Market Screening: Software & Platforms across the Construction Project Lifecycle
+
+A descriptive market scan of software tools, platforms, datasets, and frameworks that touch the Swiss federal construction project lifecycle — from existing-stock screening and site selection, through design, simulation, certification, cost, carbon, delivery, and portfolio management. The goal is to map the landscape; this document does not make procurement recommendations.
 
 ## TL;DR
-- The early-design and project-delivery tooling market spans **~22 segments** along two axes: (a) **stage/scale of design, delivery, and stewardship** (existing-stock screening / urban mining → site/urban → massing → unit layouts → performance simulation → cost/carbon → compliance/handoff → certification/ecology → portfolio/PMO), and (b) **buyer** (architects, real-estate developers, planners, sustainability consultants, civil engineers, QS / cost planners, code consultants, lenders/insurers, certification assessors, ecologists, portfolio/asset-owner PMOs, renovation strategists). The most consolidated battleground is the "BIM 2.0 / browser-native concept design" cluster (Autodesk Forma, Snaptrude, Arcol, Motif, Qonic) where Autodesk's Spacemaker → Forma move has set the integration bar. But the **buyers who block or kill projects** sit outside that cluster — planners, civil engineers, insurers, QS, code consultants, certification assessors, portfolio PMOs, renovation strategists — and they buy from different vendors. **pm-cockpit itself sits in Segment 21 (Enterprise Project Portfolio Management)**, downstream of every other segment, with a natural extension surface into **Segment 22 (refurbishment / urban-mining portfolio screening)** — directly relevant for the federal Sanierungsstrategie workload.
-- No single product covers the full functional brief (generative options + per-storey program + solar/wind/microclimate/daylight/noise + embodied carbon + early-stage cost + civil/infrastructure + climate risk + code compliance + circularity + GIS + BIM export). The realistic operating model for BBL is a **stack of 5–8 tools** organised around three decision gates: (i) **can we build here?** (Luucy or Giraffe or ArcGIS Urban + InfraWorks / OpenSite+ + a climate-risk screen) — (ii) **what's the right shape and performance envelope?** (Forma + Rhino/Grasshopper + One Click LCA + Preoptima) — (iii) **does it pencil, comply, and circulate?** (CostX or CostOS + UpCodes/Solibri + Madaster).
-- The clearest white spaces are: (1) **regionally-aligned cost taxonomies** (eBKP-H, BKI, DIN 276) — none of the major early-design tools support them out of the box; (2) **integrated multi-KPI dashboards** that combine embodied carbon, operational energy, daylight, cost, and **physical climate risk** against Swiss benchmarks (KBOB, SNBS 2.1, BAFU Gefahrenkarten); (3) **data residency in Swiss-sovereign cloud** — almost every vendor is hosted on US hyperscalers, an ISG / Public Clouds Bund question that should be raised early; (4) **Swiss code/zoning compliance automation** beyond BZO ingestion. **Luucy (Swiss SaaS, swisstopo / ÖREB / BZO integration)** is the only reviewed player that natively addresses (3) and partially closes the zoning gap.
-- Regulatory tailwind to keep in view: the **revised EU EPBD** introduces life-cycle Global Warming Potential (GWP) disclosure for **larger new buildings from 2028** and **all new buildings from 2030**. Switzerland is not bound, but EU-aligned procurement (and BBL's own SNBS / KBOB direction) makes this the de-facto baseline. **IFC 4.3** is now published as **ISO 16739-1:2024** and should be the floor for any interoperability requirement. The **RICS Whole Life Carbon Assessment (WLCA) Software Validation Programme (2nd edition, July 2025)** is becoming the credibility test for LCA tools — **One Click LCA** is the first validated platform.
+- The construction project software market organises into **~23 segments** along two axes: (a) **stage/scale of activity** (existing-stock / urban-mining screening → location intelligence & risk → site / urban planning → massing → unit layouts → environmental and building simulation → cost & embodied carbon → civil/infrastructure → certification & ecology → delivery / portfolio / PMO), and (b) **buyer** (architects, real-estate developers, planners, sustainability consultants, civil engineers, QS / cost planners, code consultants, lenders / insurers, certification assessors, ecologists, portfolio / asset-owner PMOs, renovation strategists, real-estate analysts). No single segment, and no single vendor, covers the lifecycle end-to-end; the market is segmented around different buyer journeys.
+- The most consolidated battleground is the "BIM 2.0 / browser-native concept design" cluster (Autodesk Forma, Snaptrude, Arcol, Motif, Qonic) where Autodesk's Spacemaker → Forma move has set the integration bar. But the **buyers who block or kill projects** sit outside that cluster — planners, civil engineers, insurers, QS, code consultants, certification assessors, portfolio PMOs, renovation strategists — and they buy from different vendors. Many of the most consequential Swiss-specific layers (swisstopo, ÖREB / BZO, KBOB, eBKP-H, GEAK, SNBS, GWR) are not first-class citizens in international platforms; the Swiss-domiciled productised players (Luucy for site/zoning, Keevalue for cost, Madaster Switzerland for circularity, NCCS / BAFU layers for climate / hazard) are the most defensible answers where Swiss alignment matters.
+- The clearest white spaces in the market are: (1) **regionally-aligned cost taxonomies** (eBKP-H, BKI, DIN 276) — none of the major design-stack tools support them out of the box; (2) **integrated multi-KPI dashboards** that combine embodied carbon, operational energy, daylight, cost, and **physical climate risk** against Swiss benchmarks (KBOB, SNBS 2023.1, BAFU Gefahrenkarten, NCCS CH2025); (3) **data residency in Swiss-sovereign cloud** — almost every international vendor is hosted on US hyperscalers; (4) **Swiss code / zoning compliance automation** beyond BZO ingestion; (5) **commercial real-estate climate valuation** — per the climate-check models registry, "no commercial real estate climate valuation tool exists" combining transition + physical risk + market value in a single offering.
+- Regulatory and standards context: the **revised EU EPBD** introduces life-cycle Global Warming Potential (GWP) disclosure for **larger new buildings from 2028** and **all new buildings from 2030**. Switzerland is not bound, but EU-aligned procurement (and the SNBS / KBOB direction) makes this the de-facto baseline. **IFC 4.3** is now published as **ISO 16739-1:2024** and is becoming the interoperability floor. The **RICS Whole Life Carbon Assessment (WLCA) Software Validation Programme (2nd edition, July 2025)** is emerging as a credibility test for LCA tools — **One Click LCA** is the first validated platform. **NCCS Climate Scenarios CH2025** has superseded CH2018 as the federal Swiss climate-projection baseline.
 
 ## Key Findings
 
-**Twenty-two market segments identified.** They overlap on functional dimensions but have distinct value propositions, buyers, and competitive sets. Segments 1–12 are the **design-and-performance core**; segments 13–18 are the **adjacent buyer gates** (planning, civil, risk, cost, compliance, circularity, delivery model, mobility) that determine whether a design ever gets built; segments 19–20 are the **outcome / ecology layers** (formal building-label certification, biodiversity / ecological analysis) that increasingly drive procurement requirements; segment 21 is the **portfolio / PMO layer** — the system of record under which all the others are reported, prioritised, and steered; segment 22 is the **existing-stock / refurbishment / urban-mining layer** that operates upstream of new project scoping, on what BBL already owns. **pm-cockpit is a Segment-21 prototype with a natural extension into Segment 22.**
+**Twenty-three market segments identified.** They overlap on functional dimensions but have distinct value propositions, buyers, and competitive sets:
+
+- **Segments 1–12 — design-and-performance core.** Integrated AI early-design, BIM 2.0, feasibility, generative floor plans, urban planning, parametric massing, Rhino/Grasshopper simulation, wind/CFD, daylight/energy, cost & carbon (10a/10b), programmable platforms, AI rendering.
+- **Segments 13–18 — adjacent buyer gates.** Climate risk, civil/infrastructure concept design, circularity & material passports, code compliance & model checking, industrialized housing, mobility & pedestrian analytics.
+- **Segments 19–20 — outcome / ecology layers.** Building sustainability certifications & labels, biodiversity & ecological analysis.
+- **Segment 21 — portfolio / PMO layer.** Enterprise project portfolio management; the system of record under which all the others are reported.
+- **Segment 22 — existing-stock / refurbishment / urban-mining.** Pre-project screening of the built stock for retrofit-vs-demolish prioritisation and material-recovery potential.
+- **Segment 23 — location intelligence (market value, environmental & carbon risk).** Real-estate valuation, multi-hazard data layers, carbon-stranding & transition-risk models, and the public datasets that feed all of them.
 
 1. Integrated AI early-design / site planning platforms
 2. Browser-native concept BIM ("BIM 2.0")
@@ -257,7 +266,7 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 | **Jupiter Intelligence** | Cloud SaaS | Quote (enterprise) | Portfolio + compliance workflows; strategic relationship with JLL expanded in 2025 |
 | **First Street** | Cloud + API | Quote; some asset-level freemium lookup | Property-level risk and financial-impact screening; deepest US data, increasing global coverage |
 
-**Swiss-context note.** Authoritative Swiss climate-hazard data lives in **BAFU Gefahrenkarten** (cantonal hazard maps), **CH2018 scenarios**, and the cantonal Naturgefahren-Portale. Vendors above typically rely on global hazard models; for federal-portfolio diligence they should be cross-referenced against BAFU and cantonal sources rather than treated as ground-truth. **No vendor reviewed makes BAFU data first-class.**
+**Swiss-context note.** Authoritative Swiss climate-hazard data lives in **BAFU Gefahrenkarten** (cantonal hazard maps), **NCCS Climate Scenarios CH2025** (which supersede CH2018), **ERM-CH23** (national earthquake model, 2M+ buildings), and the cantonal Naturgefahren-Portale aggregated via geodienste.ch. The international vendors in this segment typically rely on global hazard models rather than these Swiss layers. See Segment 23d for the full Swiss public dataset inventory.
 
 ### Segment 14 — Civil / Infrastructure Concept Design
 
@@ -431,36 +440,67 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 - Segment 13 (Climate risk) — feeds portfolio prioritisation when adaptation drives renovation.
 - Segment 21 (EPPM, including pm-cockpit) — the natural surface for refurbishment-portfolio KPIs once they exist.
 
-### Cross-Segment Capability Matrix
+### Segment 23 — Location Intelligence (Market Value, Environmental & Carbon Risk)
 
-Legend: ●  full coverage · ◐ partial · ○ none
+**Definition.** Tools, datasets, and models that quantify what a location is *worth*, what *risks* it carries (physical hazards, environmental, transition / carbon-stranding), and how those interact. This is **upstream of design** — used by owners and lenders to decide *whether* and *where* to commit capital — and **upstream of, but feeding,** Segment 13 (climate-risk specialists). Where Segment 13 is the **commercial physical-risk vendor layer** (Climate X, Jupiter, First Street), Segment 23 is the **broader market-value + risk + data-source layer** beneath and around it.
 
-| Segment | Gen options | Massing | Per-storey use | Solar/PV | Wind/CFD | Microclim | Daylight | Noise | Embod. carbon | Op. energy | Cost | Climate risk | Code/compl. | Civil/infra | Compare | GIS | BIM export |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1. Integrated AI (Forma) | ● | ● | ● | ● | ◐ | ◐ | ● | ● | ● | ● | ○ | ○ | ○ | ○ | ● | ● | ● |
-| 2. BIM 2.0 (Snaptrude/Arcol) | ◐ | ● | ● | ◐ | ○ | ○ | ◐ | ○ | ○ | ○ | ◐ | ○ | ○ | ○ | ● | ◐ | ● |
-| 3. Feasibility (TestFit) | ● | ● | ● | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ○ | ○ | ○ | ● | ● | ● |
-| 4. Floor-plan AI (Finch/ARCHITEChTURES) | ● | ● | ● | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ○ | ○ | ○ | ● | ◐ | ● |
-| 5. Urban platforms (Giraffe / ArcGIS Urban / VU.CITY) | ◐ | ● | ◐ | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ○ | ◐ | ○ | ● | ● | ◐ |
-| 5b. Urban (Luucy — CH) | ◐ | ● | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ (BZO only) | ○ | ● | ● (swisstopo / ÖREB / BZO native) | ◐ |
-| 6. Parametric massing (Modelur / DBF) | ◐ | ● | ● | ◐ | ○ | ○ | ○ | ○ | ◐ | ○ | ◐ | ○ | ○ | ○ | ● | ● | ● |
-| 7. Rhino-GH sim (Ladybug / Pollination / CS) | ◐ | ● | ● | ● | ● | ● | ● | ○ | ◐ | ● | ○ | ○ | ○ | ○ | ● | ● | ● |
-| 8. Wind/CFD (Orbital Stack / SimScale) | ○ | ● | ○ | ○ | ● | ● | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ◐ | ◐ |
-| 9. Daylight/energy (Sefaira / Insight / IES VE) | ○ | ● | ● | ● | ○ | ◐ | ● | ○ | ◐ | ● | ◐ | ○ | ○ | ○ | ◐ | ◐ | ● |
-| 10a. Cost (DESTINI / CostX / CostOS / **BKI** / **DBD-BIM** / **Keevalue**) | ○ | ◐ | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ● | ○ | ○ | ○ | ● | ● | ● |
-| 10b. Carbon (One Click LCA / Preoptima / EC3 / 2050 Materials) | ○ | ◐ | ◐ | ○ | ○ | ○ | ○ | ○ | ● | ◐ | ◐ | ○ | ○ | ○ | ● | ● | ● |
-| 11. Programmable (Hypar) | ● | ● | ● | ◐ | ○ | ○ | ◐ | ○ | ◐ | ◐ | ◐ | ○ | ○ | ○ | ● | ● | ● |
-| 12. AI renders (Veras) | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ |
-| 13. Climate risk (Climate X / Jupiter / First Street) | ○ | ○ | ○ | ○ | ○ | ◐ | ○ | ○ | ○ | ○ | ◐ (CapEx) | ● | ○ | ○ | ● | ● | ○ |
-| 14. Civil/infra (InfraWorks / OpenSite+) | ◐ | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ○ | ◐ | ● | ● | ● | ● |
-| 15. Circularity (Madaster) | ○ | ○ | ◐ | ○ | ○ | ○ | ○ | ○ | ● | ○ | ◐ (residual) | ○ | ○ | ○ | ● | ◐ | ● (IFC in) |
-| 16. Code / model checking (UpCodes / Verifi3D / Solibri) | ○ | ○ | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ● | ○ | ◐ | ○ | ● |
-| 17. Modular housing (Modulous TESSA) | ● | ● | ● | ○ | ○ | ○ | ○ | ○ | ● | ◐ | ● | ○ | ◐ | ○ | ● | ◐ | ● |
-| 18. Mobility (PTV Visum / LEGION) | ○ | ○ | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ (op-cost) | ○ | ○ | ◐ | ● | ● | ◐ |
-| 19. Certifications (SNBS / Minergie / DGNB / LEED / BREEAM) | ○ | ○ | ○ | ◐ | ○ | ○ | ◐ | ○ | ● | ● | ◐ | ○ | ● | ○ | ● | ◐ | ◐ |
-| 20. Biodiversity (Defra BNG / InfoSpecies / BAFU layers) | ○ | ○ | ○ | ○ | ○ | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ● | ○ |
-| 21. EPPM (Primavera / ACC / Procore / Cockpits) | ○ | ○ | ◐ | ○ | ○ | ○ | ○ | ○ | ◐ (KPI) | ◐ (KPI) | ● (KPI) | ◐ (KPI) | ○ | ◐ | ● | ◐ | ◐ |
-| 22. Refurbishment / urban mining (Madaster Portfolio / Revitalyze UMS / GEAK / Concular) | ◐ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ● (recovered mass) | ◐ (retrofit) | ◐ (residual / recovery value) | ○ | ○ | ○ | ● | ● | ◐ |
+**Persona.** Real-estate analysts, federal Bauherrenvertretung doing portfolio prioritisation, lenders / mortgage banks, sovereign-wealth and pension-fund property investors, insurers, sustainability strategists, valuation surveyors.
+
+The picks below are the most consequential entries selected from a longer registry of climate and location-intelligence models (see the climate-check `MODELS.md` reference document — 49 distinct models / tools / datasets catalogued, of which 13 are Swiss-specific).
+
+#### 23a — Real-estate valuation / market value (AVMs)
+
+| Vendor | Origin | Type | Notes |
+|---|---|---|---|
+| **Wüest Partner** | Switzerland | Research + AVM + index data | Swiss real-estate market intelligence leader; data feeds federal and cantonal valuation work. |
+| **IAZI / CIFI** | Switzerland | AVM + indices | Swiss Real Estate Index family; widely cited in Swiss institutional benchmarking. |
+| **PriceHubble** | Switzerland (now international) | Cloud AVM + market analytics | Swiss-origin AVM operating across DACH / EU / parts of Asia. |
+| **Fahrländer Partner** | Switzerland | Real-estate valuation + market modelling | Swiss real-estate research and AVM. |
+| **Geoimpact** | Switzerland | Location-intelligence platform | Building-level data and analytics layered on Swiss geodata. |
+
+> **Notable market gap (per climate-check MODELS.md):** "No commercial real estate climate valuation tool exists" — i.e. no productised platform combines AVM-grade market value with integrated physical-risk and transition-risk pricing in a single offering. This is the highest-value white space in Segment 23.
+
+#### 23b — Carbon stranding & transition risk
+
+| Model | Type | Provenance | Notes |
+|---|---|---|---|
+| **CRREM (EU / NA / APAC pathways)** | Building-level decarbonisation pathways 2020–2050 | Commercial foundation | Cited as the "industry standard for building-level stranding"; the most-used carbon-stranding-risk model in EU institutional real estate. |
+| **PACTA-CH / PACTA Climate Test Switzerland** | Swiss financial-institution climate-alignment framework | BFE / Swiss federal commission | Biennial free participation, ~80 % participation rate among Swiss FIs. The Swiss-federal anchor for portfolio carbon-alignment reporting. |
+| **NGFS Climate Scenarios v5.0** | Macro climate scenarios (Net Zero 2050 → Current Policies) | Central banks (ECB, BoE, Fed, SNB-aligned) | Stress-testing framework used by lenders, insurers, regulators. |
+| **SSREI (Swiss Sustainable Real Estate Index)** | Swiss institutional real-estate portfolio assessment framework, 36 indicators | Switzerland | Federal benchmark for ESG / sustainability portfolio reporting in Swiss real estate. |
+| **PCAF** | Financed-emissions methodology, Scope 3 Cat. 15, 10 asset classes | Partnership for Carbon Accounting Financials | Global standard for portfolio-level financed-emissions accounting. |
+| **SBTi** | Science-based target alignment | Science Based Targets initiative | Target-setting validation; complements PCAF and CRREM rather than overlapping. |
+
+#### 23c — Multi-hazard physical-risk models & catastrophe modelling
+
+| Model | Type | Provenance | Notes |
+|---|---|---|---|
+| **CLIMADA** | Open-source multi-hazard impact model (tropical cyclones, floods, droughts, heat, wind, wildfire) | **ETH Zurich** | "Most comprehensive open-source" multi-hazard model; Swiss-origin academic credibility; powers EIOPA's CLIMADA-App for European insurance supervision. |
+| **ERM-CH23** | Swiss national earthquake-risk model covering 2M+ buildings | Switzerland (SED + federal) | The authoritative Swiss seismic-risk dataset for buildings. |
+| **OpenQuake** | Global seismic-risk model, 200+ countries, 3,500+ building typologies | GEM Foundation | "Gold standard for seismic risk" outside of Switzerland. |
+| **Oasis LMF** | Open-source catastrophe-modelling platform aggregating 100+ models from 21+ providers | Insurance industry consortium | BSD-licensed with REST API; the open-source backbone for the cat-modelling industry. |
+| **JRC Flood Hazard Maps** | Flood inundation maps (10–500-year return periods, 100 m resolution) | EU Joint Research Centre | The most accessible EU-wide flood-risk dataset. |
+| **WRI Aqueduct** | Water risk, drought, flood hazard | World Resources Institute | Global water-stress mapping; consumed by ESG / portfolio screens. |
+
+#### 23d — Swiss public datasets & federal location-intelligence layers
+
+| Resource | Type | Provenance | Notes |
+|---|---|---|---|
+| **geo.admin.ch** | Open REST API, 50+ queryable layers (emissions, flood, earthquake, solar, noise, building register) | Swiss government (swisstopo) | The canonical Swiss multi-hazard / multi-layer data API. The substrate beneath almost every Swiss-aligned tool in this document. |
+| **Cantonal Gefahrenkarten (geodienste.ch)** | Legal multi-hazard maps, binding for permits and insurance | Swiss cantons | Aggregated via geodienste.ch; legally weight-bearing for permitting. |
+| **NCCS Climate Scenarios CH2025** | Swiss climate projections, 1 km resolution, GWL 1.5–3.0 °C | Swiss government (MeteoSwiss / NCCS) | **Supersedes CH2018** as the federal Swiss climate-projection baseline. |
+| **Naturgefahren-Check** | Free public address-level multi-hazard screening web tool | Switzerland | Public-facing companion to the cantonal Gefahrenkarten. |
+| **GWR (Federal Register of Buildings) / EGID** | Swiss building inventory and characteristics | Swiss government | The federal identifier substrate for any Swiss building-level data work. |
+| **Sonnendach.ch / Sonnenfassade.ch** | Swiss rooftop / facade solar potential, system sizing, payback | Switzerland | Open data via opendata.swiss; the federal Swiss solar-potential layer. |
+| **BAFU CO₂ Calculator** | Building-level CO₂ emissions tied to the Swiss federal building register | BAFU (FOEN) | The Swiss federal building-CO₂ accounting tool. |
+| **Mobitool** | Environmental impact data for Swiss transport modes | Switzerland | The federal reference dataset for Scope-3 transport-emissions accounting. |
+| **OpenData.swiss** | Federal open-data portal (solar potential, building data, hazard layers) | Swiss government | The umbrella portal for federal open datasets. |
+
+**Cross-references.**
+- Segment 13 (Climate X / Jupiter / First Street) — commercial wrappers around the models in 23c, productised for CRE underwriting workflows.
+- Segment 19 (Certifications) — feeds CRREM and PCAF reporting via DGNB / SNBS criteria.
+- Segment 21 (EPPM) — natural surface for portfolio-level location-intelligence KPIs (CRREM stranding year, PACTA-CH alignment score, average hazard exposure).
+- Segment 22 (Refurbishment / urban mining) — GEAK + Gefahrenkarten + CRREM combine to produce a portfolio refurbishment priority signal.
 
 ### White Spaces / Underserved Areas
 
@@ -484,61 +524,15 @@ Legend: ●  full coverage · ◐ partial · ○ none
 - **Climate risk is moving upstream from diligence into design.** Insurer / lender requirements (driven by EU CSRD, SFDR, US SEC climate filings, and Swiss SBTi-aligned commitments) are pushing climate-risk screens to the feasibility stage — but no design-stack vendor has integrated this natively yet.
 - **Generative AI's role** in the next 24 months will be (a) Copilot-style assistants inside existing tools (Snaptrude, Forma Building Design, Speckle Automate, UpCodes Copilot), (b) text-to-BIM experiments (Hypar), and (c) deeper rule-based generators (Finch, ARCHITEChTURES, Preoptima, Modulous) — not autonomous design.
 
-### Swiss Public-Sector Mapping (Brief)
+### Swiss-Context Observations
 
-Four flags for BBL:
+Where the international market intersects with Swiss federal context:
 
-- **Data residency / ISG / Public Clouds Bund.** The vast majority of segment leaders are US-hosted or US-controlled (Forma, Snaptrude, Arcol, Hypar, TestFit, Giraffe, Pollination US, Veras, Climate X, Jupiter, First Street, Modulous TESSA, UpCodes, Verifi3D). EU-hosted options (One Click LCA — Finland, Finch — Sweden, Pollination EU region, on-prem ENVI-met, InfraWorks on-prem, Solibri, Rhino+Grasshopper local stacks) are easier to defend against ISG-classified information. **Swiss-domiciled options (Luucy, Madaster Switzerland) are the strongest candidates for ISG-sensitive site, zoning, and material data**, though actual hosting region (CH vs. EU hyperscaler) must be confirmed contractually. CityEngine via ArcGIS Enterprise on-prem is also defensible.
-- **eBKP-H / KBOB / SNBS alignment.** No segment leader is natively eBKP-H-aware (including Luucy). The pragmatic stack for BBL: (a) **Luucy** or Forma or Giraffe / ArcGIS Urban for site/massing + Swiss zoning + sun-hours/wind, (b) **InfraWorks / OpenSite+** for civil feasibility on constrained sites, (c) **One Click LCA Carbon Designer 3D** with custom KBOB dataset for embodied carbon + **Preoptima** for early structural carbon option comparison, (d) **Lesosai or Sefaira** for SIA 380/1 operational energy alignment, (e) **for cost**: pilot **Keevalue** as the Swiss-native candidate, **BKI Kostenplaner / KoRa** as the DACH DIN 276 anchor (with DIN 276 ↔ eBKP-H mapping), **DBD-BIM** when the BIM model is mature enough to drive component cost, or **CostOS / CostX** as classification-flexible global alternatives, (f) **werk-material.online** + **KBOB Ökobilanzdaten** + **Bauteilkatalog / Lesosai** as Swiss reference data layers feeding both cost and carbon, (g) **Madaster Switzerland** for material passports / circularity, (h) Swiss climate / hazard data manually integrated from BAFU.
-- **Swiss geodata interoperability.** swisstopo (LV95, WMS/WMTS), ÖREB, and GWR/EGID are not first-class citizens in any international tool reviewed. **Luucy is the exception** — swisstopo and ÖREB are productised. ArcGIS Urban can be configured with swisstopo via OGC services. Giraffe's "import any GIS layer" model and Pollination's open weather/site data inputs offer the next-best ingestion path for the non-Swiss stack. Federal use cases requiring EGID-keyed asset records will need confirmation with Luucy or a custom data-layer integration on the international tools.
-- **Swiss climate / hazard data.** BAFU Gefahrenkarten and CH2018 scenarios are the authoritative federal sources. No segment-13 vendor uses them as primary inputs today. For federal-portfolio physical climate-risk diligence, expect a buyer-side integration of BAFU layers alongside a global vendor (Climate X / Jupiter) for forward-looking scenarios.
-
-## Recommendations
-
-**Stage 1 — Define the operating stack (0–3 months).** Pilot a minimum-viable concept stack:
-- **Forma Site Design** (already in AEC Collection if you license it) for site/massing/sun-hours/wind/noise + Revit handoff;
-- **One Click LCA + Carbon Designer 3D** for KBOB-extensible embodied-carbon at concept stage.
-
-In parallel, run two focused screens:
-- **Luucy PoC on one BBL site** — validate swisstopo / ÖREB / BZO ingestion against a real federal property, hosting region and ISG-classified-data handling, and IFC export quality. Luucy is the only candidate that can short-circuit Swiss geodata setup; its position vs. Forma + Giraffe / ArcGIS Urban should be settled before the stack is frozen.
-- **One climate-risk screen** with Climate X **or** Jupiter on 10 candidate sites, cross-referenced against BAFU Gefahrenkarten — answers whether commercial physical-risk analytics add anything beyond BAFU for federal diligence.
-
-Trigger to expand: more than 2 of 3 federal pilot projects need wind/microclimate beyond Forma's surrogates → add **Orbital Stack** or commission **Pollination + Butterfly** through an external consultant.
-
-**Stage 2 — Add specialist depth (3–9 months).** When projects routinely require:
-- daylight credits (Minergie-Eco, SNBS comfort) or detailed energy modelling → deploy **ClimateStudio** (Rhino users), **Sefaira** (SketchUp/Revit users), or **Autodesk Insight** (Revit-native firms). Pollination Cloud if a centralised cloud workflow is preferred.
-- difficult sites with civil/access constraints → deploy **Autodesk InfraWorks** (Autodesk-shop firms) or **Bentley OpenSite+** for grading and stormwater concepts.
-- structural option-comparison conversations early in design → add **Preoptima** alongside One Click LCA.
-
-Threshold: ≥ 5 simultaneous projects needing daylight/energy SD-stage analysis, or ≥ 3 with significant civil constraints.
-
-**Stage 3 — Decide on a feasibility/yield layer (6–12 months).** For larger federal portfolios (renovation prioritisation, site densification studies), evaluate the credible options against each other:
-- **Luucy** — best Swiss-geodata fit, weakest BIM/yield modelling; ideal if the primary use case is zoning-bounded Baupotential studies on swisstopo / ÖREB data.
-- **ArcGIS Urban** — best fit if the BBL is already an Esri shop or requires formal planner-grade zoning workflows.
-- **Giraffe** — strongest neutral GIS + live pro-forma metrics; best for mixed Swiss/international portfolios.
-- **TestFit** — only justifiable if multi-family unit-mix / parking optimisation becomes a recurring use case.
-
-**Stage 4 — Adjacent buyer gates (6–18 months).** When the volume of work or external pressure justifies:
-- **Cost planning** → run a three-way Swiss / DACH / global pilot: **Keevalue** (Swiss-native, evaluate first), **BKI Kostenplaner or KoRa** (DACH DIN 276 anchor; KoRa launches June 2026 if waiting is acceptable) or **DBD-BIM** (BIM-driven, STLB-Bau + DIN BIM Cloud), and **CostOS** (classification-flexible) or **CostX** (BIM-takeoff strength). Require eBKP-H mapping as acceptance criterion across all three.
-- **Circularity / material passports** → pilot **Madaster Switzerland** on one renovation; align with Bundesrat Aktionsplan Kreislaufwirtschaft timelines.
-- **Code compliance** → if BIM model-checking becomes a routine SIA-Phase 41–53 task, pilot **Solibri** with Swiss-norm rulesets. UpCodes / Verifi3D not yet Swiss-ready.
-- **Modular housing** → only if BBL plans repeatable typologies at portfolio scale, evaluate **Modulous TESSA** on one project.
-
-**Stage 5 — Watch list, do not buy yet.** Track:
-- **Forma Building Design** (GA 2026), **Snaptrude** and **Arcol** (BIM 2.0 maturity) — revisit once each has IFC 4.3 roundtrip with Revit and clear data-residency options.
-- **One Click LCA's KBOB dataset integration** and the **RIB CostX 6D / EC3 carbon library** combination as the most credible commercial cost-+-carbon early-stage answer.
-- **Luucy's BIM / eBKP-H / KBOB roadmap** — closing any of those gaps would materially change its position in the stack.
-- **EPBD 2028 / 2030** implementation guidance from EU Commission and CEN; align Swiss procurement clauses accordingly.
-- **VU.CITY Swiss city coverage** — useful only if/when Zurich, Geneva, Bern, or Basel are modelled.
-
-**Stage 6 — Build internally what no vendor delivers.** A small **Grasshopper / Speckle layer** mapping massing → eBKP-H elements → KBOB dataset, sitting between Forma / Luucy / Rhino and One Click LCA, is realistic in 4–6 months of internal dev and is the only path today to native Swiss-aligned KPIs. A second internal bridge — **BAFU Gefahrenkarten → climate-risk dashboard** — is similarly the only realistic path to Swiss-context physical-risk diligence in design.
-
-**Procurement guard-rails.**
-- Require **IFC 4.3 export** + named integration with Revit before any segment-1, -2, -5, or -14 purchase. (For Luucy specifically: confirm IFC export fidelity and whether a Revit roundtrip exists.)
-- Require **EU-region (preferably Swiss-region) cloud hosting** and a documented data-classification stance for any SaaS handling project-level information.
-- Reject any tool that cannot export its source geometry and analysis inputs (vendor lock-in risk on conceptual data).
-- Require a **published API** for any platform on which BBL workflows will be built.
-- For LCA tools, prefer **RICS WLCA validation** as a quality floor.
+- **Data residency.** The vast majority of segment leaders are US-hosted or US-controlled (Forma, Snaptrude, Arcol, Hypar, TestFit, Giraffe, Pollination US, Veras, Climate X, Jupiter, First Street, Modulous TESSA, UpCodes, Verifi3D, PriceHubble's international tier, most EPPM platforms). EU-hosted options exist (One Click LCA — Finland, Finch — Sweden, Pollination EU region, on-prem ENVI-met, on-prem InfraWorks, Solibri, OpenProject, Rhino+Grasshopper local stacks). Swiss-domiciled productised options are scarce: **Luucy** (site / zoning), **Keevalue** (cost), **Madaster Switzerland** (material passports), **Wüest Partner / IAZI / Fahrländer / Geoimpact** (real-estate valuation and market intelligence), and the federal data layers (geo.admin.ch, NCCS, BAFU, GWR, GEAK, Sonnendach).
+- **eBKP-H / KBOB / SNBS alignment.** No international segment leader is natively eBKP-H-aware. Swiss-native cost productisation is concentrated in **Keevalue**; the DACH cost-data anchor for DIN 276 is **BKI** (with KoRa launching June 2026) and **DBD-BIM** (BIM-driven, STLB-Bau + DIN BIM Cloud). Swiss-aligned LCA is anchored on **KBOB Ökobilanzdaten v8.02** plus **Bauteilkatalog / Lesosai**; **werk-material.online** is a Swiss materials reference database (not an estimator). **SNBS Hochbau 2023.1** is the federal sustainability label (NNBS / KBOB / armasuisse-backed), document-based today.
+- **Swiss geodata interoperability.** swisstopo (LV95, WMS/WMTS), ÖREB, and GWR/EGID are not first-class citizens in international design tools. **Luucy is the productised exception** with swisstopo and ÖREB native ingestion. **ArcGIS Urban** can consume swisstopo via OGC services. **geo.admin.ch** is the canonical multi-layer Swiss API; **opendata.swiss** is the federal open-data portal.
+- **Swiss climate / hazard / location data.** BAFU Gefahrenkarten, cantonal Gefahrenkarten via **geodienste.ch**, and **NCCS Climate Scenarios CH2025** (superseding CH2018) are the authoritative federal sources. **ERM-CH23** is the national earthquake model. **CLIMADA (ETH Zurich)** is the credible open-source multi-hazard model with Swiss provenance. The commercial physical-risk vendors (Climate X, Jupiter, First Street) typically do not consume these as primary inputs.
+- **Swiss refurbishment & transition-risk anchors.** **GEAK / GEAK Plus** is the cantonal energy-certificate baseline; **PACTA Climate Test Switzerland** is the federal financial-alignment framework with ~80 % FI participation; **SSREI** (36 indicators) is the Swiss institutional real-estate sustainability framework; **CRREM** is the de-facto carbon-stranding model for EU institutional portfolios including Swiss participants.
 
 ## Caveats
 
@@ -548,7 +542,7 @@ Threshold: ≥ 5 simultaneous projects needing daylight/energy SD-stage analysis
 - **Cityzenith** status is the weakest signal in this report — investor commentary suggests an asset transfer to a successor entity ("TwinUp") but no recent product press confirms it; verify directly before considering procurement.
 - **Generative AI floor-plan output quality** (Maket, ARCHITEChTURES, Finch's lower tiers, Modulous TESSA's automation) remains uneven; outputs require professional review for code, accessibility, and program logic before client or regulatory submission.
 - **CFD/wind surrogates** (Forma "rapid wind", Orbital Stack AI sim) are early-design qualitative tools; final wind comfort sign-off still requires RANS-CFD or wind-tunnel testing per typical municipal review requirements.
-- **Climate-risk vendors** (Climate X, Jupiter, First Street) rely on global hazard models; their accuracy in Swiss alpine, lake, and urban-flooding contexts must be cross-validated against BAFU Gefahrenkarten and CH2018 before use in federal underwriting.
+- **Climate-risk vendors** (Climate X, Jupiter, First Street) rely on global hazard models; their accuracy in Swiss alpine, lake, and urban-flooding contexts is best cross-validated against BAFU Gefahrenkarten, cantonal Gefahrenkarten (geodienste.ch), and NCCS CH2025.
 - **VU.CITY** value depends entirely on whether the target city is modelled — Swiss city coverage must be confirmed before procurement.
 - **Code-compliance tools** (UpCodes, Verifi3D) are non-Swiss in default rule coverage; Solibri's customisability is the only realistic path to Swiss-norm checking today.
 - **Madaster** has a Swiss platform, but integration with eBKP-H and KBOB data flows must be confirmed at pilot.
@@ -557,17 +551,15 @@ Threshold: ≥ 5 simultaneous projects needing daylight/energy SD-stage analysis
 
 ---
 
-**Plan completion check:**
+**Coverage check:**
 
-| Plan item | Covered? |
+| Item | Covered? |
 |---|---|
-| 22 market segments named & defined (12 design-core + 6 adjacent-buyer-gate + 2 outcome/ecology + 1 portfolio/PMO + 1 refurbishment/urban-mining) | ✅ |
-| Per-product mini-profiles (pricing/hosting/integrations) | ✅ |
-| Cross-segment capability matrix (extended with climate risk, code compliance, civil/infra columns) | ✅ |
-| White spaces / underserved areas (incl. climate-risk-into-design, civil screening, code-compliance for Swiss norms) | ✅ |
-| Trends & outlook (EPBD 2028/2030, IFC 4.3 / ISO 16739-1:2024, RICS WLCA validation, AI, cloud, BIM, KPI, GenAI) | ✅ |
-| Brief Swiss public-sector mapping (four flags: residency, eBKP-H/KBOB/SNBS, geodata, climate/hazard) | ✅ |
-| Forma, Snaptrude, Arcol, TestFit, Spacio, Giraffe, Modelur, DBF, Finch, ARCHITEChTURES, Maket, Ladybug, Pollination, ClimateStudio, DIVA, Sefaira, Autodesk Insight, IES VE, Orbital Stack, SimScale, ENVI-met, Autodesk CFD, cove.tool, DESTINI, CostX, **CostOS**, **BKI / KoRa**, **DBD-BIM**, **Keevalue**, **werk-material.online**, **Preoptima**, **One Click LCA**, Hypar, CityEngine, **ArcGIS Urban**, **VU.CITY**, UrbanFootprint, Delve, Veras, ARK, **Luucy**, **Climate X**, **Jupiter**, **First Street**, **InfraWorks**, **OpenSite+**, **OpenRoads ConceptStation**, **Madaster**, **UpCodes**, **Verifi3D**, **Solibri**, **Modulous TESSA**, **PTV Visum**, **LEGION**, **SNBS Hochbau 2023.1**, **Minergie**, **DGNB**, **LEED Online**, **BREEAM**, **WELL**, **EDGE**, **GRESB**, **Defra BNG metric**, **InfoSpecies / BAFU biotope layers**, **Primavera P6**, **Microsoft Project**, **Procore Capital Projects**, **Autodesk Construction Cloud**, **InEight**, **Planview / Sciforma / Cora PPM**, **OpenProject**, **Madaster Portfolio Performance / Circularity Insights**, **Revitalyze Urban Mining Screener (TU Graz / Circular DigiBuild)**, **Concular**, **Restado**, **GEAK / GEAK Plus**, **HotMaps**, **KBOB Sanierungskatalog / Bauteilkatalog** | ✅ |
+| 23 market segments named & defined (12 design-and-performance core + 6 adjacent buyer gates + 2 outcome/ecology + 1 portfolio/PMO + 1 refurbishment/urban-mining + 1 location intelligence) | ✅ |
+| Per-product mini-profiles (pricing / hosting / integrations) | ✅ |
+| White spaces / underserved areas | ✅ |
+| Trends & outlook (EPBD 2028/2030, IFC 4.3 / ISO 16739-1:2024, RICS WLCA validation, NCCS CH2025, AI, cloud, BIM, KPI, GenAI) | ✅ |
+| Swiss-context observations (data residency, eBKP-H/KBOB/SNBS, geodata, climate/hazard, refurbishment & transition risk) | ✅ |
+| Vendors / products / models / datasets covered: Forma, Snaptrude, Arcol, Motif, Qonic, TestFit, Spacio, Giraffe, Modelur, DBF, Finch, ARCHITEChTURES, Maket, PlanFinder, ArkDesign, Ladybug, Honeybee, Butterfly, Dragonfly, Pollination, ClimateStudio, DIVA, Sefaira, Autodesk Insight, IES VE, Orbital Stack, SimScale, ENVI-met, Autodesk CFD, cove.tool, DESTINI, CostX, CostOS, BKI / KoRa, DBD-BIM, Keevalue, werk-material.online, Preoptima, One Click LCA, EC3, 2050 Materials, Hypar, Speckle, ShapeDiver, CityEngine, ArcGIS Urban, VU.CITY, UrbanFootprint, Delve, Cityform UNA, Veras, ARK, Luucy, Climate X, Jupiter, First Street, InfraWorks, OpenSite+, OpenRoads ConceptStation, Madaster, UpCodes, Verifi3D, Solibri, Modulous TESSA, PTV Visum, LEGION, SNBS Hochbau 2023.1, Minergie, DGNB, LEED Online, BREEAM, WELL, EDGE, GRESB, EU Level(s), Defra BNG metric, ENVISION, IUCN STAR, InfoSpecies / BAFU biotope layers, Primavera P6, Microsoft Project, Procore Capital Projects, Autodesk Construction Cloud, InEight, Planview / Sciforma / Cora PPM, Asta Powerproject, PMWeb, OpenProject, Madaster Portfolio Performance / Circularity Insights, Revitalyze UMS, Concular, Restado, GEAK / GEAK Plus, HotMaps, KBOB Sanierungskatalog / Bauteilkatalog, Wüest Partner, IAZI / CIFI, PriceHubble, Fahrländer Partner, Geoimpact, CRREM, PACTA-CH, NGFS, SSREI, PCAF, SBTi, CLIMADA, ERM-CH23, OpenQuake, Oasis LMF, JRC Flood Hazard Maps, WRI Aqueduct, geo.admin.ch, NCCS CH2025, Naturgefahren-Check, GWR / EGID, Sonnendach.ch, BAFU CO₂ Calculator, Mobitool, OpenData.swiss | ✅ |
 | Recent M&A: Spacemaker→Forma, Sefaira→Trimble, cove→ROOST, DIVA→ClimateStudio, Sidewalk→Google, EvolveLAB→Chaos, Tally→C.Scale, 2050 Materials→Once For All, JLL↔Jupiter | ✅ |
-| Recommendations with staged thresholds (6 stages + procurement guard-rails) | ✅ |
 | Caveats with verified-status flags | ✅ |
