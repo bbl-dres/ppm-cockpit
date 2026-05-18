@@ -1,8 +1,38 @@
 # Market Screening: Software & Platforms across the Construction Project Lifecycle
 
-A descriptive market scan of software tools, platforms, datasets, and frameworks that touch the Swiss federal construction project lifecycle — from existing-stock screening and site selection, through design, simulation, certification, cost, carbon, delivery, and portfolio management. The goal is to map the landscape; this document does not make procurement recommendations.
+## Goal
 
-## TL;DR
+A descriptive market scan of software tools, platforms, datasets, and frameworks that touch the Swiss federal construction project lifecycle — from existing-stock screening and site selection, through design, simulation, certification, cost, carbon, delivery, and portfolio management. **The goal is to map the landscape; this document does not make procurement recommendations.**
+
+## Segments at a glance
+
+| # | Segment | Short description |
+|---|---|---|
+| 1 | [Integrated AI Early-Design / Site Planning Platforms](#segment-1--integrated-ai-early-design--site-planning-platforms) | Cloud platforms with integrated environmental analyses (sun, wind, daylight, carbon) and BIM handoff. |
+| 2 | [Browser-Native Concept BIM ("BIM 2.0")](#segment-2--browser-native-concept-bim-bim-20) | Multiplayer browser BIM aiming to replace SketchUp + Revit in early design phases. |
+| 3 | [Real-Estate Feasibility & Developer-Facing Tools](#segment-3--real-estate-feasibility--developer-facing-tools) | Parametric site-yield optimisation with financial KPIs baked into geometry. |
+| 4 | [Generative Floor-Plan / Unit-Layout AI](#segment-4--generative-floor-plan--unit-layout-ai) | AI engines that emit valid floor plans from a massing + program brief. |
+| 5 | [Urban / Site-Scale Collaborative Planning Platforms](#segment-5--urban--site-scale-collaborative-planning-platforms) | GIS + design + scenario analytics for urban-scale projects and approvals. |
+| 6 | [Parametric Urban Massing & Zoning Tools](#segment-6--parametric-urban-massing--zoning-tools) | Plugin-based zoning-compliant massing inside host modellers (Rhino / SketchUp). |
+| 7 | [Rhino-Grasshopper Environmental Simulation Ecosystem](#segment-7--rhino-grasshopper-environmental-simulation-ecosystem) | Open-source simulation backbone for climate, daylight, energy, CFD (Ladybug, ClimateStudio). |
+| 8 | [Specialist Wind / CFD / Microclimate Tools](#segment-8--specialist-wind--cfd--microclimate-tools) | Specialist CFD beyond rapid surrogates (Orbital Stack, SimScale, ENVI-met). |
+| 9 | [Specialist Daylight / Energy Early-Stage Tools](#segment-9--specialist-daylight--energy-early-stage-tools) | Daylight, glare, energy modelling with standards compliance (LEED, EN 17037, SIA 380/1). |
+| 10 | [Early-Stage Cost & Embodied-Carbon Estimators](#segment-10--early-stage-cost--embodied-carbon-estimators) | Cost (10a: BKI, Keevalue, CostX) and Carbon (10b: One Click LCA, Preoptima, EC3) — distinct buyers. |
+| 11 | [Programmable / Developer-Platform Plays](#segment-11--programmable--developer-platform-plays) | Cloud platforms exposing generative-design APIs / SDKs (Hypar, Speckle, ShapeDiver). |
+| 12 | [Generative AI Rendering / Text-to-Image](#segment-12--generative-ai-rendering--text-to-image) | Diffusion-model image generators for concept renderings (Veras, ArkoAI, LookX). |
+| 13 | [Climate-Risk & Resilience Analytics](#segment-13--climate-risk--resilience-analytics) | Asset-level physical climate-risk diligence for lenders, insurers, owners. |
+| 14 | [Civil / Infrastructure Concept Design](#segment-14--civil--infrastructure-concept-design) | Conceptual modelling of site civil works (grading, utilities, access roads). |
+| 15 | [Circularity & Material Passports](#segment-15--circularity--material-passports) | Per-project material catalogues for reuse, residual-value, and circularity reporting. |
+| 16 | [Code Compliance & Model Checking](#segment-16--code-compliance--model-checking) | Automated code research and BIM rule-based validation. |
+| 17 | [Industrialized / Modular Housing Configurators](#segment-17--industrialized--modular-housing-configurators) | Generative platforms producing code-compliant modular multifamily schemes. |
+| 18 | [Mobility & Pedestrian Analytics](#segment-18--mobility--pedestrian-analytics) | Transport-demand and pedestrian/crowd simulation at area or campus scale. |
+| 19 | [Building Sustainability Certifications & Labels](#segment-19--building-sustainability-certifications--labels) | Software supporting LEED / SNBS / Minergie / DGNB / BREEAM certification workflows. |
+| 20 | [Biodiversity & Ecological Analysis](#segment-20--biodiversity--ecological-analysis) | Emerging tools quantifying site / portfolio biodiversity outcomes. |
+| 21 | [Enterprise Project Portfolio Management (EPPM)](#segment-21--enterprise-project-portfolio-management-eppm-for-real-estate) | Portfolio-grade systems of record for capital-project tracking and reporting. |
+| 22 | [Refurbishment / Renovation Portfolio Screening & Urban Mining](#segment-22--refurbishment--renovation-portfolio-screening--urban-mining) | Pre-project portfolio screening for retrofit-vs-demolish and material-recovery potential. |
+| 23 | [Location Intelligence (Market Value, Environmental & Carbon Risk)](#segment-23--location-intelligence-market-value-environmental--carbon-risk) | Real-estate valuation (AVMs) + multi-hazard data + carbon-stranding / transition risk. |
+
+## Summary
 - The construction project software market organises into **~23 segments** along two axes: (a) **stage/scale of activity** (existing-stock / urban-mining screening → location intelligence & risk → site / urban planning → massing → unit layouts → environmental and building simulation → cost & embodied carbon → civil/infrastructure → certification & ecology → delivery / portfolio / PMO), and (b) **buyer** (architects, real-estate developers, planners, sustainability consultants, civil engineers, QS / cost planners, code consultants, lenders / insurers, certification assessors, ecologists, portfolio / asset-owner PMOs, renovation strategists, real-estate analysts). No single segment, and no single vendor, covers the lifecycle end-to-end; the market is segmented around different buyer journeys.
 - The most consolidated battleground is the "BIM 2.0 / browser-native concept design" cluster (Autodesk Forma, Snaptrude, Arcol, Motif, Qonic) where Autodesk's Spacemaker → Forma move has set the integration bar. But the **buyers who block or kill projects** sit outside that cluster — planners, civil engineers, insurers, QS, code consultants, certification assessors, portfolio PMOs, renovation strategists — and they buy from different vendors. Many of the most consequential Swiss-specific layers (swisstopo, ÖREB / BZO, KBOB, eBKP-H, GEAK, SNBS, GWR) are not first-class citizens in international platforms; the Swiss-domiciled productised players (Luucy for site/zoning, Keevalue for cost, Madaster Switzerland for circularity, NCCS / BAFU layers for climate / hazard) are the most defensible answers where Swiss alignment matters.
 - The clearest white spaces in the market are: (1) **regionally-aligned cost taxonomies** (eBKP-H, BKI, DIN 276) — none of the major design-stack tools support them out of the box; (2) **integrated multi-KPI dashboards** that combine embodied carbon, operational energy, daylight, cost, and **physical climate risk** against Swiss benchmarks (KBOB, SNBS 2023.1, BAFU Gefahrenkarten, NCCS CH2025); (3) **data residency in Swiss-sovereign cloud** — almost every international vendor is hosted on US hyperscalers; (4) **Swiss code / zoning compliance automation** beyond BZO ingestion; (5) **commercial real-estate climate valuation** — per the climate-check models registry, "no commercial real estate climate valuation tool exists" combining transition + physical risk + market value in a single offering.
@@ -65,8 +95,8 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Integrations | Notable |
 |---|---|---|---|---|
-| **Autodesk Forma Site Design** | Cloud SaaS | $185/mo or $1,445/yr standalone; included in AEC Collection | Revit, Rhino, Dynamo, ACC, IFC/OBJ import | Sun-hours, rapid wind/noise (AI), microclimate, embodied carbon, operational energy |
-| **Forma Building Design** (closed beta) | Cloud | TBD | Same Forma cloud layer | Schematic LOD 200–300; facade & interior layouts; GA expected 2026 |
+| **[Autodesk Forma Site Design](https://www.autodesk.com/products/forma)** | Cloud SaaS | $185/mo or $1,445/yr standalone; included in AEC Collection | Revit, Rhino, Dynamo, ACC, IFC/OBJ import | Sun-hours, rapid wind/noise (AI), microclimate, embodied carbon, operational energy |
+| **[Forma Building Design](https://www.autodesk.com/products/forma)** (closed beta) | Cloud | TBD | Same Forma cloud layer | Schematic LOD 200–300; facade & interior layouts; GA expected 2026 |
 
 **Maturity.** Mature/consolidating. Forma is the de-facto enterprise default for firms inside the Autodesk ecosystem.
 
@@ -80,11 +110,11 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | BIM/Export | Notes |
 |---|---|---|---|---|
-| **Snaptrude** | Cloud (browser) | Free; Pro $499/yr; Org $1,199/yr; Enterprise quote | Bidirectional Revit, Rhino, IFC, DWG | Real-time BOQ/FAR/GFA; "AI Copilot" |
-| **Arcol** | Cloud (browser) | Free solo (no Revit export); Team $100/user/mo | Revit export; presentation Boards | Raised approximately $20M per Arcol's own press page (arcol.io/press): "We have raised approximately $20 million from an incredible roster including Cowboy Ventures, Craft Ventures, Procore CEO Tooey Courtemanche, Figma CEO Dylan Field, and former Mozilla CEO John Lilly." |
-| **Motif** | Cloud (browser) | Quote/early access | Connects to Revit/Rhino | Founded by ex-Autodesk co-CEO Amar Hanspal |
-| **Qonic** | Cloud (browser) | Quote | IFC, Revit | Belgian, ex-Bricsys team |
-| **Autodesk FormIt** | Desktop + Web | Free Pro tier with AEC Collection | Revit Add-in | Older SketchUp competitor; some features now in Forma |
+| **[Snaptrude](https://www.snaptrude.com)** | Cloud (browser) | Free; Pro $499/yr; Org $1,199/yr; Enterprise quote | Bidirectional Revit, Rhino, IFC, DWG | Real-time BOQ/FAR/GFA; "AI Copilot" |
+| **[Arcol](https://www.arcol.io)** | Cloud (browser) | Free solo (no Revit export); Team $100/user/mo | Revit export; presentation Boards | Raised approximately $20M per Arcol's own press page (arcol.io/press): "We have raised approximately $20 million from an incredible roster including Cowboy Ventures, Craft Ventures, Procore CEO Tooey Courtemanche, Figma CEO Dylan Field, and former Mozilla CEO John Lilly." |
+| **[Motif](https://www.motif.io)** | Cloud (browser) | Quote/early access | Connects to Revit/Rhino | Founded by ex-Autodesk co-CEO Amar Hanspal |
+| **[Qonic](https://www.qonic.com)** | Cloud (browser) | Quote | IFC, Revit | Belgian, ex-Bricsys team |
+| **[Autodesk FormIt](https://formit.autodesk.com)** | Desktop + Web | Free Pro tier with AEC Collection | Revit Add-in | Older SketchUp competitor; some features now in Forma |
 
 **Maturity.** Emerging. AEC Magazine consistently flags this as an "overheated and over-serviced" segment.
 
@@ -98,11 +128,11 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Key feature |
 |---|---|---|---|
-| **TestFit** | Cloud | Site Solver paid (quote); Urban Planner has free tier | Pro forma + automatic parking/earthwork takeoffs; Revit + SketchUp + AutoCAD push |
-| **Spacio (spacio.ai)** | Cloud SaaS | Free, Personal, Pro (no public USD) | Norway-centric, Norkart import; IFC/Rhino/SketchUp interop |
-| **Giraffe** | Cloud (browser) | Free tier; Core $1,000/yr/user; Portfolio $3,000/yr/user; Enterprise | GIS-first; live pro-forma metrics; IFC export |
-| **Archistar** | Cloud | Quote (~$299/mo+ tier reported) | Site-level feasibility; zoning-rule database (AU/NZ/UK) |
-| **Zenerate** | Cloud | Enterprise quote | Multi-family yield; Korean origin |
+| **[TestFit](https://www.testfit.io)** | Cloud | Site Solver paid (quote); Urban Planner has free tier | Pro forma + automatic parking/earthwork takeoffs; Revit + SketchUp + AutoCAD push |
+| **[Spacio](https://www.spacio.ai)** | Cloud SaaS | Free, Personal, Pro (no public USD) | Norway-centric, Norkart import; IFC/Rhino/SketchUp interop |
+| **[Giraffe](https://www.giraffe.build)** | Cloud (browser) | Free tier; Core $1,000/yr/user; Portfolio $3,000/yr/user; Enterprise | GIS-first; live pro-forma metrics; IFC export |
+| **[Archistar](https://www.archistar.ai)** | Cloud | Quote (~$299/mo+ tier reported) | Site-level feasibility; zoning-rule database (AU/NZ/UK) |
+| **[Zenerate](https://zenerate.ai)** | Cloud | Enterprise quote | Multi-family yield; Korean origin |
 
 **TestFit also includes conceptual cost estimation** (TestFit 5.4 release: "You can now utilize the geometry created in TestFit to track your costs throughout feasibility and preconstruction quickly… As your model gets updated, the costs will update in real-time"). This is pro-forma-grade, not 5D-estimator-grade.
 
@@ -116,11 +146,11 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Output |
 |---|---|---|---|
-| **Finch 3D** | Cloud (browser + Rhino/Revit/GH plugins) | Free; Basic €49/mo; Enterprise €12,000/yr for 3 seats | Graph-rule based; Revit/Rhino/GH; AI floor-plan generation gated to Enterprise/AI tier |
-| **ARCHITEChTURES** | Cloud (browser) | 7-day trial; quote-based | Real-time BIM model, parking layout, IFC + DXF; cost takeoff with user-input unit cost |
-| **Maket.ai** | Cloud | Free 50 credits; Pro $20/mo (300 credits) — v2 released 2025 per illustrarch | Residential 1–4 stories; DWG/DXF export "coming soon" |
-| **PlanFinder** | Cloud | Quote | Apartment layout AI, Rhino plugin |
-| **ArkDesign.ai** | Cloud | $30–$150/mo individual | Residential layouts |
+| **[Finch 3D](https://www.finch3d.com)** | Cloud (browser + Rhino/Revit/GH plugins) | Free; Basic €49/mo; Enterprise €12,000/yr for 3 seats | Graph-rule based; Revit/Rhino/GH; AI floor-plan generation gated to Enterprise/AI tier |
+| **[ARCHITEChTURES](https://architechtures.com)** | Cloud (browser) | 7-day trial; quote-based | Real-time BIM model, parking layout, IFC + DXF; cost takeoff with user-input unit cost |
+| **[Maket.ai](https://www.maket.ai)** | Cloud | Free 50 credits; Pro $20/mo (300 credits) — v2 released 2025 per illustrarch | Residential 1–4 stories; DWG/DXF export "coming soon" |
+| **[PlanFinder](https://planfinder.xyz)** | Cloud | Quote | Apartment layout AI, Rhino plugin |
+| **[ArkDesign.ai](https://www.arkdesign.ai)** | Cloud | $30–$150/mo individual | Residential layouts |
 
 **Maturity.** Emerging. Output quality varies; per illustrarch's 2026 review, "spatial logic errors are common" — manual review remains required.
 
@@ -130,15 +160,15 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Giraffe** | Cloud | $1,000–$3,000/user/yr | GIS-first; live metrics; IFC export |
-| **Luucy** | Cloud SaaS (Swiss-based vendor, Zug/CH) | Free trial "ohne Kreditkarte oder Vertrag"; commercial tiers via quote | **Swiss-native.** Parametric massing + Baupotential analysis; ingests ÖREB (cadastral restrictions), BZO (zoning), swisstopo terrain and survey layers as first-class data; auto-calculated GFA / density / volumes; variant comparison; 2D + 3D layer composition. Reported user base: 150 clients / 6,000 users / 15,000 projects. Partnership with swisstopo. **No BIM (IFC/Revit) roundtrip and no embodied-carbon / cost-taxonomy (eBKP-H/KBOB) modelling advertised today** — verify at procurement. |
-| **Esri ArcGIS Urban** | Cloud (Esri) | ArcGIS quote-based | Formal zoning / parcel / land-use / public-engagement workflows; the most planner-grade product on the list; companion to CityEngine |
-| **Esri CityEngine** | Desktop (Win/Linux) + ArcGIS Pro | $2,200/yr (Pro subscription) or $4,200/yr (Pro Plus) per CG Channel — perpetual licenses discontinued June 2025 | Procedural CGA shape grammars; no environmental sim; FBX/USD/Datasmith exports |
-| **VU.CITY** | Cloud (browser + apps) | Quote (city-coverage-based) | 3D city-context twin for planning communication; SiteSolve module for site feasibility within accurate city models. Coverage is **city-by-city** — verify Swiss city coverage before relying on it. |
-| **UrbanFootprint** | Cloud | Quote-only | US-focused parcel/scenario analytics for utilities, planners, real estate |
+| **[Giraffe](https://www.giraffe.build)** | Cloud | $1,000–$3,000/user/yr | GIS-first; live metrics; IFC export |
+| **[Luucy](https://www.luucy.ch)** | Cloud SaaS (Swiss-based vendor, Zug/CH) | Free trial "ohne Kreditkarte oder Vertrag"; commercial tiers via quote | **Swiss-native.** Parametric massing + Baupotential analysis; ingests ÖREB (cadastral restrictions), BZO (zoning), swisstopo terrain and survey layers as first-class data; auto-calculated GFA / density / volumes; variant comparison; 2D + 3D layer composition. Reported user base: 150 clients / 6,000 users / 15,000 projects. Partnership with swisstopo. **No BIM (IFC/Revit) roundtrip and no embodied-carbon / cost-taxonomy (eBKP-H/KBOB) modelling advertised today** — verify at procurement. |
+| **[Esri ArcGIS Urban](https://www.esri.com/en-us/arcgis/products/arcgis-urban)** | Cloud (Esri) | ArcGIS quote-based | Formal zoning / parcel / land-use / public-engagement workflows; the most planner-grade product on the list; companion to CityEngine |
+| **[Esri CityEngine](https://www.esri.com/en-us/arcgis/products/arcgis-cityengine)** | Desktop (Win/Linux) + ArcGIS Pro | $2,200/yr (Pro subscription) or $4,200/yr (Pro Plus) per CG Channel — perpetual licenses discontinued June 2025 | Procedural CGA shape grammars; no environmental sim; FBX/USD/Datasmith exports |
+| **[VU.CITY](https://vu.city)** | Cloud (browser + apps) | Quote (city-coverage-based) | 3D city-context twin for planning communication; SiteSolve module for site feasibility within accurate city models. Coverage is **city-by-city** — verify Swiss city coverage before relying on it. |
+| **[UrbanFootprint](https://urbanfootprint.com)** | Cloud | Quote-only | US-focused parcel/scenario analytics for utilities, planners, real estate |
 | **Cityzenith SmartWorldOS** | SaaS + on-prem | Quote | Digital-twin platform; **status uncertain** — investor commentary suggests an asset transfer to "TwinUp" entity; verify before procurement |
 | **Delve (ex-Sidewalk Labs)** | — | — | **Discontinued** — disabled May 2026; features partially folded into Google Earth |
-| **Cityform Lab (MIT) — UNA toolbox** | Free Rhino + ArcGIS plugin | Free / open-source | Pedestrian-route, accessibility, street-network analysis; research tool |
+| **[Cityform Lab (MIT) — UNA toolbox](https://cityform.mit.edu/projects/una-rhino-toolbox)** | Free Rhino + ArcGIS plugin | Free / open-source | Pedestrian-route, accessibility, street-network analysis; research tool |
 
 **Swiss-context note.** **Luucy** is the only segment-5 player with native, productised integration of Swiss federal/cantonal geodata (swisstopo, ÖREB-Kataster, BZO). **ArcGIS Urban** is the global benchmark for formal planning workflows but is buyer-configured for Swiss data. Giraffe accepts arbitrary GIS layers and can be made to consume swisstopo WMS/WFS, but the alignment is buyer-side. **VU.CITY** is mainly relevant if a city has been modelled — its Swiss footprint must be confirmed.
 
@@ -148,9 +178,9 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Host | Pricing | Notable |
 |---|---|---|---|
-| **Modelur** | SketchUp + Rhino plugin | Subscription, USD-based, not publicly listed | Excel LiveSync; CSV/DXF/IFC/KMZ exports; AgiliCity (Ljubljana) |
-| **Urbano** | Rhino/Grasshopper | Quote/educational | Network/flow analysis for urban design |
-| **Digital Blue Foam (DBF)** | Cloud + DBF Hub desktop | "Custom-made" enterprise pricing | DBF Hub syncs to Revit, Archicad, Rhino; multi-source GIS; AI generative design |
+| **[Modelur](https://modelur.com)** | SketchUp + Rhino plugin | Subscription, USD-based, not publicly listed | Excel LiveSync; CSV/DXF/IFC/KMZ exports; AgiliCity (Ljubljana) |
+| **[Urbano](https://www.urbanoproject.com)** | Rhino/Grasshopper | Quote/educational | Network/flow analysis for urban design |
+| **[Digital Blue Foam (DBF)](https://www.digitalbluefoam.com)** | Cloud + DBF Hub desktop | "Custom-made" enterprise pricing | DBF Hub syncs to Revit, Archicad, Rhino; multi-source GIS; AI generative design |
 
 > **Note.** Luucy overlaps with this segment functionally (parametric massing + zoning rule application) but is positioned as a standalone web platform, not a plugin — see Segment 5.
 
@@ -160,12 +190,12 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Pricing | Engine | Coverage |
 |---|---|---|---|
-| **Ladybug** | Free / open-source | Custom | Weather, sun, radiation, comfort |
-| **Honeybee** | Free / open-source | Radiance + OpenStudio/EnergyPlus | Daylight, energy |
-| **Butterfly** | Free / open-source | OpenFOAM | CFD/wind |
-| **Dragonfly** | Free / open-source | URBANopt | Urban energy |
-| **Pollination Cloud** | Subscription (publicly listed on pollination.solutions) | Cloud + Rhino + Revit + GH plugins | Native export to EnergyPlus/eQuest/OpenStudio/IES-VE/DesignBuilder/IDA-ICE; gbXML/IFC |
-| **ClimateStudio (Solemma)** | Subscription, free trial; commercial + educational tiers | RADIANCE + EnergyPlus | Daylight, glare, energy, comfort; LEED/BREEAM/EN 17037 compliance; Revit-to-Rhino exporter |
+| **[Ladybug](https://www.ladybug.tools)** | Free / open-source | Custom | Weather, sun, radiation, comfort |
+| **[Honeybee](https://www.ladybug.tools/honeybee.html)** | Free / open-source | Radiance + OpenStudio/EnergyPlus | Daylight, energy |
+| **[Butterfly](https://www.ladybug.tools/butterfly.html)** | Free / open-source | OpenFOAM | CFD/wind |
+| **[Dragonfly](https://www.ladybug.tools/dragonfly.html)** | Free / open-source | URBANopt | Urban energy |
+| **[Pollination Cloud](https://www.pollination.solutions)** | Subscription (publicly listed on pollination.solutions) | Cloud + Rhino + Revit + GH plugins | Native export to EnergyPlus/eQuest/OpenStudio/IES-VE/DesignBuilder/IDA-ICE; gbXML/IFC |
+| **[ClimateStudio (Solemma)](https://www.solemma.com/climatestudio)** | Subscription, free trial; commercial + educational tiers | RADIANCE + EnergyPlus | Daylight, glare, energy, comfort; LEED/BREEAM/EN 17037 compliance; Revit-to-Rhino exporter |
 | **DIVA-for-Rhino** | Retired (no new sales) | — | Predecessor to ClimateStudio |
 
 **Maturity.** Mature. This is the most credible analytical stack for a federal real-estate organisation that prioritises method transparency and standards alignment.
@@ -174,20 +204,20 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Orbital Stack** | Cloud | Credit-based subscriptions (6-month minimum); AI sims + Rapid CFD credits | RWDI-backed; designed for early design |
-| **SimScale** | Cloud (browser) | Subscription tiers (publicly listed on simscale.com) | General CFD + structural; AEC pricing tier |
-| **ENVI-met** | Desktop | Subscription tiers (publicly listed on envi-met.com) | Microclimate / urban heat / vegetation |
-| **Autodesk CFD** | Desktop | $1,915/yr (per current Autodesk pricing surveys) | General-purpose CFD; building & MEP |
+| **[Orbital Stack](https://orbitalstack.com)** | Cloud | Credit-based subscriptions (6-month minimum); AI sims + Rapid CFD credits | RWDI-backed; designed for early design |
+| **[SimScale](https://www.simscale.com)** | Cloud (browser) | Subscription tiers (publicly listed on simscale.com) | General CFD + structural; AEC pricing tier |
+| **[ENVI-met](https://www.envi-met.com)** | Desktop | Subscription tiers (publicly listed on envi-met.com) | Microclimate / urban heat / vegetation |
+| **[Autodesk CFD](https://www.autodesk.com/products/cfd)** | Desktop | $1,915/yr (per current Autodesk pricing surveys) | General-purpose CFD; building & MEP |
 
 ### Segment 9 — Specialist Daylight / Energy Early-Stage Tools
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **ClimateStudio** | Rhino plugin | Subscription | Best-in-class daylight/glare speed; LEED/EN 17037 |
-| **Sefaira (Trimble)** | Cloud + SketchUp + Revit plugins | Subscription via Trimble (publicly listed on trimble.com) | Annual energy + daylight; HVAC sizing |
-| **Autodesk Insight** | Revit-native + cloud | Included with AEC Collection | Revit-integrated performance and total-carbon analysis; the "in-Revit" alternative to Forma for firms whose authoring lives in Revit |
-| **IES VE early-stage** | Desktop/cloud | Quote | Full TM52/TM54 compliance |
-| **VELUX Daylight Visualizer** | Desktop | Free | Daylight factor; quick studies |
+| **[ClimateStudio](https://www.solemma.com/climatestudio)** | Rhino plugin | Subscription | Best-in-class daylight/glare speed; LEED/EN 17037 |
+| **[Sefaira (Trimble)](https://www.sketchup.com/products/sefaira)** | Cloud + SketchUp + Revit plugins | Subscription via Trimble (publicly listed on trimble.com) | Annual energy + daylight; HVAC sizing |
+| **[Autodesk Insight](https://insight.autodesk.com)** | Revit-native + cloud | Included with AEC Collection | Revit-integrated performance and total-carbon analysis; the "in-Revit" alternative to Forma for firms whose authoring lives in Revit |
+| **[IES VE](https://www.iesve.com)** | Desktop/cloud | Quote | Full TM52/TM54 compliance |
+| **[VELUX Daylight Visualizer](https://www.velux.com/what-we-do/research-and-knowledge/deic-basic/daylight-visualizer)** | Desktop | Free | Daylight factor; quick studies |
 
 ### Segment 10 — Early-Stage Cost & Embodied-Carbon Estimators
 
@@ -199,13 +229,13 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Type | Origin / Coverage | Hosting | Pricing | Notes |
 |---|---|---|---|---|---|
-| **TestFit** | Pro forma + takeoffs | US | Cloud | Subscription | See Segment 3; pro-forma-grade, not 5D-estimator-grade |
-| **Beck Technology DESTINI Estimator** | 2D/3D takeoff + estimating | US | Cloud (SOC 2) + legacy desktop | Quote-only ("Call us for a license quote") | GC/preconstruction focus; **DESTINI Profiler** is the conceptual 5D companion ("combining 3D modeling with pricing… allows the clients to visualize in 5D", constructiontechreview.com) |
-| **RIB CostX (iTWO)** | 5D BIM takeoff/estimating | Global (RIB / Schneider) | On-prem + SaaS | Quote-only (no free version per TrustRadius) | IFC + RVT; "world-leading 6D BIM solution… also supports the EC3 carbon rate library from Building Transparency" (rib-software.com) |
-| **Nomitech CostOS** | Feasibility → detailed estimating | Global | Cloud + desktop | Quote | GIS / 2D / BIM estimating continuum; **classification-flexible engine** — the most likely commercial product to be re-configurable to eBKP-H |
-| **BKI Baukosteninformationszentrum** | Cost-data publisher + planning software | Germany (architect-chamber affiliated, Stuttgart) | Desktop + emerging web (KoRa, launching June 2026) | Tiered: free test versions; publications €92–€1,247+ (7–19% VAT) | **BKI Kostenplaner** is the de-facto Architektenkammer cost-planning tool in DE; **BKI Objektdaten** is the canonical building-cost reference database; uses **DIN 276**. Companion tools: **BKI Energieplaner** (GEG), **BKI Honorarermittler** (HOAI), **BKI IFC-Mengenermittler** (BIM takeoff). Austrian regional factors available; not natively Swiss but DIN 276 → eBKP-H mapping is well-trodden in DACH practice. |
-| **DBD-BIM (Dynamische BauDaten)** | BIM-based cost-data platform | Germany (Dr. Schiller & Partner / DBD) | Online + offline variants | Free 7-day test; commercial tiers via quote | "Bauteile suchen, detailliert beschreiben und mit dem Modell verknüpfen" — searches building components, configures them with technical attributes, links to the BIM model with **DIN 276** cost structure, **STLB-Bau** VOB-compliant specifications, and **DIN BIM Cloud** attribute standards. Real-time cost recalculation as properties change. Integrates with 24+ AEC applications. |
-| **Keevalue** | Baukostenschätzung / Baukostenberechnung | **Switzerland** | Cloud SaaS (CH vendor) | Not publicly listed | Marketed as cost estimation and cost calculation **"Für Architekten, Bauherren & Co."** Swiss-domiciled vendor, which makes it a natural counter-party to Luucy on the cost layer — verify eBKP-H / SIA 416 alignment, hosting region, and BIM intake at procurement. |
+| **[TestFit](https://www.testfit.io)** | Pro forma + takeoffs | US | Cloud | Subscription | See Segment 3; pro-forma-grade, not 5D-estimator-grade |
+| **[Beck Technology DESTINI Estimator](https://beck-technology.com)** | 2D/3D takeoff + estimating | US | Cloud (SOC 2) + legacy desktop | Quote-only ("Call us for a license quote") | GC/preconstruction focus; **DESTINI Profiler** is the conceptual 5D companion ("combining 3D modeling with pricing… allows the clients to visualize in 5D", constructiontechreview.com) |
+| **[RIB CostX (iTWO)](https://www.rib-software.com/en/products/costx)** | 5D BIM takeoff/estimating | Global (RIB / Schneider) | On-prem + SaaS | Quote-only (no free version per TrustRadius) | IFC + RVT; "world-leading 6D BIM solution… also supports the EC3 carbon rate library from Building Transparency" (rib-software.com) |
+| **[Nomitech CostOS](https://www.nomitech.eu)** | Feasibility → detailed estimating | Global | Cloud + desktop | Quote | GIS / 2D / BIM estimating continuum; **classification-flexible engine** — the most likely commercial product to be re-configurable to eBKP-H |
+| **[BKI Baukosteninformationszentrum](https://bki.de)** | Cost-data publisher + planning software | Germany (architect-chamber affiliated, Stuttgart) | Desktop + emerging web (KoRa, launching June 2026) | Tiered: free test versions; publications €92–€1,247+ (7–19% VAT) | **BKI Kostenplaner** is the de-facto Architektenkammer cost-planning tool in DE; **BKI Objektdaten** is the canonical building-cost reference database; uses **DIN 276**. Companion tools: **BKI Energieplaner** (GEG), **BKI Honorarermittler** (HOAI), **BKI IFC-Mengenermittler** (BIM takeoff). Austrian regional factors available; not natively Swiss but DIN 276 → eBKP-H mapping is well-trodden in DACH practice. |
+| **[DBD-BIM (Dynamische BauDaten)](https://www.dbd.de/dbd-bim/)** | BIM-based cost-data platform | Germany (Dr. Schiller & Partner / DBD) | Online + offline variants | Free 7-day test; commercial tiers via quote | "Bauteile suchen, detailliert beschreiben und mit dem Modell verknüpfen" — searches building components, configures them with technical attributes, links to the BIM model with **DIN 276** cost structure, **STLB-Bau** VOB-compliant specifications, and **DIN BIM Cloud** attribute standards. Real-time cost recalculation as properties change. Integrates with 24+ AEC applications. |
+| **[Keevalue](https://www.keevalue.ch)** | Baukostenschätzung / Baukostenberechnung | **Switzerland** | Cloud SaaS (CH vendor) | Not publicly listed | Marketed as cost estimation and cost calculation **"Für Architekten, Bauherren & Co."** Swiss-domiciled vendor, which makes it a natural counter-party to Luucy on the cost layer — verify eBKP-H / SIA 416 alignment, hosting region, and BIM intake at procurement. |
 
 **Non-exhaustive.** The DACH cost-data market has many smaller specialised vendors (NPK / CRB element catalogues, pom+ services, cantonal building-cost portals, in-house Excel-based Kennwert databases at the larger Generalplaner) that are not productised as platforms. A Swiss-specific cost-tooling diligence pass should be expected to surface 5–10 additional candidates beyond this list.
 
@@ -217,19 +247,19 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Type | Hosting | Pricing | Notes |
 |---|---|---|---|---|
-| **One Click LCA** | Whole-building LCA + Carbon Designer 3D | Cloud SaaS + plugins | Subscription, quote-based (Carbon Designer 3D bundled with Designer tier+) | Revit, Rhino+GH, Tekla, IES-VE, DesignBuilder, IFC, Forma extension; EN 15978/15804, ISO 14040/14067, **RICS WLCA validated** (1st in world, July 2025), EU Level(s), DGNB |
-| **Preoptima** | Concept-stage carbon optioneering | Cloud SaaS | Subscription / quote | **Decision-centric** carbon comparison of structural / envelope options at concept stage (timber vs. hybrid vs. concrete) with real-time feedback; complements One Click LCA rather than replacing it |
-| **Building Transparency EC3** | Upfront A1–A3 embodied-carbon (EPD-based) | Cloud (free) | Free + open access ("the only free and open-access global embodied carbon accounting tool" — buildingtransparency.org) | tallyCAT Revit plug-in (free); integrates with ACC, Procore, cove.tool, One Click LCA |
-| **2050 Materials** | Materials sustainability data + API | Cloud + REST API | Free web + commercial API | 150,000+ products, 100,000+ EPDs; acquired by Once For All Group in November 2025 |
-| **cove (ex-cove.tool)** | AI services + IP | Cloud | Service fees | IP acquired by ROOST and continued as open source per Cove Software's July 2025 LinkedIn post |
+| **[One Click LCA](https://www.oneclicklca.com)** | Whole-building LCA + Carbon Designer 3D | Cloud SaaS + plugins | Subscription, quote-based (Carbon Designer 3D bundled with Designer tier+) | Revit, Rhino+GH, Tekla, IES-VE, DesignBuilder, IFC, Forma extension; EN 15978/15804, ISO 14040/14067, **RICS WLCA validated** (1st in world, July 2025), EU Level(s), DGNB |
+| **[Preoptima](https://www.preoptima.com)** | Concept-stage carbon optioneering | Cloud SaaS | Subscription / quote | **Decision-centric** carbon comparison of structural / envelope options at concept stage (timber vs. hybrid vs. concrete) with real-time feedback; complements One Click LCA rather than replacing it |
+| **[Building Transparency EC3](https://www.buildingtransparency.org/ec3)** | Upfront A1–A3 embodied-carbon (EPD-based) | Cloud (free) | Free + open access ("the only free and open-access global embodied carbon accounting tool" — buildingtransparency.org) | tallyCAT Revit plug-in (free); integrates with ACC, Procore, cove.tool, One Click LCA |
+| **[2050 Materials](https://2050-materials.com)** | Materials sustainability data + API | Cloud + REST API | Free web + commercial API | 150,000+ products, 100,000+ EPDs; acquired by Once For All Group in November 2025 |
+| **[cove (ex-cove.tool)](https://www.cove.tools)** | AI services + IP | Cloud | Service fees | IP acquired by ROOST and continued as open source per Cove Software's July 2025 LinkedIn post |
 
 **Materials / Reference-Data Layer (not estimators, but feed both 10a and 10b).** A handful of catalogues sit alongside the estimator tools as authoritative **product / material reference databases**. They are *data layers*, not cost or carbon engines:
 
 | Source | Origin | What it is | Use in BBL stack |
 |---|---|---|---|
-| **werk-material.online** | Switzerland | Swiss building-materials database (product catalogue, not a cost estimator) | Reference layer for materials selection, specification, and downstream LCA/cost work; cross-link with 2050 Materials, KBOB, and Madaster |
-| **KBOB Ökobilanzdaten** | Switzerland (federal) | Authoritative Swiss LCA dataset (Ökobilanzdaten im Baubereich) | The reference dataset One Click LCA / Preoptima / Bauteilkatalog must speak to be defensibly "Swiss" |
-| **Bauteilkatalog / Lesosai** | Switzerland (BFE / academic-industrial) | KBOB-aligned building-element LCA datasets | The de-facto fallback when an international LCA tool can't natively load KBOB |
+| **[werk-material.online](https://werk-material.online)** | Switzerland | Swiss building-materials database (product catalogue, not a cost estimator) | Reference layer for materials selection, specification, and downstream LCA/cost work; cross-link with 2050 Materials, KBOB, and Madaster |
+| **[KBOB Ökobilanzdaten](https://www.kbob.admin.ch/de/oekobilanzdaten-im-baubereich)** | Switzerland (federal) | Authoritative Swiss LCA dataset (Ökobilanzdaten im Baubereich) | The reference dataset One Click LCA / Preoptima / Bauteilkatalog must speak to be defensibly "Swiss" |
+| **[Lesosai](https://lesosai.com)** / Bauteilkatalog | Switzerland (BFE / academic-industrial) | KBOB-aligned building-element LCA datasets | The de-facto fallback when an international LCA tool can't natively load KBOB |
 
 **Critical Swiss-carbon gap for BBL.** **One Click LCA + a custom KBOB dataset** is the closest plug-and-play candidate; the KBOB alignment is the buyer's responsibility. **Preoptima** accelerates structural option-comparison upstream but is not KBOB-native. For circular / residual-value tracking, the answer is **Madaster Switzerland** (Segment 15), not a Segment-10b product. **Luucy does not currently advertise embodied-carbon output**, so it does not close this gap even though it owns the upstream Swiss geometry/zoning layer.
 
@@ -239,9 +269,9 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Hypar** | Cloud | Free / Pro / Enterprise tiers (publicly listed on hypar.io) | C#/Python functions; Revit/Rhino/IFC/DWG export; $8.28M total raised across 4 rounds; the most recent was a $5.5M Series A on June 22, 2023, led by Brick & Mortar Ventures with participation from Building Ventures (per PR Newswire and Tracxn/PitchBook funding records); bundled "workplace planner" sector app |
-| **Speckle** | Cloud + self-host (open source) | Free / Workspaces (paid) | Data hub / connectors across BIM apps; Speckle Automate beta |
-| **ShapeDiver** | Cloud | Subscription tiers (publicly listed on shapediver.com) | Grasshopper-as-a-service web embedding |
+| **[Hypar](https://hypar.io)** | Cloud | Free / Pro / Enterprise tiers (publicly listed on hypar.io) | C#/Python functions; Revit/Rhino/IFC/DWG export; $8.28M total raised across 4 rounds; the most recent was a $5.5M Series A on June 22, 2023, led by Brick & Mortar Ventures with participation from Building Ventures (per PR Newswire and Tracxn/PitchBook funding records); bundled "workplace planner" sector app |
+| **[Speckle](https://speckle.systems)** | Cloud + self-host (open source) | Free / Workspaces (paid) | Data hub / connectors across BIM apps; Speckle Automate beta |
+| **[ShapeDiver](https://www.shapediver.com)** | Cloud | Subscription tiers (publicly listed on shapediver.com) | Grasshopper-as-a-service web embedding |
 
 ### Segment 12 — Generative AI Rendering / Text-to-Image
 
@@ -249,10 +279,10 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Hosts |
 |---|---|---|---|
-| **Veras (EvolveLAB, now Chaos)** | Plugin + web | $149/yr student tier listed; commercial subscription | Revit (2021–2026), SketchUp (2021–2025), Rhino 7/8, Forma (Web), Archicad 28, Vectorworks 2024/25 |
-| **ARK / ArkoAI** | Plugin | Subscription tiers (publicly listed on arko.ai) | Revit, SketchUp |
-| **LookX, ArchiVinci** | Web | Freemium | Web-based |
-| **Midjourney / Stable Diffusion / DALL·E** | Web | Various | Generic; widely used as workaround |
+| **[Veras (EvolveLAB / Chaos)](https://www.evolvelab.io/veras)** | Plugin + web | $149/yr student tier listed; commercial subscription | Revit (2021–2026), SketchUp (2021–2025), Rhino 7/8, Forma (Web), Archicad 28, Vectorworks 2024/25 |
+| **[ARK / ArkoAI](https://arko.ai)** | Plugin | Subscription tiers (publicly listed on arko.ai) | Revit, SketchUp |
+| **[LookX](https://www.lookx.ai)** / **[ArchiVinci](https://www.archivinci.com)** | Web | Freemium | Web-based |
+| **[Midjourney](https://www.midjourney.com)** / **[Stable Diffusion](https://stability.ai)** / **[DALL·E](https://openai.com/dall-e-3)** | Web | Various | Generic; widely used as workaround |
 
 ### Segment 13 — Climate-Risk & Resilience Analytics
 
@@ -262,9 +292,9 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Climate X** | Cloud SaaS | Quote | CRE-oriented asset-level physical-risk analytics |
-| **Jupiter Intelligence** | Cloud SaaS | Quote (enterprise) | Portfolio + compliance workflows; strategic relationship with JLL expanded in 2025 |
-| **First Street** | Cloud + API | Quote; some asset-level freemium lookup | Property-level risk and financial-impact screening; deepest US data, increasing global coverage |
+| **[Climate X](https://www.climate-x.com)** | Cloud SaaS | Quote | CRE-oriented asset-level physical-risk analytics |
+| **[Jupiter Intelligence](https://jupiterintel.com)** | Cloud SaaS | Quote (enterprise) | Portfolio + compliance workflows; strategic relationship with JLL expanded in 2025 |
+| **[First Street](https://firststreet.org)** | Cloud + API | Quote; some asset-level freemium lookup | Property-level risk and financial-impact screening; deepest US data, increasing global coverage |
 
 **Swiss-context note.** Authoritative Swiss climate-hazard data lives in **BAFU Gefahrenkarten** (cantonal hazard maps), **NCCS Climate Scenarios CH2025** (which supersede CH2018), **ERM-CH23** (national earthquake model, 2M+ buildings), and the cantonal Naturgefahren-Portale aggregated via geodienste.ch. The international vendors in this segment typically rely on global hazard models rather than these Swiss layers. See Segment 23d for the full Swiss public dataset inventory.
 
@@ -276,9 +306,9 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Autodesk InfraWorks** | Desktop + cloud | Included in AEC Collection | Concept-stage civil + transportation + utility context modelling; Revit and Civil 3D handoff |
-| **Bentley OpenSite+** | Desktop + cloud | Quote | AI-assisted land-development site design; grading and stormwater focus |
-| **Bentley OpenRoads ConceptStation** | Desktop | Quote | Early roadway / bridge concepting with traffic-aware logic |
+| **[Autodesk InfraWorks](https://www.autodesk.com/products/infraworks)** | Desktop + cloud | Included in AEC Collection | Concept-stage civil + transportation + utility context modelling; Revit and Civil 3D handoff |
+| **[Bentley OpenSite+](https://www.bentley.com/software/opensite-design)** | Desktop + cloud | Quote | AI-assisted land-development site design; grading and stormwater focus |
+| **[Bentley OpenRoads ConceptStation](https://www.bentley.com/software/openroads-conceptstation)** | Desktop | Quote | Early roadway / bridge concepting with traffic-aware logic |
 
 **Why it matters for BBL.** Federal sites with difficult access, steep grading, or constrained utilities can be ruled out — or have their cost envelope blown — before any architectural concept matters. None of the design-stack tools (Forma, Giraffe, Luucy) replace civil concept modelling.
 
@@ -290,7 +320,7 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Madaster** | Cloud, multi-region incl. **Madaster Switzerland** | Subscription / quote | Material passports, circularity index, environmental impact, residual-value; IFC + Excel intake; Swiss platform operated locally |
+| **[Madaster](https://madaster.com)** ([Switzerland: madaster.ch](https://madaster.ch)) | Cloud, multi-region incl. **Madaster Switzerland** | Subscription / quote | Material passports, circularity index, environmental impact, residual-value; IFC + Excel intake; Swiss platform operated locally |
 
 **Why it matters for BBL.** Swiss federal direction on circular economy (Bundesrat Aktionsplan Kreislaufwirtschaft) is pushing public owners toward building-level material accounting. Madaster is the only mature productised player with an explicit Swiss platform; the alternative is a custom Speckle / Rhino / KBOB workflow.
 
@@ -304,9 +334,9 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **UpCodes / UpCodes Copilot** | Cloud (browser) | Subscription tiers | Jurisdiction-specific AI code research; US-centric coverage today |
-| **Verifi3D** | Cloud (browser) | Quote | BIM model validation; rule-based IFC checking |
-| **Solibri** | Desktop + cloud | Subscription | Mature rule-based model checking; widely used in EU; supports custom rulesets |
+| **[UpCodes / UpCodes Copilot](https://up.codes)** | Cloud (browser) | Subscription tiers | Jurisdiction-specific AI code research; US-centric coverage today |
+| **[Verifi3D](https://verifi3d.com)** | Cloud (browser) | Quote | BIM model validation; rule-based IFC checking |
+| **[Solibri](https://www.solibri.com)** | Desktop + cloud | Subscription | Mature rule-based model checking; widely used in EU; supports custom rulesets |
 
 **Swiss gap.** None of the international code tools natively cover **SIA norms** or cantonal building regulations (BZO/BNO). Solibri's strength is its configurability — Swiss rulesets are theoretically achievable but a buyer-side build. **Luucy** partially handles BZO at the zoning envelope layer only, not at the building-code layer.
 
@@ -318,7 +348,7 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Modulous TESSA** | Cloud | Quote | Generates optimized multifamily schemes with cost plans, A1–A3 carbon metrics, Revit / IFC exports |
+| **[Modulous TESSA](https://www.modulous.com)** | Cloud | Quote | Generates optimized multifamily schemes with cost plans, A1–A3 carbon metrics, Revit / IFC exports |
 
 ### Segment 18 — Mobility & Pedestrian Analytics
 
@@ -328,8 +358,8 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **PTV Visum** | Desktop | Subscription | Macroscopic transport-demand modelling; public-sector standard in Switzerland and EU |
-| **Bentley LEGION** | Desktop / cloud | Quote | Pedestrian / crowd simulation for stations and dense nodes |
+| **[PTV Visum](https://www.ptvgroup.com/en/products/ptv-visum)** | Desktop | Subscription | Macroscopic transport-demand modelling; public-sector standard in Switzerland and EU |
+| **[Bentley LEGION](https://www.bentley.com/software/legion-simulator)** | Desktop / cloud | Quote | Pedestrian / crowd simulation for stations and dense nodes |
 
 **Relevance for BBL.** Specialist; invoked for federal projects with significant public flow (e.g. SBB station-adjacent buildings, large administrative campuses). Not a default in the early-design stack.
 
@@ -341,15 +371,15 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Label / System | Operator | Tooling shape | Notes |
 |---|---|---|---|
-| **SNBS Hochbau 2023.1** | **NNBS** (Netzwerk Nachhaltiges Bauen Schweiz), supported by BAFU, ASTRA, BAG, BFE, armasuisse, KBOB | Document-based criteria scorecard; registration and information via **snbs-hochbau.ch** (Anmeldung); no advertised end-to-end digital certification platform | The de-facto federal Swiss sustainability standard. **Already in use by KBOB / armasuisse** — directly relevant for BBL. Verify whether NNBS publishes a 2026 or 2027 digital platform update. |
-| **Minergie / Minergie-Eco / Minergie-A / Minergie-P** | Verein Minergie | Online certification portal via **minergie.ch**; module-based application workflow; SIA 380/1 alignment | Swiss energy + (for Eco) ecology + materials anchor; federal buildings routinely Minergie-certified at minimum. |
-| **DGNB System** | Deutsche Gesellschaft für Nachhaltiges Bauen | DGNB criteria matrix (Excel-based historically; web tooling expanding); independent assessor model | German federal benchmark; DGNB criteria fed by **One Click LCA** for life-cycle parts. Used in DACH cross-border procurement. |
-| **LEED v4 / v4.1** | USGBC + GBCI | **LEED Online** web platform — full submission, review, scorecard, certification workflow | Global benchmark; mostly used for international-corporate or US-aligned procurement. Not Swiss-federal default. |
-| **BREEAM** | BRE Global (UK) + national operating partners | **BREEAM Projects** / BREEAM In-Use platforms; assessor-driven submissions | EU-common; UK-dominant. Less common in Swiss federal procurement. |
-| **WELL Building Standard** | International WELL Building Institute (IWBI) | **WELL Online** portal; v2 scorecard + post-occupancy verification | Health/wellness focus; complements (not replaces) LEED/DGNB. |
-| **EDGE** | IFC / World Bank Group | Browser-based EDGE App (free) for emerging-market efficiency certification | Mostly used outside DACH. Listed for completeness. |
-| **GRESB** | GRESB BV | Annual portfolio-level ESG benchmarking platform | **Portfolio-scale**, not project-scale. Relevant if BBL benchmarks its real-estate ESG performance externally. |
-| **EU Level(s)** | EU Commission (DG ENV) | Framework + indicator set (not a software product); fed by One Click LCA, Madaster, others | The EU's common sustainability-reporting framework feeding national codes; reference, not a buyable tool. |
+| **[SNBS Hochbau 2023.1](https://www.snbs-hochbau.ch)** | **NNBS** (Netzwerk Nachhaltiges Bauen Schweiz), supported by BAFU, ASTRA, BAG, BFE, armasuisse, KBOB | Document-based criteria scorecard; registration and information via **snbs-hochbau.ch** (Anmeldung); no advertised end-to-end digital certification platform | The de-facto federal Swiss sustainability standard. **Already in use by KBOB / armasuisse** — directly relevant for BBL. Verify whether NNBS publishes a 2026 or 2027 digital platform update. |
+| **[Minergie / Minergie-Eco / Minergie-A / Minergie-P](https://www.minergie.ch)** | Verein Minergie | Online certification portal via **minergie.ch**; module-based application workflow; SIA 380/1 alignment | Swiss energy + (for Eco) ecology + materials anchor; federal buildings routinely Minergie-certified at minimum. |
+| **[DGNB System](https://www.dgnb-system.de)** | Deutsche Gesellschaft für Nachhaltiges Bauen | DGNB criteria matrix (Excel-based historically; web tooling expanding); independent assessor model | German federal benchmark; DGNB criteria fed by **One Click LCA** for life-cycle parts. Used in DACH cross-border procurement. |
+| **[LEED v4 / v4.1](https://www.usgbc.org/leed)** | USGBC + GBCI | **LEED Online** web platform — full submission, review, scorecard, certification workflow | Global benchmark; mostly used for international-corporate or US-aligned procurement. Not Swiss-federal default. |
+| **[BREEAM](https://breeam.com)** | BRE Global (UK) + national operating partners | **BREEAM Projects** / BREEAM In-Use platforms; assessor-driven submissions | EU-common; UK-dominant. Less common in Swiss federal procurement. |
+| **[WELL Building Standard](https://www.wellcertified.com)** | International WELL Building Institute (IWBI) | **WELL Online** portal; v2 scorecard + post-occupancy verification | Health/wellness focus; complements (not replaces) LEED/DGNB. |
+| **[EDGE](https://edgebuildings.com)** | IFC / World Bank Group | Browser-based EDGE App (free) for emerging-market efficiency certification | Mostly used outside DACH. Listed for completeness. |
+| **[GRESB](https://www.gresb.com)** | GRESB BV | Annual portfolio-level ESG benchmarking platform | **Portfolio-scale**, not project-scale. Relevant if BBL benchmarks its real-estate ESG performance externally. |
+| **[EU Level(s)](https://environment.ec.europa.eu/topics/circular-economy/levels_en)** | EU Commission (DG ENV) | Framework + indicator set (not a software product); fed by One Click LCA, Madaster, others | The EU's common sustainability-reporting framework feeding national codes; reference, not a buyable tool. |
 
 **Cross-references.** **One Click LCA**, **EC3**, **Sefaira**, **ClimateStudio**, **Madaster**, and **2050 Materials** all *feed* certifications — they are tools the certification platforms accept as evidence sources. **No general-purpose "certification meta-platform" exists** that aggregates submissions across SNBS + DGNB + LEED + Minergie; each label is its own ecosystem.
 
@@ -363,12 +393,12 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Tool / Resource | Origin | Type | Notes |
 |---|---|---|---|
-| **Defra Statutory Biodiversity Metric** | UK government (Defra) | Free downloadable Excel calculator | The official UK BNG calculation tool, statutory since 2024. Cited globally as the reference metric. |
+| **[Defra Statutory Biodiversity Metric](https://www.gov.uk/government/publications/statutory-biodiversity-metric-tools-and-guides)** | UK government (Defra) | Free downloadable Excel calculator | The official UK BNG calculation tool, statutory since 2024. Cited globally as the reference metric. |
 | **Cundall BNG Tool** (and similar from Buro Happold, WSP, Arup) | UK consultancies | Proprietary calculators built on Defra metric | Used by consultants delivering BNG-bound projects; not generally licensed externally. |
-| **ENVISION** | ISI (Institute for Sustainable Infrastructure) | Sustainability rating framework for infrastructure incl. ecology criteria | Project-rating framework; mostly used in North-American civil/infra. |
-| **IUCN STAR metric** | IUCN | Species-Threat-Abatement-and-Restoration metric | Scientific reference for biodiversity-loss / restoration scoring; consumed by some corporate ESG tooling, not a productised AEC tool. |
-| **iNaturalist / GBIF / InfoSpecies (CH)** | Public / CC ecology data | Species occurrence databases | Reference data layers, not tools; **InfoSpecies** is the Swiss federal data clearing house. |
-| **BAFU Biotoptypen / ÖREB-Naturwerte layers** | Switzerland (federal) | GIS data layers (via swisstopo / cantonal portals) | Authoritative Swiss biodiversity baselines for site-level assessments. |
+| **[ENVISION](https://sustainableinfrastructure.org/envision/)** | ISI (Institute for Sustainable Infrastructure) | Sustainability rating framework for infrastructure incl. ecology criteria | Project-rating framework; mostly used in North-American civil/infra. |
+| **[IUCN STAR metric](https://www.iucn.org/resources/conservation-tool/species-threat-abatement-and-restoration-metric)** | IUCN | Species-Threat-Abatement-and-Restoration metric | Scientific reference for biodiversity-loss / restoration scoring; consumed by some corporate ESG tooling, not a productised AEC tool. |
+| **[iNaturalist](https://www.inaturalist.org)** / **[GBIF](https://www.gbif.org)** / **[InfoSpecies (CH)](https://www.infospecies.ch)** | Public / CC ecology data | Species occurrence databases | Reference data layers, not tools; **InfoSpecies** is the Swiss federal data clearing house. |
+| **[BAFU Biotoptypen](https://www.bafu.admin.ch/bafu/de/home/themen/biodiversitaet.html)** / ÖREB-Naturwerte layers | Switzerland (federal) | GIS data layers (via swisstopo / cantonal portals) | Authoritative Swiss biodiversity baselines for site-level assessments. |
 | **TNFD-aligned platforms (emerging)** — e.g. NatureAlpha, ESG Book, S&P Nature & Biodiversity Risk | Multiple | Portfolio-/corporate-level nature-risk analytics | Aimed at investor disclosure (TNFD framework), not project design. |
 
 **Maturity.** Emerging. The AEC market lacks a Forma-grade productised biodiversity tool today. Consultant-led ecology assessment remains the norm in Switzerland, supported by GIS overlays from **BAFU**, **InfoSpecies**, and cantonal Naturschutz portals. Productisation is likely to follow if/when Switzerland adopts a statutory BNG-equivalent or as TNFD disclosure becomes a federal-procurement requirement.
@@ -383,16 +413,16 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Product | Hosting | Pricing | Notable |
 |---|---|---|---|
-| **Oracle Primavera P6 + Unifier + Aconex** | Cloud + on-prem | Enterprise quote | Global enterprise / government default for capital-projects portfolio management; deep schedule + risk + cost + contract administration. The benchmark for public-sector capital programmes. |
-| **Microsoft Project / Project for the Web / Project Online** | Cloud (M365) + on-prem | M365 licensing tiers | Default in any Microsoft-shop organisation; lower ceiling than Primavera but adequate for mid-sized portfolios. |
-| **Procore Capital Projects + Portfolio Financials** | Cloud SaaS | Enterprise quote | Construction-native PMO; strong on schedule/cost/issue tracking; weaker on early-design and KPI dashboards. |
-| **Autodesk Construction Cloud (ACC) — Cost / Build / BIM Collaborate** | Cloud SaaS | Subscription | Autodesk's portfolio play; tightly integrated with Revit + Forma; portfolio dashboards expanding. |
-| **InEight** | Cloud SaaS | Enterprise quote | Capital-project portfolio management; strong on cost-and-schedule integration; large infrastructure-owner footprint. |
-| **Planview / Sciforma / Cora PPM** | Cloud SaaS | Enterprise quote | Generic enterprise PPM platforms; Cora PPM has notable UK/EU public-sector adoption (e.g. defence, infrastructure). |
-| **Asta Powerproject (Elecosoft)** | Desktop + cloud | Quote | UK construction-PMO favorite; schedule-strong. |
-| **PMWeb** | Cloud + on-prem | Enterprise quote | Capital-projects PMO with cost + risk + portfolio; common in Middle-East / public-sector procurement. |
-| **Smartsheet / Monday.com / Wrike / ClickUp** | Cloud SaaS | Per-user subscriptions | Lightweight PPM; widely used at smaller scale but not capital-project-grade for federal portfolios. |
-| **OpenProject** | Cloud + on-prem (open source) | Free / Enterprise tiers | Open-source PPM; the EU-region self-hostable option (German vendor) for sovereignty-sensitive deployments. |
+| **[Oracle Primavera P6 + Unifier + Aconex](https://www.oracle.com/construction-engineering/primavera-p6/)** | Cloud + on-prem | Enterprise quote | Global enterprise / government default for capital-projects portfolio management; deep schedule + risk + cost + contract administration. The benchmark for public-sector capital programmes. |
+| **[Microsoft Project / Project for the Web / Project Online](https://www.microsoft.com/en-us/microsoft-365/project/project-management-software)** | Cloud (M365) + on-prem | M365 licensing tiers | Default in any Microsoft-shop organisation; lower ceiling than Primavera but adequate for mid-sized portfolios. |
+| **[Procore Capital Projects + Portfolio Financials](https://www.procore.com)** | Cloud SaaS | Enterprise quote | Construction-native PMO; strong on schedule/cost/issue tracking; weaker on early-design and KPI dashboards. |
+| **[Autodesk Construction Cloud (ACC)](https://construction.autodesk.com)** — Cost / Build / BIM Collaborate | Cloud SaaS | Subscription | Autodesk's portfolio play; tightly integrated with Revit + Forma; portfolio dashboards expanding. |
+| **[InEight](https://ineight.com)** | Cloud SaaS | Enterprise quote | Capital-project portfolio management; strong on cost-and-schedule integration; large infrastructure-owner footprint. |
+| **[Planview](https://www.planview.com)** / **[Sciforma](https://www.sciforma.com)** / **[Cora PPM](https://corasystems.com)** | Cloud SaaS | Enterprise quote | Generic enterprise PPM platforms; Cora PPM has notable UK/EU public-sector adoption (e.g. defence, infrastructure). |
+| **[Asta Powerproject (Elecosoft)](https://www.elecosoft.com/asta-powerproject/)** | Desktop + cloud | Quote | UK construction-PMO favorite; schedule-strong. |
+| **[PMWeb](https://www.pmweb.com)** | Cloud + on-prem | Enterprise quote | Capital-projects PMO with cost + risk + portfolio; common in Middle-East / public-sector procurement. |
+| **[Smartsheet](https://www.smartsheet.com)** / **[Monday.com](https://monday.com)** / **[Wrike](https://www.wrike.com)** / **[ClickUp](https://clickup.com)** | Cloud SaaS | Per-user subscriptions | Lightweight PPM; widely used at smaller scale but not capital-project-grade for federal portfolios. |
+| **[OpenProject](https://www.openproject.org)** | Cloud + on-prem (open source) | Free / Enterprise tiers | Open-source PPM; the EU-region self-hostable option (German vendor) for sovereignty-sensitive deployments. |
 | **Custom / federal "Cockpit" tools** — incl. **pm-cockpit (this project)** | Varies | n/a | Many public administrations build their own thin portfolio dashboards on top of SAP / Excel / GIS data when commercial PPM is over-spec. This prototype is in that pattern. |
 
 **Cross-references.** Segment 21 is the **downstream consumer** of every other segment's outputs:
@@ -417,14 +447,14 @@ Segments 1 and 2 are converging — Autodesk's announcement of **Forma Building 
 
 | Tool / Resource | Origin | Type | Notes |
 |---|---|---|---|
-| **Madaster — Portfolio Performance + Circularity Insights** | NL / Madaster Switzerland | Portfolio-scale material passport + circularity scoring | The closest commercial offering. Madaster does **not** currently market a dedicated "Urban Mining Screener" product line under that name — the circularity-screening capability is delivered via Portfolio Performance, Circularity Insights, and material-passport asset valuation. Confirm scope at procurement if a pre-design pre-demolition screener is the requirement. |
-| **Revitalyze Urban Mining Screener (UMS)** | **TU Graz + revitalyze FlexCo** (Austria), under the EU **Circular DigiBuild / Danube Region** initiative | Web app: FastAPI + React + PostgreSQL + Docker | Estimates material quantities in existing buildings by combining a user-entered address + archetype data + OSM building metrics (ground area, perimeter, height). Inputs: address + three CSVs (product_list, components_list, building_list). Outputs: material quantities by element type, exportable CSV. **License: proprietary research-only ("public for scientific community and project partners… cannot be commercially exploited or distributed")** — not open source despite the public GitHub repo. **No Swiss-specific data sources** (no KBOB / swisstopo / cadastral integration today). Useful as a methodology reference and as a forkable starting point if a Swiss equivalent is to be built. |
-| **Concular** | Germany | Marketplace + audit platform for urban mining: pre-demolition material audits, reuse marketplace, B2B brokerage | One of the leading German urban-mining productisations; complements (does not replace) portfolio screening. |
-| **Restado** | Germany | Marketplace for reused construction materials | Adjacent to Concular; transaction layer rather than assessment layer. |
-| **GEAK / GEAK Plus** | Switzerland (EnDK — Konferenz Kantonaler Energiedirektoren) | Cantonal energy certificate system; portfolio aggregation possible via GEAK administrative tools | The official Swiss energy-certificate baseline. Portfolio-scale aggregation of GEAK class distributions is the *de facto* federal renovation-prioritisation signal today. Does not output material recovery or circularity scores. |
-| **HotMaps** | EU (Horizon 2020) | Open-source web platform for heating/cooling demand + retrofit potential at NUTS3 / building level | Urban-scale, not building-level; useful for district-heating-network feasibility around federal sites. |
-| **One Click LCA — renovation/retrofit scenarios** | EU | Per-project retrofit-vs-demolish LCA comparison | Partial coverage — analyses renovation scenarios but does not screen portfolios. |
-| **Bundesamt für Energie / KBOB — Sanierungskatalog and Bauteilkatalog** | Switzerland (federal) | Reference catalogues for renovation components + KBOB-aligned LCA data | Reference data layer, not a tool; feeds renovation-cost and renovation-LCA work. |
+| **[Madaster — Portfolio Performance + Circularity Insights](https://madaster.com)** | NL / Madaster Switzerland | Portfolio-scale material passport + circularity scoring | The closest commercial offering. Madaster does **not** currently market a dedicated "Urban Mining Screener" product line under that name — the circularity-screening capability is delivered via Portfolio Performance, Circularity Insights, and material-passport asset valuation. Confirm scope at procurement if a pre-design pre-demolition screener is the requirement. |
+| **[Revitalyze Urban Mining Screener (UMS)](https://github.com/revitalyze/urban-mining-screener)** | **TU Graz + revitalyze FlexCo** (Austria), under the EU **Circular DigiBuild / Danube Region** initiative | Web app: FastAPI + React + PostgreSQL + Docker | Estimates material quantities in existing buildings by combining a user-entered address + archetype data + OSM building metrics (ground area, perimeter, height). Inputs: address + three CSVs (product_list, components_list, building_list). Outputs: material quantities by element type, exportable CSV. **License: proprietary research-only ("public for scientific community and project partners… cannot be commercially exploited or distributed")** — not open source despite the public GitHub repo. **No Swiss-specific data sources** (no KBOB / swisstopo / cadastral integration today). Useful as a methodology reference and as a forkable starting point if a Swiss equivalent is to be built. |
+| **[Concular](https://concular.de)** | Germany | Marketplace + audit platform for urban mining: pre-demolition material audits, reuse marketplace, B2B brokerage | One of the leading German urban-mining productisations; complements (does not replace) portfolio screening. |
+| **[Restado](https://www.restado.de)** | Germany | Marketplace for reused construction materials | Adjacent to Concular; transaction layer rather than assessment layer. |
+| **[GEAK / GEAK Plus](https://www.geak.ch)** | Switzerland (EnDK — Konferenz Kantonaler Energiedirektoren) | Cantonal energy certificate system; portfolio aggregation possible via GEAK administrative tools | The official Swiss energy-certificate baseline. Portfolio-scale aggregation of GEAK class distributions is the *de facto* federal renovation-prioritisation signal today. Does not output material recovery or circularity scores. |
+| **[HotMaps](https://www.hotmaps.eu)** | EU (Horizon 2020) | Open-source web platform for heating/cooling demand + retrofit potential at NUTS3 / building level | Urban-scale, not building-level; useful for district-heating-network feasibility around federal sites. |
+| **[One Click LCA — renovation/retrofit scenarios](https://www.oneclicklca.com)** | EU | Per-project retrofit-vs-demolish LCA comparison | Partial coverage — analyses renovation scenarios but does not screen portfolios. |
+| **[KBOB Sanierungskatalog](https://www.kbob.admin.ch) / [Bauteilkatalog](https://www.bauteilkatalog.ch)** | Switzerland (federal) | Reference catalogues for renovation components + KBOB-aligned LCA data | Reference data layer, not a tool; feeds renovation-cost and renovation-LCA work. |
 | **Custom consultant + Excel + GIS workflows** | Various | The honest baseline | What most large public owners actually do today: a portfolio of GEAK ratings + building-age data + cantonal energy-renovation incentives, scored in Excel with GIS overlay. |
 
 **Critical Swiss-context note.** For BBL specifically this segment maps directly onto the **federal Sanierungsstrategie** workload — prioritising deep retrofits across the federal real-estate portfolio against energy targets (Energiestrategie 2050, Bundesrat climate targets) and circularity targets (Aktionsplan Kreislaufwirtschaft). The realistic 12–24-month posture is:
@@ -452,11 +482,11 @@ The picks below are the most consequential entries selected from a longer regist
 
 | Vendor | Origin | Type | Notes |
 |---|---|---|---|
-| **Wüest Partner** | Switzerland | Research + AVM + index data | Swiss real-estate market intelligence leader; data feeds federal and cantonal valuation work. |
-| **IAZI / CIFI** | Switzerland | AVM + indices | Swiss Real Estate Index family; widely cited in Swiss institutional benchmarking. |
-| **PriceHubble** | Switzerland (now international) | Cloud AVM + market analytics | Swiss-origin AVM operating across DACH / EU / parts of Asia. |
-| **Fahrländer Partner** | Switzerland | Real-estate valuation + market modelling | Swiss real-estate research and AVM. |
-| **Geoimpact** | Switzerland | Location-intelligence platform | Building-level data and analytics layered on Swiss geodata. |
+| **[Wüest Partner](https://www.wuestpartner.com)** | Switzerland | Research + AVM + index data | Swiss real-estate market intelligence leader; data feeds federal and cantonal valuation work. |
+| **[IAZI / CIFI](https://www.iazicifi.ch)** | Switzerland | AVM + indices | Swiss Real Estate Index family; widely cited in Swiss institutional benchmarking. |
+| **[PriceHubble](https://pricehubble.com)** | Switzerland (now international) | Cloud AVM + market analytics | Swiss-origin AVM operating across DACH / EU / parts of Asia. |
+| **[Fahrländer Partner](https://www.fpre.ch)** | Switzerland | Real-estate valuation + market modelling | Swiss real-estate research and AVM. |
+| **[Geoimpact](https://geoimpact.ch)** | Switzerland | Location-intelligence platform | Building-level data and analytics layered on Swiss geodata. |
 
 > **Notable market gap (per climate-check MODELS.md):** "No commercial real estate climate valuation tool exists" — i.e. no productised platform combines AVM-grade market value with integrated physical-risk and transition-risk pricing in a single offering. This is the highest-value white space in Segment 23.
 
@@ -464,37 +494,37 @@ The picks below are the most consequential entries selected from a longer regist
 
 | Model | Type | Provenance | Notes |
 |---|---|---|---|
-| **CRREM (EU / NA / APAC pathways)** | Building-level decarbonisation pathways 2020–2050 | Commercial foundation | Cited as the "industry standard for building-level stranding"; the most-used carbon-stranding-risk model in EU institutional real estate. |
-| **PACTA-CH / PACTA Climate Test Switzerland** | Swiss financial-institution climate-alignment framework | BFE / Swiss federal commission | Biennial free participation, ~80 % participation rate among Swiss FIs. The Swiss-federal anchor for portfolio carbon-alignment reporting. |
-| **NGFS Climate Scenarios v5.0** | Macro climate scenarios (Net Zero 2050 → Current Policies) | Central banks (ECB, BoE, Fed, SNB-aligned) | Stress-testing framework used by lenders, insurers, regulators. |
-| **SSREI (Swiss Sustainable Real Estate Index)** | Swiss institutional real-estate portfolio assessment framework, 36 indicators | Switzerland | Federal benchmark for ESG / sustainability portfolio reporting in Swiss real estate. |
-| **PCAF** | Financed-emissions methodology, Scope 3 Cat. 15, 10 asset classes | Partnership for Carbon Accounting Financials | Global standard for portfolio-level financed-emissions accounting. |
-| **SBTi** | Science-based target alignment | Science Based Targets initiative | Target-setting validation; complements PCAF and CRREM rather than overlapping. |
+| **[CRREM (EU / NA / APAC pathways)](https://www.crrem.eu)** | Building-level decarbonisation pathways 2020–2050 | Commercial foundation | Cited as the "industry standard for building-level stranding"; the most-used carbon-stranding-risk model in EU institutional real estate. |
+| **[PACTA Climate Test Switzerland](https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/finanzmarkt.html)** | Swiss financial-institution climate-alignment framework | BFE / Swiss federal commission | Biennial free participation, ~80 % participation rate among Swiss FIs. The Swiss-federal anchor for portfolio carbon-alignment reporting. |
+| **[NGFS Climate Scenarios](https://www.ngfs.net/ngfs-scenarios-portal/)** | Macro climate scenarios (Net Zero 2050 → Current Policies) | Central banks (ECB, BoE, Fed, SNB-aligned) | Stress-testing framework used by lenders, insurers, regulators. |
+| **[SSREI](https://www.ssrei.ch)** (Swiss Sustainable Real Estate Index) | Swiss institutional real-estate portfolio assessment framework, 36 indicators | Switzerland | Federal benchmark for ESG / sustainability portfolio reporting in Swiss real estate. |
+| **[PCAF](https://carbonaccountingfinancials.com)** | Financed-emissions methodology, Scope 3 Cat. 15, 10 asset classes | Partnership for Carbon Accounting Financials | Global standard for portfolio-level financed-emissions accounting. |
+| **[SBTi](https://sciencebasedtargets.org)** | Science-based target alignment | Science Based Targets initiative | Target-setting validation; complements PCAF and CRREM rather than overlapping. |
 
 #### 23c — Multi-hazard physical-risk models & catastrophe modelling
 
 | Model | Type | Provenance | Notes |
 |---|---|---|---|
-| **CLIMADA** | Open-source multi-hazard impact model (tropical cyclones, floods, droughts, heat, wind, wildfire) | **ETH Zurich** | "Most comprehensive open-source" multi-hazard model; Swiss-origin academic credibility; powers EIOPA's CLIMADA-App for European insurance supervision. |
-| **ERM-CH23** | Swiss national earthquake-risk model covering 2M+ buildings | Switzerland (SED + federal) | The authoritative Swiss seismic-risk dataset for buildings. |
-| **OpenQuake** | Global seismic-risk model, 200+ countries, 3,500+ building typologies | GEM Foundation | "Gold standard for seismic risk" outside of Switzerland. |
-| **Oasis LMF** | Open-source catastrophe-modelling platform aggregating 100+ models from 21+ providers | Insurance industry consortium | BSD-licensed with REST API; the open-source backbone for the cat-modelling industry. |
-| **JRC Flood Hazard Maps** | Flood inundation maps (10–500-year return periods, 100 m resolution) | EU Joint Research Centre | The most accessible EU-wide flood-risk dataset. |
-| **WRI Aqueduct** | Water risk, drought, flood hazard | World Resources Institute | Global water-stress mapping; consumed by ESG / portfolio screens. |
+| **[CLIMADA](https://climada.ethz.ch)** | Open-source multi-hazard impact model (tropical cyclones, floods, droughts, heat, wind, wildfire) | **ETH Zurich** | "Most comprehensive open-source" multi-hazard model; Swiss-origin academic credibility; powers EIOPA's CLIMADA-App for European insurance supervision. |
+| **[ERM-CH23](http://www.seismo.ethz.ch/en/knowledge/seismic-risk-switzerland/)** | Swiss national earthquake-risk model covering 2M+ buildings | Switzerland (SED + federal) | The authoritative Swiss seismic-risk dataset for buildings. |
+| **[OpenQuake](https://www.globalquakemodel.org/openquake)** | Global seismic-risk model, 200+ countries, 3,500+ building typologies | GEM Foundation | "Gold standard for seismic risk" outside of Switzerland. |
+| **[Oasis LMF](https://oasislmf.org)** | Open-source catastrophe-modelling platform aggregating 100+ models from 21+ providers | Insurance industry consortium | BSD-licensed with REST API; the open-source backbone for the cat-modelling industry. |
+| **[JRC Flood Hazard Maps](https://data.jrc.ec.europa.eu/collection/id-0054)** | Flood inundation maps (10–500-year return periods, 100 m resolution) | EU Joint Research Centre | The most accessible EU-wide flood-risk dataset. |
+| **[WRI Aqueduct](https://www.wri.org/aqueduct)** | Water risk, drought, flood hazard | World Resources Institute | Global water-stress mapping; consumed by ESG / portfolio screens. |
 
 #### 23d — Swiss public datasets & federal location-intelligence layers
 
 | Resource | Type | Provenance | Notes |
 |---|---|---|---|
-| **geo.admin.ch** | Open REST API, 50+ queryable layers (emissions, flood, earthquake, solar, noise, building register) | Swiss government (swisstopo) | The canonical Swiss multi-hazard / multi-layer data API. The substrate beneath almost every Swiss-aligned tool in this document. |
-| **Cantonal Gefahrenkarten (geodienste.ch)** | Legal multi-hazard maps, binding for permits and insurance | Swiss cantons | Aggregated via geodienste.ch; legally weight-bearing for permitting. |
-| **NCCS Climate Scenarios CH2025** | Swiss climate projections, 1 km resolution, GWL 1.5–3.0 °C | Swiss government (MeteoSwiss / NCCS) | **Supersedes CH2018** as the federal Swiss climate-projection baseline. |
-| **Naturgefahren-Check** | Free public address-level multi-hazard screening web tool | Switzerland | Public-facing companion to the cantonal Gefahrenkarten. |
-| **GWR (Federal Register of Buildings) / EGID** | Swiss building inventory and characteristics | Swiss government | The federal identifier substrate for any Swiss building-level data work. |
-| **Sonnendach.ch / Sonnenfassade.ch** | Swiss rooftop / facade solar potential, system sizing, payback | Switzerland | Open data via opendata.swiss; the federal Swiss solar-potential layer. |
-| **BAFU CO₂ Calculator** | Building-level CO₂ emissions tied to the Swiss federal building register | BAFU (FOEN) | The Swiss federal building-CO₂ accounting tool. |
-| **Mobitool** | Environmental impact data for Swiss transport modes | Switzerland | The federal reference dataset for Scope-3 transport-emissions accounting. |
-| **OpenData.swiss** | Federal open-data portal (solar potential, building data, hazard layers) | Swiss government | The umbrella portal for federal open datasets. |
+| **[geo.admin.ch](https://www.geo.admin.ch)** | Open REST API, 50+ queryable layers (emissions, flood, earthquake, solar, noise, building register) | Swiss government (swisstopo) | The canonical Swiss multi-hazard / multi-layer data API. The substrate beneath almost every Swiss-aligned tool in this document. |
+| **[Cantonal Gefahrenkarten (geodienste.ch)](https://www.geodienste.ch)** | Legal multi-hazard maps, binding for permits and insurance | Swiss cantons | Aggregated via geodienste.ch; legally weight-bearing for permitting. |
+| **[NCCS Climate Scenarios CH2025](https://www.nccs.admin.ch/nccs/en/home/climate-change-and-impacts/swiss-climate-change-scenarios.html)** | Swiss climate projections, 1 km resolution, GWL 1.5–3.0 °C | Swiss government (MeteoSwiss / NCCS) | **Supersedes CH2018** as the federal Swiss climate-projection baseline. |
+| **[Naturgefahren-Check](https://www.schutz-vor-naturgefahren.ch)** | Free public address-level multi-hazard screening web tool | Switzerland | Public-facing companion to the cantonal Gefahrenkarten. |
+| **[GWR (Federal Register of Buildings) / EGID](https://www.bfs.admin.ch/bfs/en/home/registers/federal-register-buildings-dwellings.html)** | Swiss building inventory and characteristics | Swiss government | The federal identifier substrate for any Swiss building-level data work. |
+| **[Sonnendach.ch](https://www.sonnendach.ch)** / **[Sonnenfassade.ch](https://www.sonnenfassade.ch)** | Swiss rooftop / facade solar potential, system sizing, payback | Switzerland | Open data via opendata.swiss; the federal Swiss solar-potential layer. |
+| **[BAFU CO₂ Calculator](https://www.bafu.admin.ch/bafu/de/home/themen/klima.html)** | Building-level CO₂ emissions tied to the Swiss federal building register | BAFU (FOEN) | The Swiss federal building-CO₂ accounting tool. |
+| **[Mobitool](https://www.mobitool.ch)** | Environmental impact data for Swiss transport modes | Switzerland | The federal reference dataset for Scope-3 transport-emissions accounting. |
+| **[OpenData.swiss](https://opendata.swiss)** | Federal open-data portal (solar potential, building data, hazard layers) | Swiss government | The umbrella portal for federal open datasets. |
 
 **Cross-references.**
 - Segment 13 (Climate X / Jupiter / First Street) — commercial wrappers around the models in 23c, productised for CRE underwriting workflows.

@@ -20,7 +20,10 @@
       "WebFetch(domain:www.nnbs.ch)",
       "WebFetch(domain:madaster.com)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:www.iazi.ch)",
+      "WebFetch(domain:geoimpact.ch)",
+      "WebFetch(domain:www.fpre.ch)"
     ]
   }
 }
