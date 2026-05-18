@@ -8,42 +8,55 @@ A descriptive market scan of software tools, platforms, datasets, and frameworks
 
 ```mermaid
 mindmap
-  root((AEC and Real Estate Software))
-    Design and Performance Core
-      Seg 1 Integrated AI Early-Design
-      Seg 2 Browser BIM
-      Seg 3 RE Feasibility
-      Seg 4 Floor-Plan AI
-      Seg 5 Urban Planning
-      Seg 6 Parametric Massing
-      Seg 7 Rhino-GH Simulation
-      Seg 8 Wind CFD Microclimate
-      Seg 9 Daylight Energy
-      Seg 10 Cost and Carbon
-        10a Cost Estimators
-        10b Embodied Carbon
-      Seg 11 Programmable Platforms
-      Seg 12 AI Rendering
-    Adjacent Buyer Gates
-      Seg 13 Climate Risk
-      Seg 14 Civil Infrastructure
-      Seg 15 Circularity
-      Seg 16 Code Compliance
-      Seg 17 Modular Housing
-      Seg 18 Mobility Pedestrian
-    Outcome and Ecology
-      Seg 19 Certifications
-      Seg 20 Biodiversity
-    Portfolio PMO
-      Seg 21 EPPM
-    Existing Stock
-      Seg 22 Refurbishment and Urban Mining
-    Location Intelligence
-      Seg 23 Location Intelligence
-        23a Real-Estate Value
-        23b Transition Risk
-        23c Physical Risk
-        23d Swiss Public Data
+  root((AEC and Real Estate Software)):::root
+    Design and Performance Core:::coreH
+      Seg 1 Integrated AI Early-Design:::core
+      Seg 2 Browser BIM:::core
+      Seg 3 RE Feasibility:::core
+      Seg 4 Floor-Plan AI:::core
+      Seg 5 Urban Planning:::core
+      Seg 6 Parametric Massing:::core
+      Seg 7 Rhino-GH Simulation:::core
+      Seg 8 Wind CFD Microclimate:::core
+      Seg 9 Daylight Energy:::core
+      Seg 10 Cost and Carbon:::core
+        10a Cost Estimators:::core
+        10b Embodied Carbon:::core
+      Seg 11 Programmable Platforms:::core
+      Seg 12 AI Rendering:::core
+    Adjacent Buyer Gates:::gateH
+      Seg 13 Climate Risk:::gate
+      Seg 14 Civil Infrastructure:::gate
+      Seg 15 Circularity:::gate
+      Seg 16 Code Compliance:::gate
+      Seg 17 Modular Housing:::gate
+      Seg 18 Mobility Pedestrian:::gate
+    Outcome and Ecology:::ecoH
+      Seg 19 Certifications:::eco
+      Seg 20 Biodiversity:::eco
+    Portfolio PMO:::pmoH
+      Seg 21 EPPM:::pmo
+    Existing Stock:::stockH
+      Seg 22 Refurbishment and Urban Mining:::stock
+    Location Intelligence:::locH
+      Seg 23 Location Intelligence:::loc
+        23a Real-Estate Value:::loc
+        23b Transition Risk:::loc
+        23c Physical Risk:::loc
+        23d Swiss Public Data:::loc
+classDef root   fill:#1F2937,stroke:#111827,color:#FFFFFF,font-weight:bold
+classDef coreH  fill:#DBEAFE,stroke:#1E40AF,color:#1E3A8A,font-weight:bold
+classDef gateH  fill:#FED7AA,stroke:#C2410C,color:#9A3412,font-weight:bold
+classDef ecoH   fill:#BBF7D0,stroke:#15803D,color:#166534,font-weight:bold
+classDef pmoH   fill:#C7D2FE,stroke:#4338CA,color:#3730A3,font-weight:bold
+classDef stockH fill:#FDE68A,stroke:#B45309,color:#92400E,font-weight:bold
+classDef locH   fill:#99F6E4,stroke:#0F766E,color:#115E59,font-weight:bold
+classDef core   fill:#DBEAFE,stroke:#1E40AF,color:#1E3A8A
+classDef gate   fill:#FED7AA,stroke:#C2410C,color:#9A3412
+classDef eco    fill:#BBF7D0,stroke:#15803D,color:#166534
+classDef pmo    fill:#C7D2FE,stroke:#4338CA,color:#3730A3
+classDef stock  fill:#FDE68A,stroke:#B45309,color:#92400E
+classDef loc    fill:#99F6E4,stroke:#0F766E,color:#115E59
 ```
 
 ## Segments at a glance
