@@ -157,7 +157,7 @@ Notable vendor M&A, rebrands, and product retirements over the past ~36 months â
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://www.snaptrude.com"><img src="../assets/images/segments/snaptrude.webp" alt="Snaptrude" width="100%"></a>
+<a href="https://www.snaptrude.com"><img src="../assets/images/segments/snaptrude.jpg" alt="Snaptrude" width="100%"></a>
 <br><sub><b>Snaptrude</b> â€” browser-native concept BIM with bidirectional Revit roundtrip. Source: <a href="https://www.snaptrude.com">snaptrude.com</a></sub>
 </td>
 <td width="50%" valign="top">
