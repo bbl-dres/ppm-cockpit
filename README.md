@@ -11,6 +11,7 @@
 A web-based project management dashboard for Swiss federal construction projects, developed as a concept study for the Bundesamt für Bauten und Logistik (BBL). Visualises, filters, and manages building projects across Switzerland with gallery, list, and map views.
 
 - Live demo: https://bbl-dres.github.io/pm-cockpit/
+- Documentation: https://github.com/bbl-dres/pm-cockpit/tree/main/docs
 
 > [!CAUTION]
 > **This is an unofficial mockup for demonstration purposes only.**
