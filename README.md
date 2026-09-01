@@ -5,10 +5,10 @@
 [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-2ea44f?logo=github&logoColor=white)](https://bbl-dres.github.io/ppm-cockpit/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A browser-based portfolio dashboard for exploring Swiss federal construction projects in gallery, list, map, and detail views.
-
 > [!CAUTION]
 > This is an unofficial mockup for demonstration purposes only. All records are fictional, not every function is implemented, and it is not intended for production use.
+
+A browser-based portfolio dashboard for exploring Swiss federal construction projects in gallery, list, map, and detail views.
 
 ## Demo
 
