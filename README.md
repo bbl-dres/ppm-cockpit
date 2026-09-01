@@ -15,8 +15,8 @@ A browser-based portfolio dashboard for exploring Swiss federal construction pro
 **Live demo:** https://bbl-dres.github.io/ppm-cockpit/
 
 <p align="center">
-  <img src="assets/images/preview-1.jpg" alt="PPM Cockpit project gallery" width="49%"/>
-  <img src="assets/images/preview-2.jpg" alt="PPM Cockpit project map" width="49%"/>
+  <img src="assets/images/preview-1.jpg" alt="PPM Cockpit project gallery" width="49%" align="top"/>
+  <img src="assets/images/preview-2.jpg" alt="PPM Cockpit project map" width="49%" align="top"/>
 </p>
 
 ## Features
